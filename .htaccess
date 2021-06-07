@@ -1,0 +1,23 @@
+#para hacer togle entre internet y localhost debes modificar parameters.php, db.php y .htaccess
+<IfModule mod_rewrite.c>
+#activar el rewrite engine
+RewriteEngine on
+#en web*************************************************
+#RewriteBase /
+#ErrorDocument 404 http://geografia.mx/error/index/index
+
+
+#en localhost*******************************************
+ErrorDocument 404 http://localhost/escasazu/error/index/index
+#localhost/escasazu/nombre controlador/metodo/parametro
+#fin localhost*******************************************
+
+
+#para localhost y para web
+# nunca entrar si es un directorio
+RewriteCond %{SCRIPT_FILENAME} !-d
+#nunca entrar si es un archivo 
+RewriteCond %{SCRIPT_FILENAME} !-f
+#reescribe todo a este formato
+RewriteRule ^(.*)/(.*)/(.*) index.php?controller=$1&action=$2&parametro=$3
+</IfModule>

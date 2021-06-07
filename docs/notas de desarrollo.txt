@@ -1,0 +1,42 @@
+assets
+config
+controllers
+docs
+helpers
+models
+views
+06/06/2021
+Links de platilla
+https://www.free-css.com/free-css-templates/page265/shree
+
+
+***************************************************************************DOING
+Usuarios
+	Altas
+	Bajas
+	Cambios
+Post
+	Descripcion
+	nuevo post
+	Cambiar post
+	eliminar post
+Manejo de arhivos
+	altas
+	bajas
+	cambios
+
+***************************************************************************DONE
+
+***************************************************************************ADVERTENCIAS
+***************************************************************************BUGS
+***************************************************************************SIN CLASIFICAR
+Arreglar los paths
+Aparece una A cuando esta cargano
+Dice nuevo posts debe decir nuevo post
+avisar de los riesgos de no usar certificado de seguridad
+Un usuario solo puede cambiar sus propios posts
+error 404
+topmenu creo que no se usa
+la pagina principal no tiene el menu fijo
+en header este icono no existe <link rel="icon" href="<?= base_url_page ?>/img/fevicon.png" type="image/gif" />
+***************************************************************************MEJORAS
