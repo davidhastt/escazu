@@ -26,10 +26,20 @@ Manejo de arhivos
 	cambios
 
 ***************************************************************************DONE
-
+visualizacion de pagina 
+visualiacion de cms
+loggin de usuarios
+muestra el usuario
+ya registra usuarios
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
+recuperar contraseña
+probar en produccion la confirmacion por correo
+en usuarios sexo agregale un option vacio
+cambiar a mayusculas los nombres de los usuarios
+validar que la fecha de nacimiento del usuario no sea menor a 200 años
+logout
 Arreglar los paths
 Aparece una A cuando esta cargano
 Dice nuevo posts debe decir nuevo post
@@ -39,4 +49,32 @@ error 404
 topmenu creo que no se usa
 la pagina principal no tiene el menu fijo
 en header este icono no existe <link rel="icon" href="<?= base_url_page ?>/img/fevicon.png" type="image/gif" />
+paginacion
+Inicio de sesion
+Identificacion de usuario por nombre
+nuevo usuario
+borrar usuario
+modificar usuario
+inicio de sesion seguro
+validar que usuario halla escrito algo en su correo y contraseña
+solo el super usuario puede agregar otros usuarios
+en el cmx principal porner link para nuevo usuario
+falta boton para cerrar sesion
 ***************************************************************************MEJORAS
+
+falta el registro por newsletter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

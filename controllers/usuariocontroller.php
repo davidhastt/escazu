@@ -4,6 +4,38 @@ require_once 'models/usuario.php';
 require_once 'models/correoelctronico.php';
 
 class usuariocontroller {
+    
+    public function nuevo(){    
+        require_once 'views/layout_xms/header.php';
+        require_once 'views/layout_xms/nuevousuario.php';
+        require_once 'views/layout_xms/footer.php';                 
+    }
+
+        public function login() {
+        if (count($_POST) > 0) {
+            //identificar al usuario
+            //consulta a la base de datos
+            $Usuario = new Usuario();
+            $Usuario->setEmail($_POST['email']);
+            $Usuario->setPassword($_POST['password']);
+            $identity = $Usuario->login();
+            if ($identity && is_object($identity)) {
+                //iniciar sesion
+                $_SESSION['identity_Session'] = $identity;
+                $Usuario->setId_usuario($identity->id_usuario);
+                $_SESSION['mensaje'] = "Bienvenido a la administración de Escazu";
+                $_SESSION["tiempo"] = time();
+                //segun el rol del usuario se redirecciona 
+                header("Location:" . base_url_xms . "sistema/cmx/inicio");                
+            } else {
+                $_SESSION['mensaje'] = 'Tus datos no son correctos, verifica e intenta de nuevo';
+                header("Location:" . base_url_page . "sistema/entrar/inicio");
+                
+            }
+            //crear una sesion
+        }
+//        header("Location:" . base_url);
+    }    
 
     public function confirmasuscripcion() {
         $usuarioObj = new Usuario;
@@ -19,22 +51,11 @@ class usuariocontroller {
 
     public function guardar() {
         if (isset($_POST)) {
-
-            switch ($_GET['parametro']) {
-                case "newsletter":
-                    //crear arrays
-                    //array con nombres de campos
-                    $propiedadesList = array("email");
-                    //arrays con nombres de metodos set
-                    $setList = array("setEmail");
-                    break;
-                default :
-                    break;
-            }
-
-            $i = 0;
             //creamos el objeto estudiante
             $turistaObj = new Usuario;
+            $propiedadesList = array("nombre", "apellidoP", "apellidoM", "fechaNac", "sexo", "email", "password", "puesto");
+            $setList = array("setNombre", "setApellidoP", "setApellidoM", "setFechaNac", "setSexo", "setEmail", "setPassword", "setPuesto");
+            $i = 0;
             foreach ($propiedadesList as $value) {
                 if (isset($_POST[$value])) {
                     $metodo = $setList[$i];
@@ -47,10 +68,12 @@ class usuariocontroller {
             if ($save) {// si el correo no existe se guarda
                 $mensaje = "Registro exitoso";
                 $mensaje2 = "Para terminar el proceso, revisa tu correo y confirma tu suscripción";
-                $url = base_url;
-                require_once 'views/usuario/confirmacion.php';
+                $url = base_url_xms;
+                require_once 'views/layout_xms/header.php';
+                require_once 'views/layout_xms/confirmacion.php';
+                require_once 'views/layout_xms/footer.php';
                 //ahora tienes que hacer una consulta para saber el id del usuario
-                if ($_GET['parametro'] == "newsletter") {
+                if ($_GET['parametro'] == "newsletter") {//si registro solo su correo entonces le mandamos un email
                     $email = strtoupper($_POST[$value]);
                     $turistaObj->setListResult("SELECT id_usuario FROM usuarios WHERE email='" . $email . "'");
                     $turistaArr = $turistaObj->listResult->fetch_object(); //el metodo fetcobject convierte el resultado en un array asociativo

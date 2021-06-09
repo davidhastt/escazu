@@ -83,7 +83,7 @@
           <img src="<?= base_url_xms ?>assets/xms/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> <!--cambiar-->
         </div>
         <div class="info">
-          <a href="#" class="d-block">Eduardo Limón</a>
+          <a href="#" class="d-block"><?=$_SESSION['identity_Session']->nombre . " " . $_SESSION['identity_Session']->apellidoP  ?></a>
         </div>
       </div>
 
@@ -120,7 +120,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?= base_url_xms ?>usuario/nuevo/inicio" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>

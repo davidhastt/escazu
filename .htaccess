@@ -8,7 +8,7 @@ RewriteEngine on
 
 
 #en localhost*******************************************
-ErrorDocument 404 http://localhost/escasazu/error/index/index
+ErrorDocument 404 http://localhost/escazu/error/index/index
 #localhost/escasazu/nombre controlador/metodo/parametro
 #fin localhost*******************************************
 

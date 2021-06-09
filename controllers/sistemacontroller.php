@@ -4,7 +4,13 @@ require_once 'models/post.php';
 require_once 'models/estadistica.php';
 
 class sistemacontroller {
-
+    
+public function entrar(){
+    require_once 'views/layout_page/header.php';
+    require_once 'views/layout_page/login.php';
+    require_once 'views/layout_page/footer.php';   
+    //http://localhost/escazu/sistema/entrar/inicio    
+}    
 public function cmx() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
