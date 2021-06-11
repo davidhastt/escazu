@@ -19,7 +19,26 @@ class Usuario {
         $this->db = Database::connect();
     }
     
+    public function cambiarPuesto($id_usuario){
+        //primero buscar el usuario por su id y obtner su puesto
+        //una vez sabiendo su puesto: cambiarlo por el opuesto
+        $strsql="SELECT puesto FROM usuarios WHERE id_usuario=" . $id_usuario;
+        $MRO=$this->listResult = $this->db->query($strsql);
+        $puesto=$MRO->fetch_object()->puesto;
+        if ($puesto==0){
+            $strsql="UPDATE usuarios SET puesto=1 WHERE id_usuario=" . $id_usuario;            
+            $this->listResult = $this->db->query($strsql);
+        }else{
+            $strsql="UPDATE usuarios SET puesto=0 WHERE id_usuario=" . $id_usuario;
+            $this->listResult = $this->db->query($strsql);
+        }
+
+//$id_usuario = $filas->puesto;        
+        
+        //$this->listResult = $this->db->query($strsql);        
+    }
     
+   
     public function borrarUsuario($id_usuario){
         $strsql="DELETE FROM usuarios WHERE id_usuario=" . $id_usuario;
         $this->listResult = $this->db->query($strsql);
@@ -118,7 +137,7 @@ class Usuario {
         return $result;
     }
 
-    public function IdentificaXcita($id_cita) {
+    public function IdentificaXcita($id_cita) {//despues borrar ya no sirve en escazu
         $strsql = "SELECT id_usuario FROM cita WHERE id_cita=" . $id_cita;
         $resultado = $this->db->query($strsql);
         $filas = $resultado->fetch_object();

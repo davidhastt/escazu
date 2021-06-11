@@ -55,8 +55,9 @@ solo el super usuario puede agregar otros usuarios
 en el cmx principal porner link para nuevo usuario
 falta boton para cerrar sesion
 ***************************************************************************MEJORAS
-
 falta el registro por newsletter
+***************************************************************************COMMITS
+
 
 
 

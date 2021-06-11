@@ -5,7 +5,13 @@ require_once 'models/correoelctronico.php';
 require_once 'models/estadistica.php';
 
 class usuariocontroller {
-
+    
+    public function cambiarPuesto(){
+        $usr= new Usuario;        
+        $usr->cambiarPuesto($_GET['parametro']);
+        $this->listarUsuarios();        
+    }
+    
     public function borrar_usuario() {
         $usr= new Usuario;
         $usr->borrarUsuario($_GET['parametro']);        
@@ -24,7 +30,7 @@ class usuariocontroller {
 
     public function nuevo() {
         require_once 'views/layout_xms/header.php';
-        require_once 'views/layout_xms/nuevousuario.php';
+        require_once 'views/layout_xms/usurio_form.php';
         require_once 'views/layout_xms/footer.php';
     }
 
