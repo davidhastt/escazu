@@ -133,7 +133,7 @@ class Usuario {
     }
 
     public function guardar($fieldList, $user) {//este metodo va a guardar las propiedades que esten definidas
-        $strsql = "INSERT INTO usuario (";
+        $strsql = "INSERT INTO usuarios (";
         $strsqlFields = "";
         $strsqlValues = ") VALUES(";
         //obtener lista de metodos get

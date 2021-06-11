@@ -83,7 +83,7 @@ class usuariocontroller {
             $save = $turistaObj->guardar($propiedadesList, $turistaObj);
             if ($save) {// si el correo no existe se guarda
                 $mensaje = "Registro exitoso";
-                $mensaje2 = "Para terminar el proceso, revisa tu correo y confirma tu suscripción";
+                $mensaje2 = "Para terminar el proceso, el nuevo usuario debe revisar su correo y confirmar su inscripcion";
                 $url = base_url_xms;
                 require_once 'views/layout_xms/header.php';
                 require_once 'views/layout_xms/confirmacion.php';

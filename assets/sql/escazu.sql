@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2021 a las 23:52:21
+-- Tiempo de generación: 11-06-2021 a las 22:25:15
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `usuarios` (
   `id_usuario` int(4) NOT NULL,
   `nombre` text COLLATE utf8_spanish2_ci NOT NULL,
   `apellidoP` text COLLATE utf8_spanish2_ci DEFAULT NULL,
@@ -37,28 +37,26 @@ CREATE TABLE `usuario` (
   `email` varchar(40) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
   `puesto` int(1) NOT NULL,
+  `fecha_registro` date NOT NULL DEFAULT current_timestamp(),
   `confirmado` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellidoP`, `apellidoM`, `fechaNac`, `sexo`, `email`, `password`, `puesto`, `confirmado`) VALUES
-(1, 'david', 'Gomez', 'Millan', '1982-05-20', 'M', 'davidhastt@gmail.com', '$2y$04$1s8eh1NkOy01qaqSxzNTce8.4.VwUNym2hWCZSI1BQ0CqswIhpW.W', 0, 1),
-(2, 'CARLA', 'MARQUEZ', 'HERNANDEZ', '2021-06-24', 'M', 'CARLA@GMAIL.COM', '$2y$04$t.F03WFrxnMaboV79.WY1eB7X8CRJ.OjOgY3it0ZBA2KkyZd/58rW', 0, 0),
-(3, 'EDITH', 'GOMEZ', 'ROCHA', '2021-06-22', 'F', 'NERIS@GMAI.COM', '$2y$04$n2Huirb6mgmYHQb3GvU3P.gkjkTO6ysZYUfMYBGNzxtpA5ZIiSede', 0, 0),
-(4, 'EDITH', 'GOMEZ', 'ROCHA', '2021-06-22', 'F', 'NERIS2@GMAI.COM', '$2y$04$RJNjXLy.LhBS5Z.vJTveR.KLuoPObLa9NZRduwIAYCnVohV5pUXG6', 0, 0),
-(5, 'EDITH', 'GOMEZ', 'ROCHA', '2021-06-22', 'F', 'NERIS3@GMAI.COM', '$2y$04$z5CxcloX4Wz6jE4JJfKj2uiCFkwUJBl2GTfs0RVc1gjeAO3r8fadK', 0, 0);
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellidoP`, `apellidoM`, `fechaNac`, `sexo`, `email`, `password`, `puesto`, `fecha_registro`, `confirmado`) VALUES
+(1, 'David', 'Gomez', 'Millan', '2021-06-15', 'M', 'davidhastt@gmail.com', '$2y$04$1s8eh1NkOy01qaqSxzNTce8.4.VwUNym2hWCZSI1BQ0CqswIhpW.W', 1, '0000-00-00', 1),
+(3, 'EDITH', 'GOMEZ', 'ROCHA', '1982-05-05', 'M', 'EDI@GMAIL.COM', '$2y$04$iFMQ8u0DfjeYkhFKR.sAneIuKjDF2FLSYW/F1aRMJeUy9zpRC7vg.', 0, '2021-06-11', 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `usuario`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
   ADD UNIQUE KEY `uq_email` (`email`);
 
@@ -67,10 +65,10 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

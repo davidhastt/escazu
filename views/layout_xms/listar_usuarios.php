@@ -40,9 +40,15 @@
                             </a>
                         </td>
                         <td>
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">No</label>
+                            <input class="form-check-input" type="checkbox" <?php if ($usuario->puesto){echo "checked";}?>
                             
+                            
+                            
+                            
+                            
+                            
+                            
+                            <label class="form-check-label"><?php if ($usuario->puesto){echo "Si";}else{echo "No";}?></label>                            
                         </td>   
                         <td>
                         <?php

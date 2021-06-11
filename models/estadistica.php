@@ -8,7 +8,7 @@ class Estadistica {
     
     public function listarUsuarios(){
         
-        $this->setListResult("SELECT id_usuario, nombre, apellidoP, apellidoM, confirmado FROM usuarios");
+        $this->setListResult("SELECT id_usuario, nombre, apellidoP, apellidoM, confirmado, puesto FROM usuarios");
         
         return $this->listResult;
 
