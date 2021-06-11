@@ -18,6 +18,12 @@ class Usuario {
     public function __construct() {
         $this->db = Database::connect();
     }
+    
+    
+    public function borrarUsuario($id_usuario){
+        $strsql="DELETE FROM usuarios WHERE id_usuario=" . $id_usuario;
+        $this->listResult = $this->db->query($strsql);
+    }
 
     function getListResult() {
         return $this->listResult;

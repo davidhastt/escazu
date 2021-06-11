@@ -41,10 +41,16 @@
                         </td>
                         <td>
                             <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">No</label>                            
+                            <label class="form-check-label">No</label>
+                            
                         </td>   
                         <td>
-                            <a href="">Actualizar</a><a href="borrarUsuario(<?= $usuario->id_usuario .", ".$usuario->nombre ?>)">/Borrar</a>
+                        <?php
+                        $parametros=$usuario->id_usuario . ", '" . $usuario->nombre . "'";                                 
+                        ?>                                                        
+                            <i class="fas fa-edit" href=""></i>                            
+                            <i class="fas fa-user-times" onclick="borrarUsuario(<?= $parametros ?>)"></i>
+                            
                         </td>
                     </tr>
                 </tbody>
@@ -53,8 +59,9 @@
     </div>
 </div>
 <script>
-function borrarUsuario(nombreUsuario:string){
+function borrarUsuario(id_usuario, nombreUsuario){
     alert("Estas seguro de querer borrar a: " + nombreUsuario)
+    window.location.replace("<?= base_url_xms?>/usuario/borrar_usuario/" + id_usuario);
 }
 
 

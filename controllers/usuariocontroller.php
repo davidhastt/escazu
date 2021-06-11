@@ -2,16 +2,33 @@
 
 require_once 'models/usuario.php';
 require_once 'models/correoelctronico.php';
+require_once 'models/estadistica.php';
 
 class usuariocontroller {
+
+    public function borrar_usuario() {
+        $usr= new Usuario;
+        $usr->borrarUsuario($_GET['parametro']);        
+        $this->listarUsuarios();
+    }
+
+
+    public function listarUsuarios(){
+        require_once 'views/layout_xms/header.php';        
+        $stat= new Estadistica();        
+        $usuariosFO=$stat->listarUsuarios();                        
+        require_once 'views/layout_xms/listar_usuarios.php';
+        require_once 'views/layout_xms/footer.php';               
+    }
     
-        public function nuevo(){    
+
+    public function nuevo() {
         require_once 'views/layout_xms/header.php';
         require_once 'views/layout_xms/nuevousuario.php';
         require_once 'views/layout_xms/footer.php';
     }
 
-        public function login() {
+    public function login() {
         if (count($_POST) > 0) {
             //identificar al usuario
             //consulta a la base de datos
@@ -26,16 +43,15 @@ class usuariocontroller {
                 $_SESSION['mensaje'] = "Bienvenido a la administración de Escazu";
                 $_SESSION["tiempo"] = time();
                 //segun el rol del usuario se redirecciona 
-                header("Location:" . base_url_xms . "sistema/cmx/inicio");                
+                header("Location:" . base_url_xms . "sistema/cmx/inicio");
             } else {
                 $_SESSION['mensaje'] = 'Tus datos no son correctos, verifica e intenta de nuevo';
                 header("Location:" . base_url_page . "sistema/entrar/inicio");
-                
             }
             //crear una sesion
         }
 //        header("Location:" . base_url);
-    }    
+    }
 
     public function confirmasuscripcion() {
         $usuarioObj = new Usuario;
@@ -45,7 +61,7 @@ class usuariocontroller {
         //http://ixtapandelasal.com.mx/usuario/confirmasuscripcion/1        
         $mensaje = "Suscripción confirmada";
         $mensaje2 = "Gracias por suscribirte, accede ahora a las promciones de temporada";
-        $url = base_url . "sistema/promociones/index" ;
+        $url = base_url . "sistema/promociones/index";
         require_once 'views/usuario/confirmacion.php';
     }
 

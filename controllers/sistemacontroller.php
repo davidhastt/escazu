@@ -5,16 +5,7 @@ require_once 'models/estadistica.php';
 
 class sistemacontroller {
 
-    public function listarUsuarios(){
-        require_once 'views/layout_xms/header.php';
-        
-        $stat= new Estadistica();
-        
-        $usuariosFO=$stat->listarUsuarios();                
-        
-        require_once 'views/layout_xms/listar_usuarios.php';
-        require_once 'views/layout_xms/footer.php';               
-    }
+
     
     
     public function getalltoday() {
