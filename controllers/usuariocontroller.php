@@ -5,10 +5,10 @@ require_once 'models/correoelctronico.php';
 
 class usuariocontroller {
     
-    public function nuevo(){    
+        public function nuevo(){    
         require_once 'views/layout_xms/header.php';
         require_once 'views/layout_xms/nuevousuario.php';
-        require_once 'views/layout_xms/footer.php';                 
+        require_once 'views/layout_xms/footer.php';
     }
 
         public function login() {

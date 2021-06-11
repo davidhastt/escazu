@@ -1,20 +1,14 @@
-assets
-config
-controllers
-docs
-helpers
-models
-views
-06/06/2021
 Links de platilla
 https://www.free-css.com/free-css-templates/page265/shree
 
 
 ***************************************************************************DOING
 Usuarios
-	Altas
+
+listar usuarios
 	Bajas
 	Cambios
+        cambiar la contraseña
 Post
 	Descripcion
 	nuevo post

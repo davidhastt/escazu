@@ -6,6 +6,15 @@ class Estadistica {
 
     private $listResult;
     
+    public function listarUsuarios(){
+        
+        $this->setListResult("SELECT id_usuario, nombre, apellidoP, apellidoM, confirmado FROM usuarios");
+        
+        return $this->listResult;
+
+    }
+    
+    
     private function porcentaje($valor, $total) {
     if ($total > 0){
         $resultado=($valor * 100)/$total;
@@ -396,7 +405,7 @@ return $msj;
         return $this->listResult;
     }
 
-    private function setListResult($strsql) {
+    public function setListResult($strsql) {
         $this->listResult = $this->db->query($strsql);
     }
 
