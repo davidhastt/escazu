@@ -28,6 +28,8 @@ ya registra usuarios
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
+validar que el formulario de usuario o se vayan algunas casillas vacias
+cuando se registra un usuario no se puede asignar privilegios de administrador
 recuperar contraseña
 probar en produccion la confirmacion por correo
 en usuarios sexo agregale un option vacio
@@ -57,7 +59,7 @@ falta boton para cerrar sesion
 ***************************************************************************MEJORAS
 falta el registro por newsletter
 ***************************************************************************COMMITS
-
+Cambio de nombre a nuevousuario.php a usurio_form.php, ya cambia puesto
 
 
 

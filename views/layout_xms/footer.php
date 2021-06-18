@@ -16,7 +16,7 @@
         Powerd by <a href="http://geografia.mx">geografiaMX</a>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021 <a href="https://geografia.mx">Acuerdo Escazazú</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021 <a href="https://geografia.mx">Acuerdo Escazú</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

@@ -6,6 +6,58 @@ require_once 'models/estadistica.php';
 
 class usuariocontroller {
     
+    public function actualizar(){
+        require_once 'views/layout_xms/header.php';
+        require_once 'views/layout_xms/usurio_form.php';
+        require_once 'views/layout_xms/footer.php';        
+        /*
+        $usr= new Usuario;        
+        $usr->actualiza($_GET['parametro']);
+        $this->listarUsuarios();                */
+    }
+    
+    
+    public function actualizaU() {
+        if (isset($_POST)) {
+            //creamos el objeto estudiante
+            $usuarioObj = new Usuario;
+            $propiedadesList = array("id_usuario", "nombre", "apellidoP", "apellidoM", "fechaNac", "sexo", "email", "password", "puesto");
+            $setList = array("setId_usuario","setNombre", "setApellidoP", "setApellidoM", "setFechaNac", "setSexo", "setEmail", "setPassword", "setPuesto");
+            $i = 0;
+            foreach ($propiedadesList as $value) {
+                if (isset($_POST[$value])) {
+                    $metodo = $setList[$i];
+                    $usuarioObj->$metodo(strtoupper($_POST[$value]));
+                }
+                $i++;
+            }
+            //$save = $turistaObj->guardar($propiedadesList, $turistaObj);
+            $actualiza=$usuarioObj->actualiza();
+            if ($actualiza) {// si el correo no existe se guarda
+                $mensaje = "Exito";
+                $mensaje2 = "Los datos del usuario se guardaron exitosamente";
+                $url = base_url_xms . "usuario/listarUsuarios/inicio";
+                require_once 'views/layout_xms/header.php';
+                require_once 'views/layout_xms/confirmacion.php';
+                require_once 'views/layout_xms/footer.php';
+                //ahora tienes que hacer una consulta para saber el id del usuario
+
+            } else {// sino existe el correo marca error
+                //$_SESSION['mensaje'] = "El registro fallo";
+                //header("Location:" . base_url . 'usuario/registro/' . $_GET['aux']);
+                $mensaje = "Error!!";
+                $mensaje2 = " Tu correo ya esta registrado!!";
+                $error = new errorcontroller();
+                $error->index($mensaje, $mensaje2);
+            }
+        } else {
+            $_SESSION['mensaje'] = "El registro fallo";
+            //header("Location:" . base_url . 'usuario/registro');
+            require_once 'views/usuario/registro.php';
+        }
+    }    
+    
+    
     public function cambiarPuesto(){
         $usr= new Usuario;        
         $usr->cambiarPuesto($_GET['parametro']);
@@ -28,9 +80,20 @@ class usuariocontroller {
     }
     
 
-    public function nuevo() {
+    public function showUsuarioForm() {
         require_once 'views/layout_xms/header.php';
-        require_once 'views/layout_xms/usurio_form.php';
+        
+        
+        if ($_GET['parametro'] != "inicio"){
+            $usuario=new Usuario();
+            $usuario->getUsurio($_GET['parametro']);
+            $usuarioMRO=$usuario->getListResult();
+            $usuarioFO=$usuarioMRO->fetch_object();
+        }
+        //$pass=$usuario->getPassword();
+        
+        
+        require_once 'views/layout_xms/usurio_form.php';                
         require_once 'views/layout_xms/footer.php';
     }
 

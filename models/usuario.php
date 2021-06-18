@@ -19,6 +19,12 @@ class Usuario {
         $this->db = Database::connect();
     }
     
+    public function getUsurio($id_usuario){
+        $strsql="SELECT * FROM usuarios WHERE id_usuario=" . $id_usuario;
+        $this->listResult = $this->db->query($strsql);                
+    }
+
+    
     public function cambiarPuesto($id_usuario){
         //primero buscar el usuario por su id y obtner su puesto
         //una vez sabiendo su puesto: cambiarlo por el opuesto
@@ -32,10 +38,6 @@ class Usuario {
             $strsql="UPDATE usuarios SET puesto=0 WHERE id_usuario=" . $id_usuario;
             $this->listResult = $this->db->query($strsql);
         }
-
-//$id_usuario = $filas->puesto;        
-        
-        //$this->listResult = $this->db->query($strsql);        
     }
     
    
@@ -88,47 +90,17 @@ class Usuario {
         return $resultado;
     }
 
-    public function actualiza($fieldList) {//este metodo va a guardar las propiedades que esten definidas
-        /* UPDATE table_name
-          SET column1 = value1, column2 = value2, ...
-          WHERE condition; */
+    public function actualiza() {//este metodo va a guardar las propiedades que esten definidas
+        $strsql = "UPDATE usuarios SET "
+                ."nombre='".$this->nombre . "', "
+                ."apellidoP='".$this->apellidoP . "', "
+                ."apellidoM='".$this->apellidoM . "', "
+                ."fechaNac='".$this->fechaNac . "', "
+                ."sexo='".$this->sexo . "', "
+                ."email='".$this->email . "', "                
+                ."puesto=".$this->puesto;
 
-        $strsql = "UPDATE usuario SET ";
-        $strsqlFields = "";
-        $strsqlNewValues = ") values(";
-        //obtener lista de metodos get
-        switch ($this->tramite) {
-            case "ss":
-                $getList = array("getNombre", "getApellidoP", "getApellidoM", "getFechaNac", "getSexo", "getNss", "getEmail", "getPassword", "getTramite", "getImagen", "getMatricula", "getCurp", "getTelefono1", "getTelefono2", "getCurso", "getCarrera", "getUnidadSedeCurso", "getAlmamatter", "getPromLicenciatura", "getTsaco", "getTpantalon", "getTzapato", "getId_unidad");
-                break;
-            case "inter":
-                $getList = array("getNombre", "getApellidoP", "getApellidoM", "getFechaNac", "getSexo", "getNss", "getEmail", "getPassword", "getTramite", "getImagen", "getMatricula", "getCurp", "getTelefono1", "getTelefono2", "getCurso", "getUnidadSedeCurso", "getAlmamatter", "getPromLicenciatura", "getTsaco", "getTpantalon", "getTzapato", "getId_unidad");
-                break;
-            case "espe":
-                break;
-            case "trabaja":
-                break;
-            case "admin":
-                break;
-        }
-
-        $i = 0;
-        //este for es para concatenar los campos
-        foreach ($getList as $metodo) {
-            $valor = $this->$metodo();
-            if (isset($valor)) {
-                $strsqlFields = $fieldList[$i];
-                $strsql .= $strsqlFields . " = '" . $valor . "', ";
-            }
-            $i++;
-        }
-        /*
-          $strsqlFields=substr($strsqlFields, 0, -2);//quitamos la ultima coma a la cadena de campos
-          $strsqlNewValues=substr($strsqlNewValues, 0, -2);//quitamos la ultima coma a la cadena de valores
-          $strsql .= $strsqlFields . $strsqlNewValues . ")";
-         */
-        $strsql = substr($strsql, 0, -2);
-        $strsql .= " WHERE id_usuario= " . $this->getId_usuario();
+        $strsql .= " WHERE id_usuario= " . $this->id_usuario;
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
@@ -137,13 +109,6 @@ class Usuario {
         return $result;
     }
 
-    public function IdentificaXcita($id_cita) {//despues borrar ya no sirve en escazu
-        $strsql = "SELECT id_usuario FROM cita WHERE id_cita=" . $id_cita;
-        $resultado = $this->db->query($strsql);
-        $filas = $resultado->fetch_object();
-        $id_usuario = $filas->id_usuario;
-        return $this->IdentificaXid($id_usuario);
-    }
 
     public function IdentificaXid($id_usuario) {
         $strsql = "SELECT * FROM usuario WHERE id_usuario=" . $id_usuario;
@@ -200,6 +165,7 @@ class Usuario {
 
     function getPassword() {
         return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
+        
     }
 
     function setPassword($password) {

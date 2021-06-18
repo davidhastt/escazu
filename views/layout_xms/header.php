@@ -126,7 +126,7 @@
                 </a>
               </li>              
               <li class="nav-item">
-                <a href="<?= base_url_xms ?>usuario/nuevo/inicio" class="nav-link">
+                <a href="<?= base_url_xms ?>usuario/showUsuarioForm/inicio" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo usuario</p>
                 </a>

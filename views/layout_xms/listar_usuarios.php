@@ -48,7 +48,7 @@
                         <?php
                         $parametros=$usuario->id_usuario . ", '" . $usuario->nombre . "'";                                 
                         ?>                                                        
-                            <i class="fas fa-edit" href=""></i>                            
+                            <i class="fas fa-edit" onclick="showUsuario(<?=$usuario->id_usuario?>)"></i>
                             <i class="fas fa-user-times" onclick="borrarUsuario(<?= $parametros ?>)"></i>
                             
                         </td>
@@ -59,22 +59,18 @@
     </div>
 </div>
 <script>
+function showUsuario(id_usuario){    
+    window.location.replace("<?= base_url_xms ?>usuario/showUsuarioForm/"+id_usuario);
+}    
 function cambiarPrivilegios(id_usuario){
-//    alert("cambia los privilegios de " + id)
-    
-    
-    id_check="privilegios"+id_usuario;
-    //document.getElementById("vehiculo").checked==true
-    console.log(id_usuario);
-//console.log(document.getElementById(id));
-    
-    if (document.getElementById(id_check).checked==true){
-        //alert("cambiar a administrador");
-        window.location.replace("<?= base_url_xms?>/usuario/cambiarPuesto/" + id_usuario );
-    }else{
-        //alert("cambiar a editor");
-        window.location.replace("<?= base_url_xms?>/usuario/cambiarPuesto/" + id_usuario);
-    }
+id_check="privilegios"+id_usuario;
+if (document.getElementById(id_check).checked==true){
+    //alert("cambiar a administrador");
+    window.location.replace("<?= base_url_xms?>/usuario/cambiarPuesto/" + id_usuario );
+}else{
+    //alert("cambiar a editor");
+    window.location.replace("<?= base_url_xms?>/usuario/cambiarPuesto/" + id_usuario);
+}
 }
 
 function borrarUsuario(id_usuario, nombreUsuario){
