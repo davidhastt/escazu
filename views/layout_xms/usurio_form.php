@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <!-- id del usuario -->
-                    <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuarioFO->id_usuario?>">
+                    <input type="hidden" id="id_usuario" name="id_usuario" value="<?php if (isset($usuarioFO)){echo $usuarioFO->id_usuario;}?>">
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" id="nombre" name="nombre"  class="form-control" placeholder="Nombre ..." value="<?php if (isset($usuarioFO)){echo $usuarioFO->nombre; } ?>">
@@ -93,8 +93,8 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Puesto</label>
-                        <select id="puesto" name="puesto" class="form-control" value="<?php if (isset($usuarioFO)){echo 0; } ?>">
-                            <option></option>
+                        <select id="puesto" name="puesto" class="form-control">
+                            <option <?php if (isset($usuarioFO)){if ($usuarioFO->puesto==1){ echo "value='1'";} else{ echo "value='0'";}} ?>><?php if (isset($usuarioFO)){if ($usuarioFO->puesto==1){ echo "Administrador";} else{ echo "Editor";}} ?></option>
                             <option value="0">Editor</option>
                             <option value="1">Administrador</option>
                         </select>                            

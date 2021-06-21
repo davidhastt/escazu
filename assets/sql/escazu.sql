@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2021 a las 22:25:15
+-- Tiempo de generación: 21-06-2021 a las 15:31:49
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -46,8 +46,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellidoP`, `apellidoM`, `fechaNac`, `sexo`, `email`, `password`, `puesto`, `fecha_registro`, `confirmado`) VALUES
-(1, 'David', 'Gomez', 'Millan', '2021-06-15', 'M', 'davidhastt@gmail.com', '$2y$04$1s8eh1NkOy01qaqSxzNTce8.4.VwUNym2hWCZSI1BQ0CqswIhpW.W', 1, '0000-00-00', 1),
-(3, 'EDITH', 'GOMEZ', 'ROCHA', '1982-05-05', 'M', 'EDI@GMAIL.COM', '$2y$04$iFMQ8u0DfjeYkhFKR.sAneIuKjDF2FLSYW/F1aRMJeUy9zpRC7vg.', 0, '2021-06-11', 0);
+(3, 'EDITH', 'GOMEZ', 'ROCHAS', '1982-05-05', 'M', 'EDI@GMAIL.COM', '$2y$04$iFMQ8u0DfjeYkhFKR.sAneIuKjDF2FLSYW/F1aRMJeUy9zpRC7vg.', 0, '2021-06-11', 1),
+(4, 'DAVID GERMáN', 'GOMEZ', 'MILLáN', '2021-06-23', 'M', 'DAVIDHASTT@GMAIL.COM', '$2y$04$FB2L3oDz.jjct7df8Asie.xMpLGvJspgL5Ir.CTtL7v.Czi9t1UQm', 1, '2021-06-17', 1);
 
 --
 -- Índices para tablas volcadas
@@ -68,7 +68,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

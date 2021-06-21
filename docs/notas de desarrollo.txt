@@ -60,6 +60,8 @@ falta boton para cerrar sesion
 falta el registro por newsletter
 ***************************************************************************COMMITS
 Cambio de nombre a nuevousuario.php a usurio_form.php, ya cambia puesto
+Ya actualiza todos los datos del usuario a excepcion de contraseña
+Correccion de bugs del commit anterior
 
 
 
