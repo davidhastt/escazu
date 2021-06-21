@@ -6,6 +6,16 @@ require_once 'models/estadistica.php';
 
 class usuariocontroller {
     
+    public function logout() {        
+        $url = base_url_xms;
+        $mensaje="Cerrando sesión";
+        $mensaje2="Enseguida sera redireccionado";
+        require_once 'views/layout_xms/header.php';
+        require_once 'views/layout_xms/confirmacion.php';                
+        require_once 'views/layout_xms/footer.php';        
+        unset($_SESSION);
+    }    
+    
     public function actualizar(){
         require_once 'views/layout_xms/header.php';
         require_once 'views/layout_xms/usurio_form.php';
