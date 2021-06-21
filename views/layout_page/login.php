@@ -8,7 +8,7 @@
             <br>
             <br
                 <br>            
-            <form action="<?= base_url_xms ?>usuario/login/inicio" method="post">            
+            <form action="<?= base_url ?>usuario/login/inicio" method="post">            
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">

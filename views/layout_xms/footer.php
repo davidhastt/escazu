@@ -24,11 +24,11 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="<?= base_url_xms ?>assets/xms/js/jquery/jquery.min.js"></script> <!--cambiar-->
+<script src="<?= base_url ?>assets/xms/js/jquery/jquery.min.js"></script> <!--cambiar-->
 <!-- Bootstrap 4 -->
-<script src="<?= base_url_xms ?>assets/xms/js/bootstrap/bootstrap.bundle.min.js"></script> <!--cambiar-->
+<script src="<?= base_url ?>assets/xms/js/bootstrap/bootstrap.bundle.min.js"></script> <!--cambiar-->
 <!-- AdminLTE App -->
-<script src="<?= base_url_xms ?>assets/xms/js/adminlte.min.js"></script><!--cambiar-->
+<script src="<?= base_url ?>assets/xms/js/adminlte.min.js"></script><!--cambiar-->
 </body> 
 </html>
 <!-- Termina el footer --> 

@@ -9,9 +9,9 @@
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="<?= base_url_xms ?>assets/xms/css/fonts/all.min.css">  <!--Cambiar-->
+        <link rel="stylesheet" href="<?= base_url ?>assets/xms/css/fonts/all.min.css">  <!--Cambiar-->
         <!-- Theme style -->
-        <link rel="stylesheet" href="<?= base_url_xms ?>assets/xms/css/adminlte.min.css"> <!--Cambiar-->
+        <link rel="stylesheet" href="<?= base_url ?>assets/xms/css/adminlte.min.css"> <!--Cambiar-->
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -71,7 +71,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="" class="brand-link">
-                    <img src="<?= base_url_xms ?>assets/xms/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <img src="<?= base_url ?>assets/xms/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">Administración</span> <!--cambiar-->
                 </a>
 
@@ -80,7 +80,7 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="<?= base_url_xms ?>assets/xms/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> <!--cambiar-->
+                            <img src="<?= base_url ?>assets/xms/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> <!--cambiar-->
                         </div>
                         <div class="info">
                             <a href="#" class="d-block"><?= $_SESSION['identity_Session']->nombre . " " . $_SESSION['identity_Session']->apellidoP ?></a>
@@ -124,13 +124,13 @@
                                     <?php if($_SESSION['identity_Session']->puesto==1):?>
                                     
                                     <li class="nav-item">
-                                        <a href="<?= base_url_xms ?>usuario/listarUsuarios/inicio" class="nav-link">
+                                        <a href="<?= base_url ?>usuario/listarUsuarios/inicio" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Ver usuarios</p>
                                         </a>
                                     </li>              
                                     <li class="nav-item">
-                                        <a href="<?= base_url_xms ?>usuario/showUsuarioForm/inicio" class="nav-link">
+                                        <a href="<?= base_url ?>usuario/showUsuarioForm/inicio" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Nuevo usuario</p>
                                         </a>
@@ -151,7 +151,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= base_url_xms ?>usuario/logout/inicio" class="nav-link">
+                                <a href="<?= base_url ?>usuario/logout/inicio" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
                                     <p>
                                         Cerrar sesión

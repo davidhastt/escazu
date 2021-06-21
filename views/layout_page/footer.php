@@ -6,7 +6,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-             <a href="#" class="logo_footer"> <img src="<?= base_url_page ?>/assets/page/img/logo2.png" alt="#"/></a>
+             <a href="#" class="logo_footer"> <img src="<?= base_url ?>/assets/page/img/logo2.png" alt="#"/></a>
             </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
               <div class="row">
@@ -61,14 +61,14 @@
           </footr>
           <!-- end footer -->
           <!-- Javascript files-->
-          <script src="<?= base_url_page ?>/assets/page/js/jquery.min.js"></script>
-          <script src="<?= base_url_page ?>/assets/page/js/popper.min.js"></script>
-          <script src="<?= base_url_page ?>/assets/page/js/bootstrap.bundle.min.js"></script>
-          <script src="<?= base_url_page ?>/assets/page/js/jquery-3.0.0.min.js"></script>
-          <script src="<?= base_url_page ?>/assets/page/js/plugin.js"></script>
+          <script src="<?= base_url ?>/assets/page/js/jquery.min.js"></script>
+          <script src="<?= base_url ?>/assets/page/js/popper.min.js"></script>
+          <script src="<?= base_url ?>/assets/page/js/bootstrap.bundle.min.js"></script>
+          <script src="<?= base_url ?>/assets/page/js/jquery-3.0.0.min.js"></script>
+          <script src="<?= base_url ?>/assets/page/js/plugin.js"></script>
           <!-- sidebar -->
-          <script src="<?= base_url_page ?>/assets/page/js/jquery.mCustomScrollbar.concat.min.js"></script>
-          <script src="<?= base_url_page ?>/assets/page/js/custom.js"></script>
+          <script src="<?= base_url ?>/assets/page/js/jquery.mCustomScrollbar.concat.min.js"></script>
+          <script src="<?= base_url ?>/assets/page/js/custom.js"></script>
           <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
 

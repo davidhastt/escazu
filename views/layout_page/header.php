@@ -14,17 +14,17 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- fevicon -->
-  <link rel="icon" href="<?= base_url_page ?>assets/page/img/icon/favicon.png" type="image/gif">
+  <link rel="icon" href="<?= base_url ?>assets/page/img/icon/favicon.png" type="image/gif">
   
   
   <!-- bootstrap css -->
-  <link rel="stylesheet" href="<?= base_url_page ?>assets/page/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= base_url ?>assets/page/css/bootstrap.min.css">
   <!-- style css -->
-  <link rel="stylesheet" href="<?= base_url_page ?>assets/page/css/style.css">
+  <link rel="stylesheet" href="<?= base_url ?>assets/page/css/style.css">
   <!-- Responsive-->
-  <link rel="stylesheet" href="<?= base_url_page ?>assets/page/css/responsive.css">  
+  <link rel="stylesheet" href="<?= base_url ?>assets/page/css/responsive.css">  
   <!-- Scrollbar Custom CSS -->
-  <link rel="stylesheet" href="<?= base_url_page ?>assets/page/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="<?= base_url ?>assets/page/css/jquery.mCustomScrollbar.min.css">
   <!-- Tweaks for older IEs-->
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -35,7 +35,7 @@
 <body class="main-layout">
   <!-- loader  -->
   <div class="loader_bg">
-    <div class="loader"><img src="<?= base_url_page ?>assets/page/img/loading.gif" alt="#" /></div>
+    <div class="loader"><img src="<?= base_url ?>assets/page/img/loading.gif" alt="#" /></div>
   </div>
   
   
@@ -48,7 +48,7 @@
               <div class="full">
                 <div class="center-desk">
                   <div class="logo">
-                    <a href="index.html"><img src="<?= base_url_page ?>assets/page/img/logo.png" alt="#" /></a>
+                    <a href="index.html"><img src="<?= base_url ?>assets/page/img/logo.png" alt="#" /></a>
                   </div>
                 </div>
               </div>
@@ -59,13 +59,13 @@
                 <div class="limit-box">
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
-                      <li class="active"> <a href="<?= base_url_page ?>">Home</a> </li>
+                      <li class="active"> <a href="<?= base_url ?>">Home</a> </li>
                       <li> <a href="#about">About</a> </li>
                       <li> <a href="#vegetable">Vegetable</a> </li>
                       <li> <a href="#testimonial">Testomonial</a> </li>
                       <li> <a href="#contact">Contact Us</a> </li>
                      
-                     <li> <a href="#"><img src="<?= base_url_page ?>assets/page/img/icon/icon_b.png" alt="#" /></a></li>
+                     <li> <a href="#"><img src="<?= base_url ?>assets/page/img/icon/icon_b.png" alt="#" /></a></li>
                      </ul>
                    </nav>
                  </div>

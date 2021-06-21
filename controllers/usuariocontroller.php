@@ -7,7 +7,7 @@ require_once 'models/estadistica.php';
 class usuariocontroller {
     
     public function logout() {        
-        $url = base_url_xms;
+        $url = base_url;
         $mensaje="Cerrando sesión";
         $mensaje2="Enseguida sera redireccionado";
         require_once 'views/layout_xms/header.php';
@@ -46,7 +46,7 @@ class usuariocontroller {
             if ($actualiza) {// si el correo no existe se guarda
                 $mensaje = "Exito";
                 $mensaje2 = "Los datos del usuario se guardaron exitosamente";
-                $url = base_url_xms . "usuario/listarUsuarios/inicio";
+                $url = base_url . "usuario/listarUsuarios/inicio";
                 require_once 'views/layout_xms/header.php';
                 require_once 'views/layout_xms/confirmacion.php';
                 require_once 'views/layout_xms/footer.php';
@@ -122,10 +122,10 @@ class usuariocontroller {
                 $_SESSION['mensaje'] = "Bienvenido a la administración de Escazu";
                 $_SESSION["tiempo"] = time();
                 //segun el rol del usuario se redirecciona 
-                header("Location:" . base_url_xms . "sistema/cmx/inicio");
+                header("Location:" . base_url . "sistema/cmx/inicio");
             } else {
                 $_SESSION['mensaje'] = 'Tus datos no son correctos, verifica e intenta de nuevo';
-                header("Location:" . base_url_page . "sistema/entrar/inicio");
+                header("Location:" . base_url . "sistema/entrar/inicio");
             }
             //crear una sesion
         }
@@ -163,7 +163,7 @@ class usuariocontroller {
             if ($save) {// si el correo no existe se guarda
                 $mensaje = "Registro exitoso";
                 $mensaje2 = "Para terminar el proceso, el nuevo usuario debe revisar su correo y confirmar su inscripcion";
-                $url = base_url_xms;
+                $url = base_url . "usuario/listarUsuarios/inicio";
                 require_once 'views/layout_xms/header.php';
                 require_once 'views/layout_xms/confirmacion.php';
                 require_once 'views/layout_xms/footer.php';

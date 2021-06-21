@@ -3,10 +3,6 @@ https://www.free-css.com/free-css-templates/page265/shree
 
 
 ***************************************************************************DOING
-en usuarios sexo agregale un option vacio ok
-validar que el formulario de usuario o se vayan algunas casillas vacias ok
-solo el super usuario puede ver o agregar otros usuarios ok
-falta boton para cerrar sesion ok
 
 Usuarios
 
@@ -33,10 +29,11 @@ ya registra usuarios
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
+Cuando quieres borrar un usuario te sale un mensaje de que si estas seguro de borrar, pero siempre elimina el usuario, no hay forma de cancelar ok
+
 cuando se registra un usuario no se puede asignar privilegios de administrador
 recuperar contraseña
 probar en produccion la confirmacion por correo
-cambiar a mayusculas los nombres de los usuarios
 validar que la fecha de nacimiento del usuario no sea menor a 200 años
 Arreglar los paths
 Aparece una A cuando esta cargano
@@ -50,13 +47,14 @@ en header este icono no existe <link rel="icon" href="<?= base_url_page ?>/img/f
 paginacion
 Identificacion de usuario por nombre
 inicio de sesion seguro
-
+no es necesario usar 2 variables globales diferentes si valen lo mismo
 ***************************************************************************MEJORAS
 falta el registro por newsletter
 ***************************************************************************COMMITS
 Cambio de nombre a nuevousuario.php a usurio_form.php, ya cambia puesto
 Ya actualiza todos los datos del usuario a excepcion de contraseña
 Correccion de bugs del commit anterior, con respaldo a la BD
+en usuarios sexo agregale un option vacio, validar que el formulario de usuario no se vayan algunas casillas vacias, solo el super usuario puede ver o agregar otros usuarios, falta boton para cerrar sesion
 
 
 

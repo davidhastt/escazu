@@ -7,10 +7,10 @@
         
         <?php 
         if (isset($usuarioFO)){            
-            echo "<form action='" . base_url_xms . "usuario/actualizaU/inicio' class='needs-validation' novalidate method='post'>";
+            echo "<form action='" . base_url . "usuario/actualizaU/inicio' class='needs-validation' novalidate method='post'>";
         }
         else{
-            echo "<form action='" . base_url_xms . "usuario/guardar/inicio' class='needs-validation' novalidate method='post'>";
+            echo "<form action='" . base_url . "usuario/guardar/inicio' class='needs-validation' novalidate method='post'>";
         }                          
         ?>
         
@@ -76,7 +76,7 @@
                 <div class="col-sm-6">
                     <!-- textarea -->
                     <div class="form-group">
-                        <label>Passwordx</label>
+                        <label>Password</label>
                         <input type="password" id="pasword" required name="password" class="form-control" placeholder="Password">
                     </div>
                 </div>

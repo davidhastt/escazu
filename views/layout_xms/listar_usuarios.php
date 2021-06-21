@@ -25,7 +25,7 @@
                 while ($usuario = $usuariosFO->fetch_object()): ?>
                     <tr>
                         <td>
-                            <img src="<?= base_url_xms ?>assets/xms/img/user2-160x160.jpg" alt="Product 1" class="img-circle img-size-32 mr-2">
+                            <img src="<?= base_url ?>assets/xms/img/user2-160x160.jpg" alt="Product 1" class="img-circle img-size-32 mr-2">
                             <?= $usuario->nombre . " " . $usuario->apellidoP . " " .  $usuario->apellidoM?>
                         </td>
 
@@ -60,22 +60,24 @@
 </div>
 <script>
 function showUsuario(id_usuario){    
-    window.location.replace("<?= base_url_xms ?>usuario/showUsuarioForm/"+id_usuario);
+    window.location.replace("<?= base_url ?>usuario/showUsuarioForm/"+id_usuario);
 }    
 function cambiarPrivilegios(id_usuario){
 id_check="privilegios"+id_usuario;
 if (document.getElementById(id_check).checked==true){
     //alert("cambiar a administrador");
-    window.location.replace("<?= base_url_xms?>/usuario/cambiarPuesto/" + id_usuario );
+    window.location.replace("<?= base_url?>/usuario/cambiarPuesto/" + id_usuario );
 }else{
     //alert("cambiar a editor");
-    window.location.replace("<?= base_url_xms?>/usuario/cambiarPuesto/" + id_usuario);
+    window.location.replace("<?= base_url?>/usuario/cambiarPuesto/" + id_usuario);
 }
 }
 
 function borrarUsuario(id_usuario, nombreUsuario){
-    alert("Estas seguro de querer borrar a: " + nombreUsuario)
-    window.location.replace("<?= base_url_xms?>/usuario/borrar_usuario/" + id_usuario);
+    respuesta=confirm("Estas seguro de querer borrar a: " + nombreUsuario)
+    if (respuesta== true){
+        window.location.replace("<?= base_url?>/usuario/borrar_usuario/" + id_usuario);
+    }
 }
 </script>
 _

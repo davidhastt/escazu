@@ -28,7 +28,7 @@ public function cmx() {//index principal
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
         $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         //open graph
-        $og_image=base_url_page."assets/img/about-bg.jpg";
+        $og_image=base_url."assets/img/about-bg.jpg";
         $og_title="Geografia MX";
         $og_description="Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url="http://geografia.mx";
@@ -62,7 +62,7 @@ public function index() {//index principal
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
         $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         //open graph
-        $og_image=base_url_page."assets/img/about-bg.jpg";
+        $og_image=base_url."assets/img/about-bg.jpg";
         $og_title="Geografia MX";
         $og_description="Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url="http://geografia.mx";

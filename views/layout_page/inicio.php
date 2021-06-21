@@ -29,7 +29,7 @@
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="images_box">
-                      <figure><img src="<?= base_url_page ?>assets/page/img/img2.png"></figure>
+                      <figure><img src="<?= base_url ?>assets/page/img/img2.png"></figure>
                     </div>
                   </div>
                 </div>
@@ -57,7 +57,7 @@
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="images_box">
-                      <figure><img src="<?= base_url_page ?>assets/page/img/img2.png"></figure>
+                      <figure><img src="<?= base_url ?>assets/page/img/img2.png"></figure>
                     </div>
                   </div>
                 </div>
@@ -86,7 +86,7 @@
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="images_box">
-                      <figure><img src="<?= base_url_page ?>assets/page/img/img2.png"></figure>
+                      <figure><img src="<?= base_url ?>assets/page/img/img2.png"></figure>
                     </div>
                   </div>
                 </div>
@@ -124,7 +124,7 @@
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
         <div class="about-box_img">
-          <figure><img src="<?= base_url_page ?>assets/page/img/about.jpg" alt="#" /></figure>
+          <figure><img src="<?= base_url ?>assets/page/img/about.jpg" alt="#" /></figure>
         </div>
       </div>
     </div>
@@ -154,13 +154,13 @@
       </div>
        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 ">
         <div class="vegetable_img">
-         <figure><img src="<?= base_url_page ?>assets/page/img/v1.jpg" alt="#"/></figure>
+         <figure><img src="<?= base_url ?>assets/page/img/v1.jpg" alt="#"/></figure>
          <span>01</span>
         </div>
       </div>
        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 ">
         <div class="vegetable_img margin_top">
-         <figure><img src="<?= base_url_page ?>assets/page/img/v2.jpg" alt="#"/></figure>
+         <figure><img src="<?= base_url ?>assets/page/img/v2.jpg" alt="#"/></figure>
          <span>02</span>
         </div>
       </div>
@@ -202,8 +202,8 @@
                                 <div class="row">
                                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 pa_right">
                                         <div class="testomonial_img">
-                                            <figure><img src="<?= base_url_page ?>assets/page/img/tes.jpg" alt="#"/></figure>
-                                            <i><img src="<?= base_url_page ?>assets/page/img/test_con.png" alt="#"/></i>
+                                            <figure><img src="<?= base_url ?>assets/page/img/tes.jpg" alt="#"/></figure>
+                                            <i><img src="<?= base_url ?>assets/page/img/test_con.png" alt="#"/></i>
                                         </div>
                                     </div>
                                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 pa_left">
@@ -229,8 +229,8 @@
                                 <div class="row">
                                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 pa_right">
                                         <div class="testomonial_img">
-                                            <figure><img src="<?= base_url_page ?>/assets/page/img/tes.jpg" alt="#"/></figure>
-                                            <i><img src="<?= base_url_page ?>/assets/page/img/test_con.png" alt="#"/></i>
+                                            <figure><img src="<?= base_url ?>/assets/page/img/tes.jpg" alt="#"/></figure>
+                                            <i><img src="<?= base_url ?>/assets/page/img/test_con.png" alt="#"/></i>
                                         </div>
                                     </div>
                                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 pa_left">
@@ -257,8 +257,8 @@
                                 <div class="row">
                                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 pa_right">
                                         <div class="testomonial_img">
-                                            <figure><img src="<?= base_url_page ?>assets/page/img/tes.jpg" alt="#"/></figure>
-                                            <i><img src="<?= base_url_page ?>assets/page/img/test_con.png" alt="#"/></i>
+                                            <figure><img src="<?= base_url ?>assets/page/img/tes.jpg" alt="#"/></figure>
+                                            <i><img src="<?= base_url ?>assets/page/img/test_con.png" alt="#"/></i>
                                         </div>
                                     </div>
                                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 pa_left">
