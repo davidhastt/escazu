@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="<?= base_url ?>assets/xms/css/fonts/all.min.css">  <!--Cambiar-->
         <!-- Theme style -->
         <link rel="stylesheet" href="<?= base_url ?>assets/xms/css/adminlte.min.css"> <!--Cambiar-->
+        <!-- Summer note -->
+        <link rel="stylesheet" href="<?= base_url ?>assets/xms/css/summernote/summernote-bs4.min.css">
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -114,9 +116,9 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link active">
+                                        <a href="<?= base_url ?>post/showPostForm/inicio" class="nav-link active">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Posts</p>
+                                            <p>Nuevo post</p>
                                         </a>
                                     </li>
                                     

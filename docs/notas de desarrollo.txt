@@ -29,7 +29,7 @@ ya registra usuarios
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
-Cuando quieres borrar un usuario te sale un mensaje de que si estas seguro de borrar, pero siempre elimina el usuario, no hay forma de cancelar ok
+
 
 cuando se registra un usuario no se puede asignar privilegios de administrador
 recuperar contraseña
@@ -51,6 +51,7 @@ no es necesario usar 2 variables globales diferentes si valen lo mismo
 ***************************************************************************MEJORAS
 falta el registro por newsletter
 ***************************************************************************COMMITS
+Cuando quieres borrar un usuario te sale un mensaje de que si estas seguro de borrar, pero siempre elimina el usuario, no hay forma de cancelar
 Cambio de nombre a nuevousuario.php a usurio_form.php, ya cambia puesto
 Ya actualiza todos los datos del usuario a excepcion de contraseña
 Correccion de bugs del commit anterior, con respaldo a la BD

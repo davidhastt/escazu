@@ -2,36 +2,126 @@
 
 class Post {
 
-    private $id_servicio;
+    private $id_post;
     public $id_imageAsList;
     private $idAstxt;
-    public $nom_servicio;
-    public $slogan;
-    public $direccion;
+    public $nom_post;
+    public $slogan;    
     public $whatsapp;
-    public $descripcion;
-    public $categoria;
+    public $activo;    
+    public $descripcion_corta;
+    public $contenido;
+    public $id_categoria;
     public $linkFacebook;
     public $linkYoutube;
     public $linkInstagram;
     public $listResult;
     public $encabezados;
-    public $mapquery;
     public $fotos;
     public $seo_title;
     public $seo_keywords;
     public $seo_description;
     public $hits;
     public $recomendaciones;
+    public $estrellas;
+    public $id_usuario;
+    public $dateUpdate;
 
-    
-    public function __construct($categoria) {
+
+
+    public function __construct() {
         $this->db = Database::connect();
-        if ($_GET['parametro'] == "index") {//si true entonce es una categoria
-            $this->setCategoria($categoria);
-        }
     }
 
+    public function guardar($fieldList) {//este metodo va a guardar las propiedades que esten definidas
+        $strsql = "INSERT INTO posts (";
+        $strsqlFields = "";
+        $strsqlValues = ") VALUES(";
+        //obtener lista de metodos get
+        $getList = array("getidAstxt", "getactivo", "getId_usuario", "getnom_post", "getslogan", "getid_categoria", "getdescripcion_corta", "getcontenido");
+
+        $i = 0;
+        //este for es para concatenar los campos
+        foreach ($getList as $metodo) {
+            $valor = $this->$metodo();
+            if (isset($valor)) {
+                $strsqlFields .= $fieldList[$i];
+                $strsqlValues .= "'" . $valor . "'";
+                $strsqlFields .= ", ";
+                $strsqlValues .= ", ";
+            }
+            $i++;
+        }
+
+        $strsqlFields = substr($strsqlFields, 0, -2); //quitamos la ultima coma a la cadena de campos
+        $strsqlValues = substr($strsqlValues, 0, -2); //quitamos la ultima coma a la cadena de valores
+
+        $strsql .= $strsqlFields . $strsqlValues . ")";
+
+        $save = $this->db->query($strsql);
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
+    }    
+    
+    
+    function getContenido() {
+        return $this->contenido;
+    }
+
+    function setContenido($contenido) {
+        $this->contenido = $contenido;
+    }
+
+        
+    function getDescripcion_corta() {
+        return $this->descripcion_corta;
+    }
+
+    function setDescripcion_corta($descripcion_corta) {
+        $this->descripcion_corta = $descripcion_corta;
+    }    
+    
+    function getId_categoria() {
+        return $this->id_categoria;
+    }
+
+    function setId_categoria($id_categoria) {
+        $this->id_categoria = $id_categoria;
+    }
+
+    
+    function getId_usuario() {
+        return $this->id_usuario;
+    }
+
+    function setId_usuario($id_usuario) {        
+        $this->id_usuario = $id_usuario;
+    }
+
+    
+    
+    function getEstrellas() {
+        return $this->estrellas;
+    }
+
+    function setEstrellas($estrellas) {
+        $this->estrellas = $estrellas;
+    }
+
+           
+    function getActivo() {
+        return $this->activo;
+    }
+
+    function setActivo($activo) {
+        $this->activo = $activo;
+    }
+
+        
+    
     function getId_imageAsList() {
         return $this->id_imageAsList;
     }
@@ -141,14 +231,6 @@ class Post {
         $this->fotos = $fotos;
     }
 
-    function getMapquery() {
-        return $this->mapquery;
-    }
-
-    function setMapquery($mapquery) {
-        $this->mapquery = $mapquery;
-    }
-
     function getSlogan() {
         return $this->slogan;
     }
@@ -157,13 +239,6 @@ class Post {
         $this->slogan = $slogan;
     }
 
-    function getDireccion() {
-        return $this->direccion;
-    }
-
-    function setDireccion($direccion) {
-        $this->direccion = $direccion;
-    }
 
     function getEncabezados() {
         return $this->encabezados;
@@ -202,63 +277,37 @@ class Post {
     }
 
     function fillServicioT() {
-        $strsql = "SELECT * FROM posts WHERE id_servicio='" . $this->id_servicio . "'";
+        $strsql = "SELECT * FROM posts WHERE id_post='" . $this->$id_post . "'";
         $resultado = $this->db->query($strsql);
         return $resultado->fetch_object();
     }
 
-    function getId_servicio() {
-        return $this->id_servicio;
+    function getId_post() {
+        return $this->$id_post;
     }
 
     function getIdAstxt() {
         return $this->idAstxt;
     }
 
-    function getNom_servicio() {
-        return $this->nom_servicio;
+    function getNom_post() {
+        return $this->nom_post;
     }
 
     function getDescripcion() {
         return $this->descripcion;
     }
 
-    function setId_servicio($id_servicio) {
-        $this->id_servicio = $id_servicio;
+    function setId_post($id_post) {
+        $this->$id_post = $id_post;
     }
 
     function setIdAstxt($idAstxt) {
         $this->idAstxt = $idAstxt;
     }
 
-    function setNom_servicio($nom_servicio) {
-        $this->nom_servicio = $nom_servicio;
-    }
-
-    function setDescripcion($descripcion) {
-        $this->descripcion = $descripcion;
-    }
-
-    function getCategoria() {
-        return $this->categoria;
-    }
-
-    function setCategoria($categoria) {
-        $this->categoria = $categoria;
-    }
-
-}
-
-class Atractivo extends Post {
-
-    public $horario;
-
-    function getHorario() {
-        return $this->horario;
-    }
-
-    function setHorario($horario) {
-        $this->horario = $horario;
+    function setNom_post($nom_post) {
+        $this->nom_post = $nom_post;
     }
 
 }

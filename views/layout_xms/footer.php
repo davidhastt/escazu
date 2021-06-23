@@ -29,6 +29,20 @@
 <script src="<?= base_url ?>assets/xms/js/bootstrap/bootstrap.bundle.min.js"></script> <!--cambiar-->
 <!-- AdminLTE App -->
 <script src="<?= base_url ?>assets/xms/js/adminlte.min.js"></script><!--cambiar-->
+<!-- Summernote -->
+<script src="<?= base_url ?>assets/xms/css/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('#contenido').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
 </body> 
 </html>
 <!-- Termina el footer --> 
