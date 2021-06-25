@@ -3,7 +3,15 @@
 require_once 'models/post.php';
 
 class PostController {
-
+    
+    public function listarPosts(){
+        require_once 'views/layout_xms/header.php';        
+        $postCls= new Post();        
+        $usuariosFO=$postCls->listarPosts();                        
+        require_once 'views/layout_xms/listar_posts.php';
+        require_once 'views/layout_xms/footer.php';              
+    }
+ 
     public function showPostForm() {
         require_once 'views/layout_xms/header.php';
 

@@ -3,16 +3,9 @@ https://www.free-css.com/free-css-templates/page265/shree
 
 
 ***************************************************************************DOING
-
-Usuarios
-
-listar usuarios
-	Bajas
-	Cambios
-        cambiar la contraseña
-Post
-	Descripcion
-	nuevo post
+Post	
+	nuevo post ok
+	listar post
 	Cambiar post
 	eliminar post
 Manejo de arhivos
@@ -29,8 +22,8 @@ ya registra usuarios
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
-
-
+Ver como aplicar la llave foranea en la relacion usuarios.id_usuario y posts.id_usuario, si se elimina un usario se eliminara tambien los posts que halla escrito?
+en la clase estadistica public function listarUsuarios(){//cuando puedas esto cambialo a usaurios
 cuando se registra un usuario no se puede asignar privilegios de administrador
 recuperar contraseña
 probar en produccion la confirmacion por correo
@@ -56,6 +49,8 @@ Cambio de nombre a nuevousuario.php a usurio_form.php, ya cambia puesto
 Ya actualiza todos los datos del usuario a excepcion de contraseña
 Correccion de bugs del commit anterior, con respaldo a la BD
 en usuarios sexo agregale un option vacio, validar que el formulario de usuario no se vayan algunas casillas vacias, solo el super usuario puede ver o agregar otros usuarios, falta boton para cerrar sesion
+Muestra menu de nuevo post, muestra formulario de post, incluyendo editor de texto, guarda post, incluye respaldo de base de datos con tabla posts
+Muestra una lista de posts, con su autor y su categoria, incluye base de datos
 
 
 

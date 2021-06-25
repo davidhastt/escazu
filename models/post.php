@@ -6,9 +6,9 @@ class Post {
     public $id_imageAsList;
     private $idAstxt;
     public $nom_post;
-    public $slogan;    
+    public $slogan;
     public $whatsapp;
-    public $activo;    
+    public $activo;
     public $descripcion_corta;
     public $contenido;
     public $id_categoria;
@@ -27,10 +27,13 @@ class Post {
     public $id_usuario;
     public $dateUpdate;
 
-
-
     public function __construct() {
         $this->db = Database::connect();
+    }
+
+    public function listarPosts() {
+        $this->setListResult("SELECT usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.nom_categoria, posts.activo FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria");
+        return $this->listResult;
     }
 
     public function guardar($fieldList) {//este metodo va a guardar las propiedades que esten definidas
@@ -64,9 +67,8 @@ class Post {
             $result = true;
         }
         return $result;
-    }    
-    
-    
+    }
+
     function getContenido() {
         return $this->contenido;
     }
@@ -75,15 +77,14 @@ class Post {
         $this->contenido = $contenido;
     }
 
-        
     function getDescripcion_corta() {
         return $this->descripcion_corta;
     }
 
     function setDescripcion_corta($descripcion_corta) {
         $this->descripcion_corta = $descripcion_corta;
-    }    
-    
+    }
+
     function getId_categoria() {
         return $this->id_categoria;
     }
@@ -92,17 +93,14 @@ class Post {
         $this->id_categoria = $id_categoria;
     }
 
-    
     function getId_usuario() {
         return $this->id_usuario;
     }
 
-    function setId_usuario($id_usuario) {        
+    function setId_usuario($id_usuario) {
         $this->id_usuario = $id_usuario;
     }
 
-    
-    
     function getEstrellas() {
         return $this->estrellas;
     }
@@ -111,7 +109,6 @@ class Post {
         $this->estrellas = $estrellas;
     }
 
-           
     function getActivo() {
         return $this->activo;
     }
@@ -120,8 +117,6 @@ class Post {
         $this->activo = $activo;
     }
 
-        
-    
     function getId_imageAsList() {
         return $this->id_imageAsList;
     }
@@ -129,7 +124,7 @@ class Post {
     function setId_imageAsList($id_imageAsList) {
         $this->id_imageAsList = $id_imageAsList;
     }
-    
+
     function getWhatsapp() {
         return $this->whatsapp;
     }
@@ -141,7 +136,7 @@ class Post {
             $this->whatsapp = "7225132318";
         }
     }
-        
+
     function getLinkFacebook() {
         return $this->linkFacebook;
     }
@@ -222,7 +217,6 @@ class Post {
         return $this->precioAsHtml;
     }
 
-
     function getFotos() {
         return $this->fotos;
     }
@@ -238,7 +232,6 @@ class Post {
     function setSlogan($slogan) {
         $this->slogan = $slogan;
     }
-
 
     function getEncabezados() {
         return $this->encabezados;

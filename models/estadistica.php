@@ -6,7 +6,7 @@ class Estadistica {
 
     private $listResult;
     
-    public function listarUsuarios(){
+    public function listarUsuarios(){//cuando puedas esto cambialo a usaurios
         
         $this->setListResult("SELECT id_usuario, nombre, apellidoP, apellidoM, confirmado, puesto FROM usuarios");
         

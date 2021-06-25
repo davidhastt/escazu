@@ -122,6 +122,16 @@
                                         </a>
                                     </li>
                                     
+
+                                    <li class="nav-item">
+                                        <a href="<?= base_url ?>post/listarPosts/inicio" class="nav-link ">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Ver posts</p>
+                                        </a>
+                                    </li>
+                                    
+                                    
+
                                     
                                     <?php if($_SESSION['identity_Session']->puesto==1):?>
                                     
