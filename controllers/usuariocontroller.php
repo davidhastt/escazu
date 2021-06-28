@@ -16,7 +16,7 @@ class usuariocontroller {
         unset($_SESSION);
     }    
     
-    public function actualizar(){
+    public function actualizar(){// creo que esta funcion no se usa
         require_once 'views/layout_xms/header.php';
         require_once 'views/layout_xms/usurio_form.php';
         require_once 'views/layout_xms/footer.php';        

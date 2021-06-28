@@ -31,11 +31,47 @@ class Post {
         $this->db = Database::connect();
     }
 
+    
+    
+    public function actualiza() {//este metodo va a guardar las propiedades que esten definidas
+        $strsql = "UPDATE posts SET "
+                ."idAstxt='".$this->idAstxt . "', "
+                ."activo='".$this->activo . "', "
+                ."nom_post='".$this->nom_post . "', "
+                ."slogan='".$this->slogan . "', "
+                ."id_categoria=".$this->id_categoria . ", "
+                ."descripcion_corta='".$this->descripcion_corta . "', "                
+                ."contenido='".$this->contenido."'";
+
+        $strsql .= " WHERE id_post= " . $this->id_post;
+        $save = $this->db->query($strsql);
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
+    }
+    
+    
+    
+    public function getPost($id_post){        
+        $strsql="SELECT posts.id_post, posts.idAstxt, posts.descripcion_corta, usuarios.nombre, posts.slogan, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.id_categoria, categorias.nom_categoria, posts.activo, posts.contenido FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria WHERE id_post=" . $id_post;
+        $this->listResult = $this->db->query($strsql);                
+    }    
+    
+    
     public function listarPosts() {
-        $this->setListResult("SELECT usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.nom_categoria, posts.activo FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria");
+        $this->setListResult("SELECT id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.nom_categoria, posts.activo FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria");
         return $this->listResult;
     }
 
+    public function borrarPost($id_post){
+        $strsql="DELETE FROM posts WHERE id_post=" . $id_post;
+        $this->listResult = $this->db->query($strsql);
+        return $this->listResult;
+    }
+    
+    
     public function guardar($fieldList) {//este metodo va a guardar las propiedades que esten definidas
         $strsql = "INSERT INTO posts (";
         $strsqlFields = "";
@@ -292,7 +328,7 @@ class Post {
     }
 
     function setId_post($id_post) {
-        $this->$id_post = $id_post;
+        $this->id_post = $id_post;
     }
 
     function setIdAstxt($idAstxt) {

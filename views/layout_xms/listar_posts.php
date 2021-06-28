@@ -18,33 +18,34 @@
                     <th>Nombre catergoría</th>
                     <th>Autor</th>
                     <th>Estatus</th>
+                    <th>Acciones</th>                    
                 </tr>
             </thead>
             <tbody>
-                <?php
-                while ($posts = $usuariosFO->fetch_object()): ?>
+                <?php while ($posts = $usuariosFO->fetch_object()): ?>
                     <tr>
                         <td>
-                        <a href="#" class="text-muted"><?= $posts->nom_post ?></a>    
+                            <a href="<?= base_url ?>post/showPostForm/<?= $posts->id_post ?>" class="text-muted"><?= $posts->nom_post ?></a>                            
                         </td>
 
                         <td>
-                            <a href="#" class="text-muted"><?= $posts->nom_categoria  ?></a>
+                            <a href="#" class="text-muted"><?= $posts->nom_categoria ?></a>
                         </td>
                         <td>
                             <img src="<?= base_url ?>assets/xms/img/user2-160x160.jpg" alt="Product 1" class="img-circle img-size-32 mr-2">
-                            <?= $posts->nombre . " " . $posts->apellidoP . " " .  $posts->apellidoM?>                            
+                            <?= $posts->nombre . " " . $posts->apellidoP . " " . $posts->apellidoM ?>                            
                         </td>   
                         <td>                                                       
-                        <a href="#" class="text-muted"><?php 
-                        if ($posts->activo == 1){
-                            echo "Activo";
-                        }else{
-                            echo "Inactivo";
-                        }
-                        
-                                
-                                ?></a>                            
+                            <a href="#" class="text-muted"><?php
+                            if ($posts->activo == 1) {
+                                echo "Activo";
+                            } else {
+                                echo "Inactivo";
+                            }
+                            ?></a>                            
+                        </td>
+                        <td>                            
+                            <span class="badge bg-danger" onclick="borrarPost(<?= $posts->id_post .", '". $posts->nom_post ."'" ?>)">Borrar</span>
                         </td>
                     </tr>
                 </tbody>.
@@ -52,26 +53,11 @@
         </table>
     </div>
 </div>
-<script>
-function showUsuario(id_usuario){    
-    window.location.replace("<?= base_url ?>usuario/showUsuarioForm/"+id_usuario);
-}    
-function cambiarPrivilegios(id_usuario){
-id_check="privilegios"+id_usuario;
-if (document.getElementById(id_check).checked==true){
-    //alert("cambiar a administrador");
-    window.location.replace("<?= base_url?>/usuario/cambiarPuesto/" + id_usuario );
-}else{
-    //alert("cambiar a editor");
-    window.location.replace("<?= base_url?>/usuario/cambiarPuesto/" + id_usuario);
-}
-}
-
-function borrarUsuario(id_usuario, nombreUsuario){
-    respuesta=confirm("Estas seguro de querer borrar a: " + nombreUsuario)
-    if (respuesta== true){
-        window.location.replace("<?= base_url?>/usuario/borrar_usuario/" + id_usuario);
+<script>    
+    function borrarPost(id_post, nombrePost){
+        respuesta = confirm("Estas seguro de querer borrar a: " + nombrePost)
+        if (respuesta == true) {
+            window.location.replace("<?= base_url ?>/post/borrar_post/" + id_post);
+        }        
     }
-}
 </script>
-_

@@ -5,13 +5,15 @@ https://www.free-css.com/free-css-templates/page265/shree
 ***************************************************************************DOING
 Post	
 	nuevo post ok
-	listar post
+	listar post ok
 	Cambiar post
 	eliminar post
 Manejo de arhivos
 	altas
 	bajas
 	cambios
+busquedas
+
 
 ***************************************************************************DONE
 visualizacion de pagina 
