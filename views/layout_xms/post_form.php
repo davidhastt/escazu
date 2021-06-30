@@ -7,9 +7,9 @@
 
         <?php
         if (isset($postFO)) {
-            echo "<form action='" . base_url . "post/actualizaPost/inicio' class='needs-validation' novalidate method='post'>";
+            echo "<form action='" . base_url . "post/actualizaPost/inicio' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>";
         } else {
-            echo "<form action='" . base_url . "post/guardar/inicio' class='needs-validation' novalidate method='post'>";
+            echo "<form action='" . base_url . "post/guardar/inicio' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>";
         }
         ?>
 
@@ -17,8 +17,8 @@
         <div class="row">
             <div class="col-sm-6">
                 <!-- id del usuario -->
-                
-                <input type="hidden" id="id_post" name="id_post" value="<?php if(isset($postFO)){ echo $postFO->id_post;  }?>">
+
+                <input type="text" id="id_usuario" name="id_usuario" value="<?= $_SESSION['identity_Session']->id_usuario ?>">
                 <div class="form-group">
                     <label>Nombre en barra de direcciones</label>
                     <input type="text" id="idAstxt" name="idAstxt" required class="form-control" placeholder="Nombre que aparecera en la barra de direcciones" value="<?php
@@ -114,31 +114,44 @@
                 </div>
             </div>                       
         </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card card-outline card-info">
-            <div class="card-header">
-              <h3 class="card-title">
-                Contenido del post
-              </h3>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exampleInputFile">Imagen de vista previa del post</label>
+                    <div class="mb-3">
+                    <div class="custom-file">                        
+                        <input class="form-control" type="file" name="archivo[]"  accept=".jpg" required>
+                    </div>
+                    </div>    
+                </div>
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <textarea id="contenido" name="contenido" class="form-control" required>
-                <?php if(isset($postFO)): ?>
-                <?php echo $postFO->contenido; ?>
-                <?php else :?>
-                    Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
-                <?php endif?>                
-              </textarea>
+        </div>    
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-outline card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Contenido del post
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <textarea id="contenido" name="contenido" class="form-control" required>
+                            <?php if (isset($postFO)): ?>
+                                <?php echo $postFO->contenido; ?>
+                            <?php else : ?>
+                                        Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
+                            <?php endif ?>                
+                        </textarea>
+                    </div>
+                    <div class="card-footer">
+                        Acuerdo Escazú
+                    </div>
+                </div>
             </div>
-            <div class="card-footer">
-              Acuerdo Escazú
-            </div>
-          </div>
+            <!-- /.col-->
         </div>
-        <!-- /.col-->
-      </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
@@ -146,8 +159,11 @@
     <!-- /.card-body -->
 </div>
 
+
+
+
 <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// Validamos que los input esten completos
     (function () {
         'use strict'
 

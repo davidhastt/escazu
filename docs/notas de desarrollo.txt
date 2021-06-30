@@ -53,18 +53,5 @@ Correccion de bugs del commit anterior, con respaldo a la BD
 en usuarios sexo agregale un option vacio, validar que el formulario de usuario no se vayan algunas casillas vacias, solo el super usuario puede ver o agregar otros usuarios, falta boton para cerrar sesion
 Muestra menu de nuevo post, muestra formulario de post, incluyendo editor de texto, guarda post, incluye respaldo de base de datos con tabla posts
 Muestra una lista de posts, con su autor y su categoria, incluye base de datos
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Recupera informacion de un post y permite actualizar posts, incluye respaldo de la base de datos
+Sube una imagen, que representara un thubnail del post

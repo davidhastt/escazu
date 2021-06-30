@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/post.php';
+require_once 'controllers/archivocontroller.php';
 
 class PostController {
     
@@ -106,14 +107,25 @@ class PostController {
                 $i++;
             }
             $save = $nuevoPost->guardar($propiedadesList, $nuevoPost);
-            if ($save) {// si el correo no existe se guarda
-                $mensaje = "Registro exitoso";
-                $mensaje2 = "Se creo el post!!";
-                $url = base_url . "post/listarPosts/inicio";
+            if ($save) {// si se guardo el post entonces subimos el arhivo
+                $AC= new archivoController();
+                $resultadoSubir=$AC->subir();//si se subio el archivo, procedemos sa registrarlo en la base de datos
+                if($resultadoSubir){              
+                    $mensaje = "Se creo el post";
+                    $mensaje2 = "Se subio la imagen!!";
+                    $url = base_url . "post/listarPosts/inicio";
+                }else {
+                    $mensaje = "Error";
+                    $mensaje2 = $resultadoSubir;
+                    $url = base_url . "post/listarPosts/inicio";                                        
+                }
+                }else{
+                    
+                }
                 require_once 'views/layout_xms/header.php';
                 require_once 'views/layout_xms/confirmacion.php';
                 require_once 'views/layout_xms/footer.php';
-                //ahora tienes que hacer una consulta para saber el id del usuario
+                
 
             } else {// sino existe el correo marca error
                 //$_SESSION['mensaje'] = "El registro fallo";
@@ -123,11 +135,7 @@ class PostController {
                 $error = new errorcontroller();
                 $error->index($mensaje, $mensaje2);
             }
-        } else {
-            $_SESSION['mensaje'] = "El registro fallo";
-            //header("Location:" . base_url . 'usuario/registro');
-            require_once 'views/usuario/registro.php';
-        }
+
     }    
 
 }
