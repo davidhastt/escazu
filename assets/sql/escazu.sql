@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2021 a las 07:40:15
+-- Tiempo de generación: 02-07-2021 a las 08:25:21
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -41,7 +41,9 @@ CREATE TABLE `archivos` (
 INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`) VALUES
 (1, 1, 3, 1),
 (2, 1, 4, 2),
-(3, 1, 5, 3);
+(3, 1, 5, 3),
+(4, 1, 6, 4),
+(5, 1, 7, 5);
 
 -- --------------------------------------------------------
 
@@ -111,11 +113,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id_post`, `id_imageAsList`, `idAstxt`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
-(1, NULL, 'MEDIO AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE', 'MEDIO AMBIENTE', NULL, 1, 'MEDIO AMBIENTE', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, NULL, 'MEDIO AMBIENTE2', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'MEDIO AMBIENTE2', NULL, 1, 'MEDIO AMBIENTE2', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE2</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
 (3, NULL, 'MEDIO AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'MEDIO AMBIENTE2', NULL, 1, 'MEDIO AMBIENTE2', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE2</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
 (4, NULL, 'MEDIO AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'MEDIO AMBIENTE3', NULL, 1, 'MEDIO AMBIENTE3', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE3</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(5, NULL, 'MEDIO AMBIENTE4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'MEDIO AMBIENTE4', NULL, 1, 'MEDIO AMBIENTE4', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE4</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+(5, NULL, 'MEDIO AMBIENTE4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'MEDIO AMBIENTE4', NULL, 1, 'MEDIO AMBIENTE4', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE4</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(6, NULL, 'MEDIO AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE', 'MEDIO AMBIENTE', NULL, 1, 'MEDIO AMBIENTE', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(7, NULL, 'MEDIO AMBIENTE2', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'MEDIO AMBIENTE2', NULL, 1, 'MEDIO AMBIENTE2', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE2</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -136,6 +138,13 @@ CREATE TABLE `usuarios` (
   `fecha_registro` date NOT NULL DEFAULT current_timestamp(),
   `confirmado` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellidoP`, `apellidoM`, `fechaNac`, `sexo`, `email`, `password`, `puesto`, `fecha_registro`, `confirmado`) VALUES
+(4, 'DAVID GERMáN', 'GOMEZ', 'MILLáN', '2021-07-21', 'M', 'DAVIDHASTT@GMAIL.COM', '$2y$04$VIyvigzx6YfT4vkz4A/B1.6zA.u3kVo44KP338z/0Zoo46bt93j.G', 0, '2021-07-02', 0);
 
 --
 -- Índices para tablas volcadas
@@ -175,7 +184,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -187,13 +196,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -29,6 +29,7 @@ ya registra usuarios
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
+Falta poner en el formulario de post el idioma
 Ver como aplicar la llave foranea en la relacion usuarios.id_usuario y posts.id_usuario, si se elimina un usario se eliminara tambien los posts que halla escrito?
 en la clase estadistica public function listarUsuarios(){//cuando puedas esto cambialo a usaurios
 cuando se registra un usuario no se puede asignar privilegios de administrador
@@ -61,3 +62,4 @@ Muestra una lista de posts, con su autor y su categoria, incluye base de datos
 Recupera informacion de un post y permite actualizar posts, incluye respaldo de la base de datos
 Sube una imagen, que representara un thubnail del post
 Ya relaciona las los posts  con su respectiva imagen de presentacion,  incluye respaldo de la base de datos
+El commit anterior tiene un error, la tabla usuarios se fue vacia, Ya lista los post en la pagina de inicio, incluye respaldo de base de datos

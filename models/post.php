@@ -59,7 +59,8 @@ class Post {
     
     
     public function listarPosts() {
-        $this->setListResult("SELECT id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.nom_categoria, posts.activo FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria");
+        //falta definir la consulta que solo muestre los post activos
+        $this->setListResult("SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post");
         return $this->listResult;
     }
 

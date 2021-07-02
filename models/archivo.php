@@ -10,7 +10,7 @@ class Archivo {
     private $nomFile; //aqui se almacena el id maximo    
     private $extension;
 
-    function __construct($id_tipoArchivo) {
+    function __construct($id_tipoArchivo) {// hace falta definir la carpeta donde se guardara
         $this->id_tipoArchivo = $id_tipoArchivo;
         switch ($this->id_tipoArchivo) {
             case 1:

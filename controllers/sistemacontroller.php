@@ -64,11 +64,21 @@ class sistemacontroller {
         $og_url = "http://geografia.mx";
         $og_section = "main";
         require_once 'views/layout_page/header.php';
+        
+        $lista_postMRO=$this->listarPosts();
+        
         require_once 'views/layout_page/inicio.php';
         require_once 'views/layout_page/footer.php';
     }
+    
+    
+    private function listarPosts(){
+       $lista_postMRO= new Post;
+       $lista_postMRO->listarPosts();
+       return $lista_postMRO->listResult;                
+    }
 
-    private function listarPosts($seccion) {// con este metodo se construye una pagina donde se muestran todos los servicios turisticos segun su categoria
+    private function listarPostsX($seccion) {// con este metodo se construye una pagina donde se muestran todos los servicios turisticos segun su categoria
         $seccion->setListResult("SELECT id_servicio,  nom_servicio, minidescripcion FROM posts WHERE categoria='" . $seccion->getCategoria() . "'  AND activo = 1");
         $servicioArr = $seccion->listResult; //no hagas caso de la advertencia de netbeans, si se usa esta variable
         $cateogoria = $seccion->getCategoria();
