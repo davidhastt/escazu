@@ -6,8 +6,13 @@ https://www.free-css.com/free-css-templates/page265/shree
 Post	
 	nuevo post ok
 	listar post ok
-	Cambiar post
-	eliminar post
+	Cambiar post ok 
+	eliminar post ok
+	sube imagen de thumnail ok
+		hay un problema cuando sube la imagen, la imagen quedo vinculad al usuario y no al post
+		$id_tipoArchivo
+	recupera imagen de thubmnail
+	cambia imagen de thumnail
 Manejo de arhivos
 	altas
 	bajas
@@ -55,3 +60,4 @@ Muestra menu de nuevo post, muestra formulario de post, incluyendo editor de tex
 Muestra una lista de posts, con su autor y su categoria, incluye base de datos
 Recupera informacion de un post y permite actualizar posts, incluye respaldo de la base de datos
 Sube una imagen, que representara un thubnail del post
+Ya relaciona las los posts  con su respectiva imagen de presentacion,  incluye respaldo de la base de datos

@@ -3,28 +3,22 @@
 require_once 'models/archivo.php';
 
 class archivoController {
-
-    public function subir() {
-
-
-        $id_usuario = $_SESSION['identity_Session']->id_usuario;
-
-
+  
+        
+    public function subir($id_tipoArchivo) {        
         $archivoArr = $_FILES['archivo'];
-        //$countFiles = count($PDFfile['name']);
-        //$i =0 ;
-        $archivo = new Archivo("jpg", $id_usuario, 1);
-        //while ($i < $countFiles) {
-        //$archivo->setId_documento($_POST['id_documento']);
+        $archivo = new Archivo($id_tipoArchivo);// extension de archivo
         $archivo->asignarNombreAFile();
         if ($archivo->subir($archivoArr)) {
-            if ($archivo->registarFile()) {
-                return "Archivo subido y registrado en la base de datos";
-            } else {
-                return  "Se subio el archivo pero no se pudo hacer registro en la BD";
+            $archivo->setId_post();
+            if ($archivo->registrarEnBD()){
+                return true;
+            }else{
+                return false;
             }
+            
         } else {
-            return "No se pudo subir el archivo, ni registrarlo en la base de datos";
+            return false;
         }
     }
 

@@ -107,10 +107,12 @@ class PostController {
                 $i++;
             }
             $save = $nuevoPost->guardar($propiedadesList, $nuevoPost);
+            
+            
             if ($save) {// si se guardo el post entonces subimos el arhivo
                 $AC= new archivoController();
-                $resultadoSubir=$AC->subir();//si se subio el archivo, procedemos sa registrarlo en la base de datos
-                if($resultadoSubir){              
+                $resultadoSubir=$AC->subir(1);          
+                if($resultadoSubir){                    
                     $mensaje = "Se creo el post";
                     $mensaje2 = "Se subio la imagen!!";
                     $url = base_url . "post/listarPosts/inicio";

@@ -1,8 +1,6 @@
 <?php
 
-class Post {
-
-    private $id_post;
+class Post {    
     public $id_imageAsList;
     private $idAstxt;
     public $nom_post;
@@ -30,8 +28,8 @@ class Post {
     public function __construct() {
         $this->db = Database::connect();
     }
-
     
+   
     
     public function actualiza() {//este metodo va a guardar las propiedades que esten definidas
         $strsql = "UPDATE posts SET "
@@ -311,10 +309,6 @@ class Post {
         return $resultado->fetch_object();
     }
 
-    function getId_post() {
-        return $this->$id_post;
-    }
-
     function getIdAstxt() {
         return $this->idAstxt;
     }
@@ -327,9 +321,6 @@ class Post {
         return $this->descripcion;
     }
 
-    function setId_post($id_post) {
-        $this->id_post = $id_post;
-    }
 
     function setIdAstxt($idAstxt) {
         $this->idAstxt = $idAstxt;

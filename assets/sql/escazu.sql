@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2021 a las 07:20:19
+-- Tiempo de generación: 02-07-2021 a las 07:40:15
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -29,10 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `archivos` (
   `id_archivo` int(4) NOT NULL,
-  `id_tipo` int(4) DEFAULT NULL,
-  `id_usuario` int(4) DEFAULT NULL,
+  `id_tipoArchivo` int(4) DEFAULT NULL,
+  `id_post` int(4) DEFAULT NULL,
   `nom_file` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `archivos`
+--
+
+INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`) VALUES
+(1, 1, 3, 1),
+(2, 1, 4, 2),
+(3, 1, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -102,24 +111,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id_post`, `id_imageAsList`, `idAstxt`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
-(6, NULL, 'ADIOSBACALAR', 1, '0.0', 4, 'LAGUNA DE BACALAR DESAPARECE', 'ADIOS BACALAR', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST', 'DAVID DAVID', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(8, NULL, 'LOBOMEXICANO', 1, '0.0', 4, 'DESAPARECE EL LOBO MEXICANO', 'ADIOS LOBITO', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST DEL LOBO MEXICANO', '                BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>AQUI VA LA DESCRIPCION CORTA DEL POST DEL LOBO MEXICANO</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(9, NULL, 'MEXICANOSVSCONTAMINACION', 0, '0.0', 4, 'UNION DE MEXICANOS VS LA CONTAMINACIONX', 'SI NO NOS UNIMOS NOS CARGA EL PAYASOX', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST DEL SI NO NOS UNIMOS NOS CARGA EL PAYASO', '                                DAVID<B> CARGA EL PAYASO</B>                                \r\n                                              \r\n              ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(10, NULL, 'ZEMPOALA EN PELIGRO', 1, '0.0', 4, 'LAGUNAS DE ZEMPOALA SE  EXTINGUEN', 'ADIOS ZEMPOALA', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST DE ZEMPOALA', 'AQUI VA LA DESCRIPCION CORTA DEL POST DE ZEMPOALA', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(11, NULL, 'CUENCA DEL BALSAS', 1, '0.0', 4, 'ADIOS AL BALSAS', 'EL BALSAS SUPER CONTAMINADO', NULL, 1, 'AQUI VA LA DESCRIPCION DEL RIO BALSAS', 'AQUI VA LA DESCRIPCION DEL RIO BALSAS, DESCRIPCION LARGA DEL RIO BALSAS', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(12, NULL, 'BOSQUE DE ZUMPAHUACAN', 1, '0.0', 4, 'LAGO DE ZUMPAHUACAN', 'ADIOS BOSQUE DE ZUMPAHUACAN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO ADIOS BOSQUE DE ZUMPAHUACAN', 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO ADIOS BOSQUE DE ZUMPAHUACAN, ANCINA MESMO AQUI VA LA DESCRIPCION', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(13, NULL, 'MEDIO AMBIENTE2', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'MEDIO AMBIENTE2', NULL, 1, 'MEDIO AMBIENTE2', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE2</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(14, NULL, 'MEDIO AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'MEDIO AMBIENTE3', NULL, 1, 'MEDIO AMBIENTE3', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE3MEDIO AMBIENTE3</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(15, NULL, 'MEDIO AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'MEDIO AMBIENTE3', NULL, 1, 'MEDIO AMBIENTE3', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE3&NBSP;MEDIO AMBIENTE3</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(16, NULL, 'MEDIO AMBIENTE4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'MEDIO AMBIENTE4', NULL, 1, 'MEDIO AMBIENTE4', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE4&NBSP;</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(17, NULL, 'MEDIO AMBIENTE4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'MEDIO AMBIENTE4', NULL, 1, 'MEDIO AMBIENTE4', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE4</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(18, NULL, 'MEDIO AMBIENTE5', 1, '0.0', 4, 'MEDIO AMBIENTE5', 'MEDIO AMBIENTE5', NULL, 1, 'MEDIO AMBIENTE5', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE5</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(19, NULL, 'MEDIO AMBIENTE6', 1, '0.0', 4, 'MEDIO AMBIENTE6', 'MEDIO AMBIENTE6', NULL, 1, 'MEDIO AMBIENTE6', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE6</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(20, NULL, 'MEDIO AMBIENTE7', 1, '0.0', 4, 'MEDIO AMBIENTE7', 'MEDIO AMBIENTE7', NULL, 1, 'MEDIO AMBIENTE7', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE7</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(21, NULL, 'MEDIO AMBIENTE7', 1, '0.0', 4, 'MEDIO AMBIENTE7', 'MEDIO AMBIENTE7', NULL, 1, 'MEDIO AMBIENTE7', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE7</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(22, NULL, 'MEDIO AMBIENTE8', 1, '0.0', 4, 'MEDIO AMBIENTE8', 'MEDIO AMBIENTE8', NULL, 1, 'MEDIO AMBIENTE8', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE8</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(23, NULL, 'MEDIO AMBIENTE9', 1, '0.0', 4, 'MEDIO AMBIENTE9', 'MEDIO AMBIENTE9', NULL, 1, 'MEDIO AMBIENTE9', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE9</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(24, NULL, 'MEDIO AMBIENTE9', 1, '0.0', 4, 'MEDIO AMBIENTE9', 'MEDIO AMBIENTE9', NULL, 1, 'MEDIO AMBIENTE9', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE9</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+(1, NULL, 'MEDIO AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE', 'MEDIO AMBIENTE', NULL, 1, 'MEDIO AMBIENTE', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, NULL, 'MEDIO AMBIENTE2', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'MEDIO AMBIENTE2', NULL, 1, 'MEDIO AMBIENTE2', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE2</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(3, NULL, 'MEDIO AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'MEDIO AMBIENTE2', NULL, 1, 'MEDIO AMBIENTE2', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE2</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(4, NULL, 'MEDIO AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'MEDIO AMBIENTE3', NULL, 1, 'MEDIO AMBIENTE3', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE3</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(5, NULL, 'MEDIO AMBIENTE4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'MEDIO AMBIENTE4', NULL, 1, 'MEDIO AMBIENTE4', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE4</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -140,17 +136,6 @@ CREATE TABLE `usuarios` (
   `fecha_registro` date NOT NULL DEFAULT current_timestamp(),
   `confirmado` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellidoP`, `apellidoM`, `fechaNac`, `sexo`, `email`, `password`, `puesto`, `fecha_registro`, `confirmado`) VALUES
-(1, 'EDITH', 'GOMEZ', 'ROCHA', '2021-06-16', 'F', 'EDI@GMAIL.COM', '$2y$04$1q2vxosNBzm4NE/9P7xhi.vEOCpDKVefMBRgPIsiyZy/vi4tNDgGm', 0, '2021-06-21', 0),
-(4, 'DAVID GERMáN', 'GOMEZ', 'MILLáN', '2021-06-23', 'M', 'DAVIDHASTT@GMAIL.COM', '$2y$04$FB2L3oDz.jjct7df8Asie.xMpLGvJspgL5Ir.CTtL7v.Czi9t1UQm', 1, '2021-06-17', 1),
-(11, 'ROQUE', 'RODRIGUEZ', 'FUENTES', '2021-06-21', 'M', 'ROQUE@GMAIL.COM', '$2y$04$61KOubxLw1rexJwbM3ZzSu32k/oWzgtfX2z9Hiqk9EZ51kAC/YqCe', 0, '2021-06-21', 0),
-(12, 'ERICKA', 'FUENTES', 'RODRIGUEZ', '2021-07-03', 'F', 'ERI@GMAIL.COM', '$2y$04$v8qqn9enKpLgDJROfSCvSeUJUTo0zYenDA/1tA7hVxlDXK3ipNFga', 0, '2021-06-21', 0),
-(13, 'ESMERALDA', 'GUZMAN', 'SOTELO', '2021-06-09', 'F', 'ESME@GMAIL.COM', '$2y$04$1h/AnllkS/L62taWWqq0ROE/z8ITxfT17p7bHWih5afxEJJVWLkNi', 0, '2021-06-21', 0);
 
 --
 -- Índices para tablas volcadas
@@ -190,7 +175,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -202,13 +187,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

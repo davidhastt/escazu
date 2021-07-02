@@ -18,7 +18,7 @@
             <div class="col-sm-6">
                 <!-- id del usuario -->
 
-                <input type="text" id="id_usuario" name="id_usuario" value="<?= $_SESSION['identity_Session']->id_usuario ?>">
+                <input type="hidden" id="id_usuario" name="id_usuario" value="<?= $_SESSION['identity_Session']->id_usuario ?>">
                 <div class="form-group">
                     <label>Nombre en barra de direcciones</label>
                     <input type="text" id="idAstxt" name="idAstxt" required class="form-control" placeholder="Nombre que aparecera en la barra de direcciones" value="<?php

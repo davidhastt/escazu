@@ -2,22 +2,40 @@
 
 class Archivo {
 
-    public $extencion;
-    //public $id_documento; //id_documento dice que tipo de archivo es ver la tabla de la base de datos
-    public $ubicacion;
+    public $id_tipoArchivo;
+    private $id_post;
+    public $ubicacion;//se usa esta variable??
     public $id_usuario;
     private $db;
-    private $nomFile; //aqui se almacena el id maximo
-    private $id_tipoArchivo;
+    private $nomFile; //aqui se almacena el id maximo    
+    private $extension;
 
-    function __construct($extencion, $id_usuario, $id_tipoArchivo) {
-        $this->extencion = $extencion;
-        $this->id_usuario = $id_usuario;
-        $this->db = Database::connect();
+    function __construct($id_tipoArchivo) {
         $this->id_tipoArchivo = $id_tipoArchivo;
+        switch ($this->id_tipoArchivo) {
+            case 1:
+                $this->extension="jpg";
+                break;
+
+            default:
+                break;
+        }
+
+
+        
+        $this->db = Database::connect();        
     }
 
-  
+    public function registrarEnBD() {
+        $nombre = substr($this->nomFile, 0, -4);
+        $strsql = "INSERT INTO archivos VALUES (NULL, {$this->id_tipoArchivo}, {$this->id_post}, '{$nombre}')";
+        $save = $this->db->query($strsql);
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
+    }  
 
     public function eliminar($id_file) {
         // primero tienes que descubrir el nombre del archivo con id = $id_file
@@ -71,37 +89,35 @@ class Archivo {
         return $result;
     }
 
-    public function registarFile() {
-        $nombre = substr($this->nomFile, 0, -4);
-        $strsql = "INSERT INTO archivos VALUES (NULL, '{$this->id_tipoArchivo}', '{$this->id_usuario}', '{$nombre}')";
-        $save = $this->db->query($strsql);
-        $result = false;
-        if ($save) {
-            $result = true;
-        }
-        return $result;
-    }
-
     public function subir($archivoArr) {
-        //$archivo = $_FILES['archivo'];
-        //$nombre = $PDFfile['name'][0];
         $tipo = $archivoArr['type'][0];
-
         if ($tipo == "image/jpeg" || $tipo == "image/jpg") {
-
-
-            if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/jpg/' . $this->nomFile)) {
+            if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/img/thumbnails/' . $this->nomFile)) {
                 return true;
             } else {
                 return false;
-            }
-
-            return true;
+            }            
         } else {
             return false;
         }
     }
 
+    function getId_post() {
+        return $this->id_post;
+    }
+
+    public function setId_post() {
+        //Consegir el registro mayor en el campo ID
+        $strsql = "SELECT MAX(id_post) as maxid FROM posts";
+        $resultado = $this->db->query($strsql);
+        $filas = $resultado->fetch_object();
+        //$maxID = intval($filas->maxid) + 1;
+        $maxID = intval($filas->maxid);
+        $this->id_post = $maxID;
+
+    }    
+            
+    
     public function asignarNombreAFile() {
         //Consegir el registro mayor en el campo ID
         $strsql = "SELECT MAX(id_archivo) as maxid FROM archivos";
@@ -126,15 +142,11 @@ class Archivo {
     }
 */
     function getExtencion() {
-        return $this->extencion;
+        return $this->extension;
     }
 
     function getUbicacion() {
         return $this->ubicacion;
-    }
-
-    function getId_usuario() {
-        return $this->id_usuario;
     }
 
     function setExtencion($extencion) {
@@ -143,10 +155,6 @@ class Archivo {
 
     function setUbicacion($ubicacion) {
         $this->ubicacion = $ubicacion;
-    }
-
-    function setId_usuario($id_usuario) {
-        $this->id_usuario = $id_usuario;
     }
 
 }
