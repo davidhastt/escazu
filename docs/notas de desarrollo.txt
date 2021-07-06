@@ -63,3 +63,4 @@ Recupera informacion de un post y permite actualizar posts, incluye respaldo de 
 Sube una imagen, que representara un thubnail del post
 Ya relaciona las los posts  con su respectiva imagen de presentacion,  incluye respaldo de la base de datos
 El commit anterior tiene un error, la tabla usuarios se fue vacia, Ya lista los post en la pagina de inicio, incluye respaldo de base de datos
+Ya muestra las 5 categorias  en el menu  y enlista los post por categoria, incluye respaldo de la base de datos

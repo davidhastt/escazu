@@ -59,12 +59,12 @@
                 <div class="limit-box">
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
-                      <li class="active"> <a href="<?= base_url ?>">Home</a> </li>
-                      <li> <a href="#about">About</a> </li>
-                      <li> <a href="#vegetable">Vegetable</a> </li>
-                      <li> <a href="#testimonial">Testomonial</a> </li>
-                      <li> <a href="#contact">Contact Us</a> </li>
-                     
+                      <li class="active"> <a href="<?= base_url ?>">Inicio</a> </li>
+                      <li> <a href="<?= base_url?>sistema/acuerdo/index">Acuerdo escazú</a> </li>
+                      <li> <a href="<?= base_url?>sistema/conferencias/index">Conferencias</a> </li>
+                      <li> <a href="<?= base_url?>sistema/materiales/index">Materiales</a> </li>
+                      <li> <a href="<?= base_url?>sistema/ligas/index">Ligas</a> </li>
+                      <li> <a href="<?= base_url?>sistema/cursos/index">Cursos</a> </li>                     
                      <li> <a href="#"><img src="<?= base_url ?>assets/page/img/icon/icon_b.png" alt="#" /></a></li>
                      </ul>
                    </nav>

@@ -1,6 +1,7 @@
 <?php
 
-class Post {    
+class Post {
+
     public $id_imageAsList;
     private $idAstxt;
     public $nom_post;
@@ -28,18 +29,16 @@ class Post {
     public function __construct() {
         $this->db = Database::connect();
     }
-    
-   
-    
+
     public function actualiza() {//este metodo va a guardar las propiedades que esten definidas
         $strsql = "UPDATE posts SET "
-                ."idAstxt='".$this->idAstxt . "', "
-                ."activo='".$this->activo . "', "
-                ."nom_post='".$this->nom_post . "', "
-                ."slogan='".$this->slogan . "', "
-                ."id_categoria=".$this->id_categoria . ", "
-                ."descripcion_corta='".$this->descripcion_corta . "', "                
-                ."contenido='".$this->contenido."'";
+                . "idAstxt='" . $this->idAstxt . "', "
+                . "activo='" . $this->activo . "', "
+                . "nom_post='" . $this->nom_post . "', "
+                . "slogan='" . $this->slogan . "', "
+                . "id_categoria=" . $this->id_categoria . ", "
+                . "descripcion_corta='" . $this->descripcion_corta . "', "
+                . "contenido='" . $this->contenido . "'";
 
         $strsql .= " WHERE id_post= " . $this->id_post;
         $save = $this->db->query($strsql);
@@ -49,28 +48,47 @@ class Post {
         }
         return $result;
     }
-    
-    
-    
-    public function getPost($id_post){        
-        $strsql="SELECT posts.id_post, posts.idAstxt, posts.descripcion_corta, usuarios.nombre, posts.slogan, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.id_categoria, categorias.nom_categoria, posts.activo, posts.contenido FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria WHERE id_post=" . $id_post;
-        $this->listResult = $this->db->query($strsql);                
-    }    
-    
-    
-    public function listarPosts() {
+
+    public function getPost($id_post) {
+        $strsql = "SELECT posts.id_post, posts.idAstxt, posts.descripcion_corta, usuarios.nombre, posts.slogan, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.id_categoria, categorias.nom_categoria, posts.activo, posts.contenido FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria WHERE id_post=" . $id_post;
+        $this->listResult = $this->db->query($strsql);
+    }
+
+    public function listarPosts($categoria) {
         //falta definir la consulta que solo muestre los post activos
-        $this->setListResult("SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post");
+        switch ($categoria) {
+            case "inicio":
+                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post  ORDER BY posts.id_post DESC LIMIT 10";
+                break;
+            case "acuerdo":
+                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=1  ORDER BY posts.id_post";
+                break;
+            case "conferencias":
+                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=2  ORDER BY posts.id_post";
+                break;
+            case "materiales":
+                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=3  ORDER BY posts.id_post";
+                break;
+            case "ligas":
+                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=4  ORDER BY posts.id_post";
+                break;
+            case "cursos":
+                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=5  ORDER BY posts.id_post";
+                break;
+            default:
+                break;
+        }
+
+        $this->setListResult($strsql);
         return $this->listResult;
     }
 
-    public function borrarPost($id_post){
-        $strsql="DELETE FROM posts WHERE id_post=" . $id_post;
+    public function borrarPost($id_post) {
+        $strsql = "DELETE FROM posts WHERE id_post=" . $id_post;
         $this->listResult = $this->db->query($strsql);
         return $this->listResult;
     }
-    
-    
+
     public function guardar($fieldList) {//este metodo va a guardar las propiedades que esten definidas
         $strsql = "INSERT INTO posts (";
         $strsqlFields = "";
@@ -321,7 +339,6 @@ class Post {
     function getDescripcion() {
         return $this->descripcion;
     }
-
 
     function setIdAstxt($idAstxt) {
         $this->idAstxt = $idAstxt;

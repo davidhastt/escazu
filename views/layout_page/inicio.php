@@ -17,9 +17,9 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="text-bg">
-                     <span>Welcome To Shree</span>
-                      <h1>Vegetables Shop</h1>
-                      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
+                     <span>Acuerdo Escazu</span>
+                      <h1>24 firmantes. 12 ratificaciones</h1>
+                      <p>Acuerdo Regional sobre el Acceso a la Información, la Participación Pública y el Acceso a la Justicia en Asuntos Ambientales en América Latina y el Caribe</p>
                       <form class="Vegetable">
                 <input class="Vegetable_fom" placeholder="Vegetable" type="text" name=" Vegetable">
                 <button class="Search_btn">Search</button>
@@ -44,9 +44,9 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="text-bg">
-                      <span>Welcome To Shree</span>
-                      <h1>Vegetables Shop</h1>
-                      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
+                      <span>Bienvenido al centro virtual</span>
+                      <h1>Acuerdo Escazú</h1>
+                      <p>doce ratificaciones (Antigua y Barbuda, Argentina, Bolivia, Ecuador, Guyana, México, Nicaragua, Panamá, San Cristóbal y Nevis, San Vicente y las Granadinas, Santa Lucía y Uruguay)</p>
                       <form class="Vegetable">
                 <input class="Vegetable_fom" placeholder="Vegetable" type="text" name=" Vegetable">
                 <button class="Search_btn">Search</button>
@@ -74,9 +74,9 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="text-bg">
-                      <span>Welcome To Shree</span>
-                      <h1>Vegetables Shop</h1>
-                      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
+                      <span>Acuerdo regional</span>
+                      <h1>Escazú</h1>
+                      <p>Este acuerdo regional es considerado como uno de los instrumentos ambientales más importantes de la región. Tiene como objetivo garantizar la implementación plena y efectiva en América Latina y el Caribe de los derechos de acceso a la información ambiental.</p>
                        <form class="Vegetable">
                 <input class="Vegetable_fom" placeholder="Vegetable" type="text" name=" Vegetable">
                 <button class="Search_btn">Search</button>

@@ -4,15 +4,117 @@ require_once 'models/post.php';//asegurate que este require sea necesario
 require_once 'models/estadistica.php';
 
 class sistemacontroller {
+    
+    
+    public function index() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once 'views/layout_page/header.php';
+        
+        $lista_postMRO=$this->listarPosts("inicio");
+        
+        require_once 'views/layout_page/inicio.php';
+        require_once 'views/layout_page/footer.php';
+    }
+    
+    
+    public function acuerdo() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once 'views/layout_page/header.php';
+        
+        $lista_postMRO=$this->listarPosts("acuerdo");
+        
+        require_once 'views/layout_page/inicio.php';
+        require_once 'views/layout_page/footer.php';
+    }
+    
+    
+    public function conferencias() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once 'views/layout_page/header.php';
+        
+        $lista_postMRO=$this->listarPosts("conferencias");
+        
+        require_once 'views/layout_page/inicio.php';
+        require_once 'views/layout_page/footer.php';
+    } 
+    
+    public function materiales() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once 'views/layout_page/header.php';
+        
+        $lista_postMRO=$this->listarPosts("materiales");
+        
+        require_once 'views/layout_page/inicio.php';
+        require_once 'views/layout_page/footer.php';
+    }     
+    
+    public function ligas() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once 'views/layout_page/header.php';
+        
+        $lista_postMRO=$this->listarPosts("ligas");
+        
+        require_once 'views/layout_page/inicio.php';
+        require_once 'views/layout_page/footer.php';
+    }    
 
-    /*
-    public function getalltoday() {
-        //declaramos un objeto del tipo Agenda
-        $agendaHoy = new Agenda;
-        //$fecha = $_POST['fecha_cita'];            
-        $listaEsperaHoy = $agendaHoy->getAllToday();
-        require_once 'views/periodo/muestraagendahoy.php';
-    }*/
+    public function cursos() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once 'views/layout_page/header.php';
+        
+        $lista_postMRO=$this->listarPosts("cursos");
+        
+        require_once 'views/layout_page/inicio.php';
+        require_once 'views/layout_page/footer.php';
+    }    
 
     public function entrar() {
         require_once 'views/layout_page/header.php';
@@ -52,29 +154,10 @@ class sistemacontroller {
         $servicioTobj = new Estadistica;
         $servicioTobj->visitasxmes();
     }
-
-    public function index() {//index principal
-        $seo_title = "Geografia MX territorio y tecnología";
-        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
-        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
-        //open graph
-        $og_image = base_url . "assets/img/about-bg.jpg";
-        $og_title = "Geografia MX";
-        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
-        $og_url = "http://geografia.mx";
-        $og_section = "main";
-        require_once 'views/layout_page/header.php';
-        
-        $lista_postMRO=$this->listarPosts();
-        
-        require_once 'views/layout_page/inicio.php';
-        require_once 'views/layout_page/footer.php';
-    }
     
-    
-    private function listarPosts(){
+    private function listarPosts($categoria){
        $lista_postMRO= new Post;
-       $lista_postMRO->listarPosts();
+       $lista_postMRO->listarPosts($categoria);
        return $lista_postMRO->listResult;                
     }
 
@@ -170,51 +253,4 @@ class sistemacontroller {
         $top10 = $stat->getListResult();
         require_once 'views/topservices.php';
     }
-
-    
-    public function investigacion() {
-        if ($_GET['parametro'] == "index") {// enlistar muestra la lista total de servicios de esta categoria
-            $seccion = new Seccion("investigacion");
-            $this->listarPosts($seccion);
-        } else {//muestra la informacion del servicio
-            $this->showPost();
-        }
-    }
-
-    public function tutoriales() {
-        if ($_GET['parametro'] == "index") {// enlistar muestra la lista total de servicios de esta categoria
-            $seccion = new Seccion("tutoriales");
-            $this->listarPosts($seccion);
-        } else {//muestra la informacion del servicio
-            $this->showPost();
-        }
-    }
-
-    public function cursos() {
-        if ($_GET['parametro'] == "index") {// enlistar muestra la lista total de servicios de esta categoria
-            $seccion = new Seccion("cursos");
-            $this->listarPosts($seccion);
-        } else {//muestra la informacion del servicio
-            $this->showPost();
-        }
-    }
-
-    public function servicios() {
-        if ($_GET['parametro'] == "index") {// enlistar muestra la lista total de servicios de esta categoria
-            $seccion = new Seccion("servicios");
-            $this->listarPosts($seccion);
-        } else {//muestra la informacion del servicio
-            $this->showPost();
-        }
-    }
-
-    public function mapas() {
-        if ($_GET['parametro'] == "index") {// enlistar muestra la lista total de servicios de esta categoria
-            $seccion = new Seccion("mapas");
-            $this->listarPosts($seccion);
-        } else {//muestra la informacion del servicio
-            $this->showPost();
-        }
-    }
-
 }

@@ -72,7 +72,7 @@ class PostController {
     public function listarPosts(){
         require_once 'views/layout_xms/header.php';        
         $postCls= new Post();        
-        $usuariosFO=$postCls->listarPosts();                        
+        $usuariosFO=$postCls->listarPosts("inicio");                        
         require_once 'views/layout_xms/listar_posts.php';
         require_once 'views/layout_xms/footer.php';              
     }
