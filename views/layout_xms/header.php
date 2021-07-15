@@ -116,15 +116,14 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?= base_url ?>post/showPostForm/inicio" class="nav-link active">
+                                        <a href="<?= base_url ?>post/crear/inicio" class="nav-link active">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Nuevo post</p>
                                         </a>
-                                    </li>
-                                    
+                                    </li>                                    
 
                                     <li class="nav-item">
-                                        <a href="<?= base_url ?>post/listarPosts/inicio" class="nav-link ">
+                                        <a href="<?= base_url ?>post/listarPosts/listarEnCMX" class="nav-link ">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Ver posts</p>
                                         </a>

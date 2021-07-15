@@ -30,6 +30,28 @@ class Post {
         $this->db = Database::connect();
     }
 
+    public function setId_post() {
+        //Consegir el registro mayor en el campo ID
+        $strsql = "SELECT MAX(id_post) as maxid FROM posts";
+        $resultado = $this->db->query($strsql);
+        $filas = $resultado->fetch_object();
+        $maxID = intval($filas->maxid);
+        $this->id_post = $maxID;
+    }    
+    
+    
+    public function insertarPostVacio(){
+        $id_usuario=$_SESSION['identity_Session']->id_usuario;
+        $strsql = "INSERT INTO posts VALUES(null, null, null, 0, 0, {$id_usuario}, 'nuevo post', null, null, 1,null, null, null, null, null,null, null, null, null, null,null, null, null)";            
+        $save = $this->db->query($strsql);
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;        
+
+    }
+    
     public function actualiza() {//este metodo va a guardar las propiedades que esten definidas
         $strsql = "UPDATE posts SET "
                 . "idAstxt='" . $this->idAstxt . "', "
@@ -78,6 +100,22 @@ WHERE
     public function listarPosts($categoria) {
         //falta definir la consulta que solo muestre los post activos
         switch ($categoria) {
+            case "listarEnCMX":
+                $strsql="SELECT
+                    posts.id_post,
+                    usuarios.nombre,
+                    usuarios.apellidoP,
+                    usuarios.apellidoM,
+                    posts.nom_post,
+                    categorias.nom_categoria,
+                    posts.activo
+                FROM
+                    posts
+                INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario
+                INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria
+                ORDER BY
+                    posts.id_post";
+                break;                
             case "inicio":
                 $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post  ORDER BY posts.id_post DESC LIMIT 10";
                 break;
@@ -110,7 +148,7 @@ WHERE
         return $this->listResult;
     }
 
-    public function guardar($fieldList) {//este metodo va a guardar las propiedades que esten definidas
+    public function guardar($fieldList) {//este metodo va a guardar las propiedades que esten definidas, parece que quedara obsoleto, ya no se usara
         $strsql = "INSERT INTO posts (";
         $strsqlFields = "";
         $strsqlValues = ") VALUES(";
@@ -145,10 +183,6 @@ WHERE
 
     function getId_post() {
         return $this->id_post;
-    }
-
-    function setId_post($id_post) {
-        $this->id_post = $id_post;
     }
 
         

@@ -6,9 +6,10 @@
     <div class="card-body">
 
         <?php
-        if (isset($postFO)) {
+        if (isset($postFO)) {            
             echo "<form action='" . base_url . "post/actualizaPost/inicio' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>";
         } else {
+            //con los nuevos cambios ya nunca entrara aqui
             echo "<form action='" . base_url . "post/guardar/inicio' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>";
         }
         ?>

@@ -3,7 +3,12 @@
 require_once 'models/archivo.php';
 
 class archivoController {
-  
+
+public function insertarFilaVaciaRelacionada($id_post, $tipoArchivo){//tal vez esto no sea necesario
+    $archivo= new Archivo($tipoArchivo);
+    $archivo->setId_post($id_post);
+    $archivo->insertarFilaVaciaRelacionada();
+}
         
     public function subir($id_tipoArchivo, $id_post) {   //si id_post > 0 entonces se debe actualizar en la tabla     
         $archivoArr = $_FILES['archivo'];

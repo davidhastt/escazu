@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2021 a las 07:30:11
+-- Tiempo de generación: 15-07-2021 a las 17:48:03
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -40,8 +40,8 @@ CREATE TABLE `archivos` (
 
 INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`) VALUES
 (1, 1, 1, 1),
-(3, 1, 4, 4),
-(4, 1, 5, 5);
+(2, 1, 2, 2),
+(3, 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -93,9 +93,9 @@ CREATE TABLE `posts` (
   `id_categoria` int(1) DEFAULT NULL,
   `descripcion_corta` varchar(300) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `contenido` varchar(7817) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `inicioPublicacion` timestamp NULL DEFAULT NULL,
-  `finPublicacion` date DEFAULT NULL,
-  `dateUpdate` date NOT NULL,
+  `inicioPublicacion` date DEFAULT current_timestamp(),
+  `finPublicacion` datetime DEFAULT current_timestamp(),
+  `dateUpdate` date DEFAULT NULL,
   `linkFacebook` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `linkYoutube` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `linkInstagram` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL,
@@ -111,11 +111,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id_post`, `id_imageAsList`, `idAstxt`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
-(1, NULL, 'AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE', 'DESAPARECE EL LAGO', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                                                                                                                                                                                                                                                                                                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, NULL, 'AMBIENTE2', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'DESAPARECE EL LAGO2', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(3, NULL, 'AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(4, NULL, 'AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                                        \r\n                                        \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(5, NULL, 'MEDIO4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                                                                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+(1, NULL, 'MEDIUM', 1, '0.0', 4, 'MEDIO AMBIENTE', 'LOS ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', 'AQUI VA LA DESCRIPCION LARGA DEL POST', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, 'MEDIUMX', 1, '0.0', 4, 'MEDIO AMBIENTE', 'LOS ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                AQUI VA LA DESCRIPCION LARGA DEL POST                \r\n                        ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, NULL, 'MEDIO5', 1, '0.0', 4, 'MEDIO AMBIENTE5', 'LOS ECOSISTEMAS DESAPARECEN5', NULL, 2, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                                                AQUI VA LA DESCRIPCION ANCINA 5                \r\n                        ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -183,7 +181,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -195,7 +193,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

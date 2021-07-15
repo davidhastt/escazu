@@ -3,26 +3,8 @@ https://www.free-css.com/free-css-templates/page265/shree
 
 
 ***************************************************************************DOING
-Post	
-	nuevo post ok
-	listar post ok
-	Cambiar post ok 
-	eliminar post ok
-	sube imagen de thumnail ok
-		hay un problema cuando sube la imagen, la imagen quedo vinculad al usuario y no al post
-		$id_tipoArchivo
-	recupera nombre de imagen de thubmnail
-	cambia imagen de thumnail
-		actualizar nombre de imagen
-		actualizar fila
-		borrar archivo
-		subir archivo nuevo
+Al momento de dar click en nuevo post se debe insertar un registro a la base de datos y se debe recuperar el id del ultimo registro de la base datos, entonces despues ya insertar todos los componentes del post
 
-Manejo de arhivos
-	altas
-	bajas
-	cambios
-busquedas
 
 
 ***************************************************************************DONE
@@ -34,6 +16,9 @@ ya registra usuarios
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
+Comprueba que cuando borras un post se borre el archivo y la fila en la tabla archivos
+el date time stamp de la tabla post no funciona
+en el cmx ya no se ve el logo
 Falta poner en el formulario de post el idioma
 Ver como aplicar la llave foranea en la relacion usuarios.id_usuario y posts.id_usuario, si se elimina un usario se eliminara tambien los posts que halla escrito?
 en la clase estadistica public function listarUsuarios(){//cuando puedas esto cambialo a usaurios
@@ -70,3 +55,4 @@ Ya relaciona las los posts  con su respectiva imagen de presentacion,  incluye r
 El commit anterior tiene un error, la tabla usuarios se fue vacia, Ya lista los post en la pagina de inicio, incluye respaldo de base de datos
 Ya muestra las 5 categorias  en el menu  y enlista los post por categoria, incluye respaldo de la base de datos
 Ya actualiza la imagen de presentacion del post, primero la elimina y luego muestr una imagen default y despues puedes cargar una nueva, tal vez hay un error, con respaldo de base de datos
+Se reajusto la forma de trabajar cada que haces un post, ahora al momento de dar click en el menu nuevo post, en ese momento se crea una fila en la base de datos con sus respectivas relaciones con la tabla archivos y se hace una consulta para mostrar la informacion de esa ultima fila agregada a la tabla post y eso es lo que se muestra en el formulario, ademas arregle algunas inconsistencias que implicaban hacer este cambio, incluye base de datos

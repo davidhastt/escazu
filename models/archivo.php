@@ -15,6 +15,17 @@ class Archivo {
         $this->setId_tipoArchivo($id_tipoArchivo);
     }
 
+    
+    function insertarFilaVaciaRelacionada(){
+        $strsql = "INSERT INTO archivos VALUES(null, {$this->id_tipoArchivo}, {$this->id_post}, 0)";
+        $save = $this->db->query($strsql);
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;        
+    }    
+    
     function actualizaNomFile($nom_file){        
         $strsql = "UPDATE archivos SET nom_file={$nom_file} WHERE id_post={$nom_file}";
         $save = $this->db->query($strsql);
