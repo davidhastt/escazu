@@ -18,7 +18,12 @@
             <div class="col-sm-6">
                 <!-- id del usuario -->
 
-                <input type="hidden" id="id_usuario" name="id_usuario" value="<?= $_SESSION['identity_Session']->id_usuario ?>">
+                <input type="text" id="id_usuario" name="id_usuario" value="<?= $_SESSION['identity_Session']->id_usuario ?>">
+
+                <?php if (isset($postFO)): ?>
+                    <input type="text" id="id_post" name="id_post" value="<?= $postFO->id_post ?>">
+                <?php endif; ?>
+
                 <div class="form-group">
                     <label>Nombre en barra de direcciones</label>
                     <input type="text" id="idAstxt" name="idAstxt" required class="form-control" placeholder="Nombre que aparecera en la barra de direcciones" value="<?php
@@ -116,16 +121,58 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="exampleInputFile">Imagen de vista previa del post</label>
-                    <div class="mb-3">
-                    <div class="custom-file">                        
-                        <input class="form-control" type="file" name="archivo[]"  accept=".jpg" required>
-                    </div>
-                    </div>    
+                <div class="form-group" >
+                    <?php if (isset($postFO->nom_file)): ?>
+                        <?php if ($postFO->nom_file != 0): ?>
+                            <label for="exampleInputFile">Imagen de presentación</label>
+                            <div class="mb-3">
+                                <div class="custom-file">                        
+                                    <button type="button" onclick="document.location = '<?= base_url ?>archivo/borrar/<?= $postFO->id_archivo ?>'" class="btn btn-danger btn-lg">Eliminar imagen</button>
+                                </div>
+                            </div>
+                        <?php else: ?>
+                            <label for="exampleInputFile">Subir archivo para vista previa de la imagen del post</label>
+                            <div class="mb-3">
+                                <div class="custom-file">                        
+                                    <input class="form-control" type="file" name="archivo[]"  accept=".jpg" required>
+                                </div>
+                            </div>                                       
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <label for="exampleInputFile">Subir archivo para vista previa de la imagen del post</label>
+                        <div class="mb-3">
+                            <div class="custom-file">                        
+                                <input class="form-control" type="file" name="archivo[]"  accept=".jpg" required>
+                            </div>
+                        </div>                   
+                    <?php endif; ?>    
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exampleInputFile">Imagen para mostrar como vista previa</label>
+                    <div class="mb-3">
+                        <div class="custom-file">                        
+                            <img src='<?php if (isset($postFO->nom_file)) {
+                        echo base_url . "assets/page/img/{$postFO->nom_file}.jpg";
+                    } else {
+                        echo base_url . "assets/page/img/0.jpg";
+                    } ?>' class="img-thumbnail" alt="Si ves esto hay un error">
+                        </div>
+                    </div>    
+                </div>
+            </div>            
         </div>    
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>        
 
         <div class="row">
             <div class="col-md-12">
@@ -139,10 +186,10 @@
                     <div class="card-body">
                         <textarea id="contenido" name="contenido" class="form-control" required>
                             <?php if (isset($postFO)): ?>
-                                <?php echo $postFO->contenido; ?>
-                            <?php else : ?>
-                                        Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
-                            <?php endif ?>                
+    <?php echo $postFO->contenido; ?>
+<?php else : ?>
+                                                Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
+<?php endif ?>                
                         </textarea>
                     </div>
                     <div class="card-footer">

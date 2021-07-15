@@ -1,7 +1,7 @@
 <?php
 
 class Post {
-
+    private $id_post;
     public $id_imageAsList;
     private $idAstxt;
     public $nom_post;
@@ -50,7 +50,28 @@ class Post {
     }
 
     public function getPost($id_post) {
-        $strsql = "SELECT posts.id_post, posts.idAstxt, posts.descripcion_corta, usuarios.nombre, posts.slogan, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, categorias.id_categoria, categorias.nom_categoria, posts.activo, posts.contenido FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria WHERE id_post=" . $id_post;
+        $strsql = "SELECT
+    posts.id_post,
+    posts.idAstxt,
+    posts.descripcion_corta,
+    usuarios.nombre,
+    posts.slogan,
+    usuarios.apellidoP,
+    usuarios.apellidoM,
+    posts.nom_post,
+    categorias.id_categoria,
+    categorias.nom_categoria,
+    posts.activo,
+    posts.contenido,
+    archivos.id_archivo,
+    archivos.nom_file
+FROM
+    posts
+INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario
+INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria
+INNER JOIN archivos ON posts.id_post = archivos.id_post
+WHERE
+    posts.id_post =" . $id_post;
         $this->listResult = $this->db->query($strsql);
     }
 
@@ -122,6 +143,15 @@ class Post {
         return $result;
     }
 
+    function getId_post() {
+        return $this->id_post;
+    }
+
+    function setId_post($id_post) {
+        $this->id_post = $id_post;
+    }
+
+        
     function getContenido() {
         return $this->contenido;
     }

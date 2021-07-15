@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2021 a las 07:03:17
+-- Tiempo de generación: 15-07-2021 a las 07:30:11
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -39,14 +39,9 @@ CREATE TABLE `archivos` (
 --
 
 INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`) VALUES
-(1, 1, 3, 1),
-(2, 1, 4, 2),
-(3, 1, 5, 3),
-(4, 1, 6, 4),
-(5, 1, 7, 5),
-(6, 1, 8, 6),
-(7, 1, 9, 7),
-(8, 1, 10, 8);
+(1, 1, 1, 1),
+(3, 1, 4, 4),
+(4, 1, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -116,12 +111,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id_post`, `id_imageAsList`, `idAstxt`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
-(4, NULL, 'MEDIO AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'MEDIO AMBIENTE3', NULL, 1, 'MEDIO AMBIENTE3', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE3</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(5, NULL, 'MEDIO AMBIENTE4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'MEDIO AMBIENTE4', NULL, 2, 'MEDIO AMBIENTE4', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE4</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(6, NULL, 'MEDIO AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE', 'MEDIO AMBIENTE', NULL, 4, 'MEDIO AMBIENTE', '                                                                    BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí&NBSP;</STRONG><B>MEDIO AMBIENTE</B>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(8, NULL, 'JAGUAR', 1, '0.0', 4, 'ESTUDIO DEL HABITAT DEL JAGUAR EN CHIAPAS', 'EL JAGUAR EN PELIGRO', NULL, 3, 'ESTE ESTUDIO SE REFIERE A DELIMITAR EL áREA DE HABITAT DEL JAGUAR EN CHIAPAS', '<B>EL JAGUAR</B> EN <U>CHIAPAS</U> EXISTE EN<FONT COLOR=\"#000000\" STYLE=\"BACKGROUND-COLOR: RGB(0, 0, 255);\"> LA ZONA DE LOS ALTOS DE CHIAPAS</FONT>', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(9, NULL, 'CURSO DE BIOLOGIA', 1, '0.0', 4, 'ACTUALIZACIóN DEL CURSO DE BIOLOGIA', 'LA BIOLOGíA TIENE MUCHAS APLICACIONES', NULL, 5, 'AQUI VA LA DESCRIPCION DEL CURSO', 'AQUI VA LA DESCRIPCION DEL CURSO, MAS AMPLIA', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(10, NULL, 'CURSO DE SISTEMAS BIOLOGICOS', 1, '0.0', 4, 'EN ESTE CURSO APREDERAS BIOLOGIA', 'BIOLOGIA POR TODO', NULL, 5, 'CURSO DE BIOLOGIA', 'ESTE ES UN EJEMPLO DE INFORMACION BIOLOGICA', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+(1, NULL, 'AMBIENTE', 1, '0.0', 4, 'MEDIO AMBIENTE', 'DESAPARECE EL LAGO', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                                                                                                                                                                                                                                                                                                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, NULL, 'AMBIENTE2', 1, '0.0', 4, 'MEDIO AMBIENTE2', 'DESAPARECE EL LAGO2', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(3, NULL, 'AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(4, NULL, 'AMBIENTE3', 1, '0.0', 4, 'MEDIO AMBIENTE3', 'ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                                        \r\n                                        \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(5, NULL, 'MEDIO4', 1, '0.0', 4, 'MEDIO AMBIENTE4', 'ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                                                                                                                            BORRA ESTO <EM>Y DESPUES </EM> <U>ESCRIBE EL CONTENIDO DEL POST</U> <STRONG>AQUí</STRONG>\r\n                \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                                        \r\n                        ', NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -189,7 +183,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -201,7 +195,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

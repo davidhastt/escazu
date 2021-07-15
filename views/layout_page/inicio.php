@@ -124,7 +124,7 @@
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
         <div class="about-box_img">
-          <figure><img src="<?= base_url ?>assets/page/img/thumbnails/<?=$posts->nom_file?>.jpg" alt="#" /></figure>
+          <figure><img src="<?= base_url ?>assets/page/img/<?=$posts->nom_file?>.jpg" alt="#" /></figure>
         </div>
       </div>
     </div>

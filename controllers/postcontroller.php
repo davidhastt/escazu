@@ -21,13 +21,27 @@ class PostController {
             }
             //$save = $turistaObj->guardar($propiedadesList, $turistaObj);
             $actualiza=$postObj->actualiza();
-            if ($actualiza) {// si el correo no existe se guarda
-                $mensaje = "Exito";
-                $mensaje2 = "Los datos del post se actualizaron exitosamente";
-                $url = base_url . "post/listarPosts/inicio";
-                require_once 'views/layout_xms/header.php';
-                require_once 'views/layout_xms/confirmacion.php';
-                require_once 'views/layout_xms/footer.php';
+            if ($actualiza) {
+                
+                
+                
+                $AC= new archivoController();
+                $resultadoSubir=$AC->subir(1, $postObj->getId_post()); //el 1 significa que es un archivo jpg       
+                if($resultadoSubir){                    
+                    $mensaje = "Exito";
+                    $mensaje2 = "Los datos del post se actualizaron exitosamente";
+                    $url = base_url . "post/listarPosts/inicio";
+                    require_once 'views/layout_xms/header.php';
+                    require_once 'views/layout_xms/confirmacion.php';
+                    require_once 'views/layout_xms/footer.php';
+                }else {
+                    $mensaje = "Error";
+                    $mensaje2 = $resultadoSubir;
+                    $url = base_url . "post/listarPosts/inicio";                                        
+                }                
+                
+                
+
                 //ahora tienes que hacer una consulta para saber el id del usuario
 
             } else {// sino existe el correo marca error
@@ -111,7 +125,7 @@ class PostController {
             
             if ($save) {// si se guardo el post entonces subimos el arhivo
                 $AC= new archivoController();
-                $resultadoSubir=$AC->subir(1);          
+                $resultadoSubir=$AC->subir(1,0);          
                 if($resultadoSubir){                    
                     $mensaje = "Se creo el post";
                     $mensaje2 = "Se subio la imagen!!";
