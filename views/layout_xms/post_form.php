@@ -6,7 +6,7 @@
     <div class="card-body">
 
         <?php
-        if (isset($postFO)) {            
+        if (isset($postFO)) {
             echo "<form action='" . base_url . "post/actualizaPost/inicio' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>";
         } else {
             //con los nuevos cambios ya nunca entrara aqui
@@ -154,11 +154,13 @@
                     <label for="exampleInputFile">Imagen para mostrar como vista previa</label>
                     <div class="mb-3">
                         <div class="custom-file">                        
-                            <img src='<?php if (isset($postFO->nom_file)) {
-                        echo base_url . "assets/page/img/{$postFO->nom_file}.jpg";
-                    } else {
-                        echo base_url . "assets/page/img/0.jpg";
-                    } ?>' class="img-thumbnail" alt="Si ves esto hay un error">
+                            <img src='<?php
+                            if (isset($postFO->nom_file)) {
+                                echo base_url . "assets/page/img/{$postFO->nom_file}.jpg";
+                            } else {
+                                echo base_url . "assets/page/img/0.jpg";
+                            }
+                            ?>' class="img-thumbnail" alt="Si ves esto hay un error">
                         </div>
                     </div>    
                 </div>
@@ -187,10 +189,10 @@
                     <div class="card-body">
                         <textarea id="contenido" name="contenido" class="form-control" required>
                             <?php if (isset($postFO)): ?>
-    <?php echo $postFO->contenido; ?>
-<?php else : ?>
-                                                Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
-<?php endif ?>                
+                                <?php echo $postFO->contenido; ?>
+                            <?php else : ?>
+                                                                Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
+                            <?php endif ?>                
                         </textarea>
                     </div>
                     <div class="card-footer">
@@ -199,14 +201,62 @@
                 </div>
             </div>
             <!-- /.col-->
-        </div>
-
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>     
+        <button type="submit" class="btn btn-primary">Guardar datos básios</button>
         </form>
     </div>
     <!-- /.card-body -->
 </div>
 
+<div class="row">
+
+    <div class="col-sm-6">
+        <form action='<?= base_url ?>archivo/subirMultimedia/<?= $postFO->id_post ?>' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>        
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cargar archivo</h5>
+                    <p class="card-text">Carga un archivo PDF a este post</p>
+                    <div class="mb-3">
+                        <div class="custom-file">
+                            <input class="form-control" type="file" name="archivo[]"  accept=".pdf">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subir PDF</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    
+    
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Vista previa</th>
+      <th scope="col">Borrar</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+    <?php while ($archivosFO=$archivosMRO->fetch_object()): ?>
+      
+    <tr>
+      <th scope="row">1</th>
+      <td><?php if ($archivosFO->id_tipoArchivo == 2){echo "PDF"; $ruta=base_url."assets/page/pdf/";} ?></td>
+      <td><a href="<?= $ruta.$archivosFO->nom_file ?>.pdf" target=_blank"">Ver</a></td>
+      <td><a href="<?= base_url ?>archivo/borrarMultimedia/<?=$archivosFO->id_archivo?>">Borrar</a></td>
+    </tr>
+    <?php endwhile; ?>
+    
+    
+    
+  </tbody>
+</table>
+</div>
 
 
 

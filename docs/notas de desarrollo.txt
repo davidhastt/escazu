@@ -40,6 +40,7 @@ Identificacion de usuario por nombre
 inicio de sesion seguro
 no es necesario usar 2 variables globales diferentes si valen lo mismo
 ***************************************************************************MEJORAS
+hacer el formulario para el seo
 falta el registro por newsletter
 ***************************************************************************COMMITS
 Cuando quieres borrar un usuario te sale un mensaje de que si estas seguro de borrar, pero siempre elimina el usuario, no hay forma de cancelar
@@ -56,3 +57,4 @@ El commit anterior tiene un error, la tabla usuarios se fue vacia, Ya lista los 
 Ya muestra las 5 categorias  en el menu  y enlista los post por categoria, incluye respaldo de la base de datos
 Ya actualiza la imagen de presentacion del post, primero la elimina y luego muestr una imagen default y despues puedes cargar una nueva, tal vez hay un error, con respaldo de base de datos
 Se reajusto la forma de trabajar cada que haces un post, ahora al momento de dar click en el menu nuevo post, en ese momento se crea una fila en la base de datos con sus respectivas relaciones con la tabla archivos y se hace una consulta para mostrar la informacion de esa ultima fila agregada a la tabla post y eso es lo que se muestra en el formulario, ademas arregle algunas inconsistencias que implicaban hacer este cambio, incluye base de datos
+Ya carga archivos pdf y los registra en la base de datos, los lista en el cms y en el post, aparte tambien borra el archivo y la fila desde el cms

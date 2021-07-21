@@ -196,55 +196,88 @@ class sistemacontroller {
         require_once 'views/layout/footer.php';
     }
 
-    private function showPost() {
-        $servicioTobj = new Seccion("seccion");
-        $servicioTobj->setId_servicio($_GET['parametro']);
+    public function showPost() {
+        $postOBJ = new Post();       
+        $postOBJ->setId_post($_GET['parametro']);
 
-        $atractivoArr = $servicioTobj->fillServicioT(); //hacer una consulta a la base para buscar el articulo a mostrar
-        //$servicioTobj->setId_servicio($atractivoArr->id_servicio);
-        $servicioTobj->setNom_servicio($atractivoArr->nom_servicio);
-        $servicioTobj->setSlogan($atractivoArr->slogan);
-        $servicioTobj->setDescripcion($atractivoArr->descripcion);
-//        $servicioTobj->setDireccion($atractivoArr->direccion);
-        //$servicioTobj->setMapquery($atractivoArr->mapquery);
-        $servicioTobj->setCategoria($atractivoArr->categoria);
+        
+        $postOBJ->setListResult("SELECT * FROM posts WHERE id_post=" . $postOBJ->getId_post());
+        $postMRO = $postOBJ->getListResult();
+        $postFO=$postMRO->fetch_object();
+        $postOBJ->setNom_post($postFO->nom_post);
+        
+        
+        
+        $postOBJ->setSlogan($postFO->slogan);
+        $postOBJ->setDescripcion_corta($postFO->descripcion_corta);
+        $postOBJ->setContenido($postFO->contenido);
+        $postOBJ->setId_categoria($postFO->id_categoria);// creo que esta propiedad no es necesaria llenarla
         //SEO        
-        $servicioTobj->setSeo_title($atractivoArr->seo_title);
-        $servicioTobj->setSeo_keywords($atractivoArr->seo_keywords);
-        $servicioTobj->setSeo_description($atractivoArr->seo_description);
-        $seo_title = $servicioTobj->getSeo_title();
-        $seo_keywords = $servicioTobj->getSeo_keywords();
-        $seo_description = $servicioTobj->getSeo_description();
+        $postOBJ->setSeo_title($postFO->seo_title);
+        $postOBJ->setSeo_keywords($postFO->seo_keywords);
+        $postOBJ->setSeo_description($postFO->seo_description);
+        /*
+        $seo_title = $postOBJ->getSeo_title();
+        $seo_keywords = $postOBJ->getSeo_keywords();
+        $seo_description = $postOBJ->getSeo_description();
         //open graph
-        $servicioTobj->setId_imageAsList($atractivoArr->id_imageAsList);
-        $og_image = base_url . "assets/img/" . $servicioTobj->getCategoria() . "/" . $servicioTobj->getId_imageAsList() . ".jpg";
-        $og_title = $servicioTobj->getSeo_title();
-        $og_description = $atractivoArr->og_description;
-        $og_url = base_url . "sistema/" . $servicioTobj->getCategoria() . "/" . $atractivoArr->id_servicio;
-        $og_section = $servicioTobj->getCategoria();
+        $postOBJ->setId_imageAsList($postFO->id_imageAsList);
+        $og_image = base_url . "assets/img/" . $postOBJ->getCategoria() . "/" . $postOBJ->getId_imageAsList() . ".jpg";
+        $og_title = $postOBJ->getSeo_title();
+        $og_description = $postFO->og_description;
+        $og_url = base_url . "sistema/" . $postOBJ->getCategoria() . "/" . $postFO->id_servicio;
+        $og_section = $postOBJ->getCategoria();
+          */         
         //redes sociales
-        $servicioTobj->setWhatsapp($atractivoArr->whatsapp);
-        //$servicioTobj->setLinkFacebook($atractivoArr->linkFacebook);
-        //$servicioTobj->setLinkYoutube($atractivoArr->linkYoutube);
-        //$servicioTobj->setLinkInstagram($atractivoArr->linkInstagram);        
+        //$postOBJ->setWhatsapp($postFO->whatsapp);
+        //$postOBJ->setLinkFacebook($$postFO->linkFacebook);
+        //$postOBJ->setLinkYoutube($$postFO->linkYoutube);
+        //$postOBJ->setLinkInstagram($$postFO->linkInstagram); 
+
+        //Volvemos a usar el metodo setListResult para buscar el archivo de presentacion de post
+        $postOBJ->setListResult("SELECT nom_file FROM archivos WHERE id_post={$postOBJ->getId_post()} AND rol = 1");
+        $postMRO = $postOBJ->getListResult();
+        $postFO=$postMRO->fetch_object();        
+        $postOBJ->setId_imageAsList($postFO->nom_file);
+        
+          
+        
+        
+        
+        /*
         //construir galeria
-        $servicioTobj->setListResult("SELECT url FROM multimedia WHERE id_post=" . $servicioTobj->getId_servicio());
-        $servicioTobj->setFotos($servicioTobj->getListResult());
-        //$servicioTobj->setPrecioAsHtml($atractivoArr->precioAsHtml);
+        $postOBJ->setListResult("SELECT url FROM multimedia WHERE id_post=" . $postOBJ->getId_servicio());
+        $postOBJ->setFotos($postOBJ->getListResult());         
+         */
+        
+        //$postOBJ->setPrecioAsHtml($$postFO->precioAsHtml);
         //promociones
-        $servicioTobj->setListResult("SELECT * FROM promociones WHERE status =1"); //esto ya no va
-        $servicioTobj->setPromociones($servicioTobj->getListResult());
+        /*$postOBJ->setListResult("SELECT * FROM promociones WHERE status =1"); //esto ya no va
+        $postOBJ->setPromociones($postOBJ->getListResult());
         //recomendaciones
-        $servicioTobj->setListResult("SELECT id_servicio, nom_servicio, slogan, id_imageAsList, categoria FROM `posts` ORDER BY RAND() LIMIT 3");
-        $servicioTobj->setRecomendaciones($servicioTobj->getListResult());
+        $postOBJ->setListResult("SELECT id_servicio, nom_servicio, slogan, id_imageAsList, categoria FROM `posts` ORDER BY RAND() LIMIT 3");
+        $postOBJ->setRecomendaciones($postOBJ->getListResult());
         //hits
-        $servicioTobj->setHits($atractivoArr->hits);
-        $updatehits = $servicioTobj->getHits() + 1;
-        $id_servicio = $servicioTobj->getId_servicio();
-        $servicioTobj->setListResult("UPDATE posts SET hits = '" . $updatehits . "' WHERE id_servicio = " . $id_servicio);
-        require_once 'views/layout/topmenu.php';
-        require_once 'views/descripcion.php';
-        require_once 'views/layout/footer.php';
+        $postOBJ->setHits($postFO->hits);
+        $updatehits = $postOBJ->getHits() + 1;
+        $id_servicio = $postOBJ->getId_servicio();
+        $postOBJ->setListResult("UPDATE posts SET hits = '" . $updatehits . "' WHERE id_servicio = " . $id_servicio);         
+         */
+        
+        $slogan=$postOBJ->getSlogan();
+        $titulo=$postOBJ->getNom_post();
+        $descripcion_corta=$postOBJ->getDescripcion_corta();
+        $contenido=$postOBJ->getContenido();
+        
+        //Ahora buscaremos archivos multimedia
+        
+        $postOBJ->obtenerArchivosM($postOBJ->getId_post());
+        $archivosMRO=$postOBJ->getListResult();
+        
+        
+        require_once 'views/layout_page/header.php';
+        require_once 'views/layout_page/postBody.php';
+        require_once 'views/layout_page/footer.php';
     }
 
     private function topservices() {

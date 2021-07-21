@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2021 a las 17:48:03
+-- Tiempo de generación: 21-07-2021 a las 19:09:09
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -31,17 +31,24 @@ CREATE TABLE `archivos` (
   `id_archivo` int(4) NOT NULL,
   `id_tipoArchivo` int(4) DEFAULT NULL,
   `id_post` int(4) DEFAULT NULL,
-  `nom_file` int(3) DEFAULT NULL
+  `nom_file` int(3) DEFAULT NULL,
+  `rol` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `archivos`
 --
 
-INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`) VALUES
-(1, 1, 1, 1),
-(2, 1, 2, 2),
-(3, 1, 3, 3);
+INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`, `rol`) VALUES
+(1, 1, 0, 0, 1),
+(2, 1, 0, 0, 1),
+(3, 1, 0, 0, 1),
+(4, 1, 0, 0, 1),
+(5, 1, 0, 0, 1),
+(6, 1, 1, 1, 1),
+(14, 2, 1, 14, 1),
+(15, 2, 1, 15, 1),
+(16, 2, 1, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -82,7 +89,6 @@ INSERT INTO `categorias` (`id_categoria`, `mainTitle`, `subMainTitle`, `id_og_im
 
 CREATE TABLE `posts` (
   `id_post` int(3) NOT NULL,
-  `id_imageAsList` int(3) DEFAULT NULL,
   `idAstxt` text COLLATE utf8_spanish2_ci DEFAULT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `estrellas` decimal(3,1) NOT NULL DEFAULT 0.0,
@@ -90,7 +96,7 @@ CREATE TABLE `posts` (
   `nom_post` text COLLATE utf8_spanish2_ci DEFAULT NULL,
   `slogan` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `whatsapp` bigint(10) DEFAULT NULL,
-  `id_categoria` int(1) DEFAULT NULL,
+  `id_categoria` int(1) DEFAULT 1,
   `descripcion_corta` varchar(300) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `contenido` varchar(7817) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `inicioPublicacion` date DEFAULT current_timestamp(),
@@ -110,10 +116,8 @@ CREATE TABLE `posts` (
 -- Volcado de datos para la tabla `posts`
 --
 
-INSERT INTO `posts` (`id_post`, `id_imageAsList`, `idAstxt`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
-(1, NULL, 'MEDIUM', 1, '0.0', 4, 'MEDIO AMBIENTE', 'LOS ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', 'AQUI VA LA DESCRIPCION LARGA DEL POST', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, NULL, 'MEDIUMX', 1, '0.0', 4, 'MEDIO AMBIENTE', 'LOS ECOSISTEMAS DESAPARECEN', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                AQUI VA LA DESCRIPCION LARGA DEL POST                \r\n                        ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, 'MEDIO5', 1, '0.0', 4, 'MEDIO AMBIENTE5', 'LOS ECOSISTEMAS DESAPARECEN5', NULL, 2, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                                                                                                                                AQUI VA LA DESCRIPCION ANCINA 5                \r\n                        ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `posts` (`id_post`, `idAstxt`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
+(1, 'MEDIO AMBIENTEX', 1, '0.0', 4, 'MEDIO AMBIENTE', 'MEDIO AMBIENTE', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                            ASDFADFASDASDF                                            \r\n                        ', '2021-07-21', '2021-07-21 03:54:09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -181,7 +185,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -193,7 +197,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -10,15 +10,11 @@ class PostController {
         //despues recuperar el id maximo de la tabla post
         $postObj = new Post();
         $postObj->insertarPostVacio();
-        $postObj->setId_post();
-        $id_post = $postObj->getId_post();
+        $postObj->setMaxID();
+        $id_post = $postObj->getMaxID();
         //tambien es necesario insertar una fila en la tabla archivo
-
-        $ac = new archivoController(1);
+        $ac = new archivoController();
         $ac->insertarFilaVaciaRelacionada($id_post, 1);
-
-
-
         $this->showPostForm($id_post);
     }
 
@@ -114,18 +110,27 @@ class PostController {
     public function showPostForm($id_post = NULL) {
         require_once 'views/layout_xms/header.php';
         $postObj = new Post();
-        if ($id_post > 0) {
-            $postObj->getPost($id_post);
-        } else {
-            $postObj->getPost($_GET['parametro']);
+        if (!isset($id_post)) {
+            $id_post=$_GET['parametro'];
         }
+        
+        $postObj->getPost($id_post);
+        
+        
         $postMRO = $postObj->getListResult();
         $postFO = $postMRO->fetch_object();
+        
+        //Ahora revisar los archivos multimedia
+        $postObj->obtenerArchivosM($id_post);
+        $archivosMRO=$postObj->getListResult();
+        
+
+        
 
         require_once 'views/layout_xms/post_form.php';
         require_once 'views/layout_xms/footer.php';
     }
-
+/*
     public function guardar() {
         if (isset($_POST)) {
             //creamos el objeto estudiante
@@ -170,6 +175,6 @@ class PostController {
             $error = new errorcontroller();
             $error->index($mensaje, $mensaje2);
         }
-    }
+    }*/
 
 }

@@ -1,6 +1,7 @@
 <?php
 
 class Post {
+
     private $id_post;
     public $id_imageAsList;
     private $idAstxt;
@@ -25,33 +26,50 @@ class Post {
     public $estrellas;
     public $id_usuario;
     public $dateUpdate;
+    public $maxID;
 
     public function __construct() {
         $this->db = Database::connect();
     }
 
-    public function setId_post() {
+    public function obtenerArchivosM($id_post) {
+        $strsql = "SELECT id_archivo,"
+                . " id_tipoArchivo, nom_file FROM archivos WHERE id_post={$id_post} AND id_tipoArchivo > 1";
+        $this->listResult = $this->db->query($strsql);
+    }
+
+    function getMaxID() {
+        return $this->maxID;
+    }
+
+    function setMaxID() {
         //Consegir el registro mayor en el campo ID
         $strsql = "SELECT MAX(id_post) as maxid FROM posts";
         $resultado = $this->db->query($strsql);
         $filas = $resultado->fetch_object();
         $maxID = intval($filas->maxid);
-        $this->id_post = $maxID;
-    }    
-    
-    
-    public function insertarPostVacio(){
-        $id_usuario=$_SESSION['identity_Session']->id_usuario;
-        $strsql = "INSERT INTO posts VALUES(null, null, null, 0, 0, {$id_usuario}, 'nuevo post', null, null, 1,null, null, null, null, null,null, null, null, null, null,null, null, null)";            
+        $this->maxID = $maxID;
+    }
+
+    public function setId_post($id_post) {
+        $this->id_post = $id_post;
+    }
+
+    function getId_post() {
+        return $this->id_post;
+    }
+
+    public function insertarPostVacio() {
+        $id_usuario = $_SESSION['identity_Session']->id_usuario;
+        $strsql = "INSERT INTO posts (nom_post, id_usuario) VALUES('Nombre nuevo post', {$id_usuario})";
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
             $result = true;
         }
-        return $result;        
-
+        return $result;
     }
-    
+
     public function actualiza() {//este metodo va a guardar las propiedades que esten definidas
         $strsql = "UPDATE posts SET "
                 . "idAstxt='" . $this->idAstxt . "', "
@@ -101,7 +119,7 @@ WHERE
         //falta definir la consulta que solo muestre los post activos
         switch ($categoria) {
             case "listarEnCMX":
-                $strsql="SELECT
+                $strsql = "SELECT
                     posts.id_post,
                     usuarios.nombre,
                     usuarios.apellidoP,
@@ -115,24 +133,24 @@ WHERE
                 INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria
                 ORDER BY
                     posts.id_post";
-                break;                
+                break;
             case "inicio":
-                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post  ORDER BY posts.id_post DESC LIMIT 10";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post  ORDER BY posts.id_post DESC LIMIT 10";
                 break;
             case "acuerdo":
-                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=1  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=1  ORDER BY posts.id_post";
                 break;
             case "conferencias":
-                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=2  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=2  ORDER BY posts.id_post";
                 break;
             case "materiales":
-                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=3  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=3  ORDER BY posts.id_post";
                 break;
             case "ligas":
-                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=4  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=4  ORDER BY posts.id_post";
                 break;
             case "cursos":
-                $strsql="SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=5  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=5  ORDER BY posts.id_post";
                 break;
             default:
                 break;
@@ -181,11 +199,6 @@ WHERE
         return $result;
     }
 
-    function getId_post() {
-        return $this->id_post;
-    }
-
-        
     function getContenido() {
         return $this->contenido;
     }
@@ -384,12 +397,6 @@ WHERE
 
     function setListResult($strsql) {
         $this->listResult = $this->db->query($strsql);
-    }
-
-    function fillServicioT() {
-        $strsql = "SELECT * FROM posts WHERE id_post='" . $this->$id_post . "'";
-        $resultado = $this->db->query($strsql);
-        return $resultado->fetch_object();
     }
 
     function getIdAstxt() {

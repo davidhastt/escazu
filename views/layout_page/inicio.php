@@ -119,7 +119,7 @@
         <div class="about-box">
           <h2><?=$posts->nom_post?></h2>
           <p><?=$posts->descripcion_corta?></p>
-          <a href="Javascript:void(0)">Leer mas</a>
+          <a href="<?= base_url?>sistema/showpost/<?= $posts->id_post ?>">Leer mas</a>
         </div>
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
