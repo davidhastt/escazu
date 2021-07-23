@@ -58,3 +58,41 @@ Ya muestra las 5 categorias  en el menu  y enlista los post por categoria, inclu
 Ya actualiza la imagen de presentacion del post, primero la elimina y luego muestr una imagen default y despues puedes cargar una nueva, tal vez hay un error, con respaldo de base de datos
 Se reajusto la forma de trabajar cada que haces un post, ahora al momento de dar click en el menu nuevo post, en ese momento se crea una fila en la base de datos con sus respectivas relaciones con la tabla archivos y se hace una consulta para mostrar la informacion de esa ultima fila agregada a la tabla post y eso es lo que se muestra en el formulario, ademas arregle algunas inconsistencias que implicaban hacer este cambio, incluye base de datos
 Ya carga archivos pdf y los registra en la base de datos, los lista en el cms y en el post, aparte tambien borra el archivo y la fila desde el cms
+Se corrigio error, mostraba muchos post, siendo que solo habia uno, era un error de relacion, se resolvio agregando otra propiedad al objeto archivo, la propiedad se llama rol y se mejoro el metodo archivocontroller.subirMultimedia, cambie la ruta donde se almacenan las jpg
+
+
+
+
+
+
+MATERIALES MUESTRA
+
+1.	ACUERDO DE ESCAZÚ
+Slogan
+Acuerdo en español 
+Descripción de materiales
+Documento con el texto oficial del Acuerdo de Escazú en español
+PDF 
+subir ok
+
+
+2.	Celebración 23 de abril
+Slogan
+Celebración entrada en vigor del Acuerdo de Escazú
+Descripción
+Video del evento virtual de celebración de la entrada en vigor del Acuerdo de Escazú promovido por las organizaciones de la sociedad civil
+MP4
+
+3.	¿Qué es el Acuerdo de Escazú?
+Slogan
+¿Conoces el Acuerdo de Escazú?
+Descripción
+Infografía que describe en síntesis qué es el Acuerdo de Escazú y los artículos principales
+JPG
+
+4.	Acuerdo de Escazú 02 Acceso a la información ambiental
+Slogan
+¿Por qué es importante contar con información ambiental?
+Descripción
+Audio sobre el derecho de acceso a la información ambiental que busca garantizar el Acuerdo de Escazú
+mp3

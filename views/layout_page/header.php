@@ -60,7 +60,7 @@
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
                       <li class="active"> <a href="<?= base_url ?>">Inicio</a> </li>
-                      <li> <a href="<?= base_url?>sistema/acuerdo/index">Acuerdo de escazú</a> </li>
+                      <li> <a href="<?= base_url?>sistema/acuerdo/index">Acuerdo de Escazú</a> </li>
                       <li> <a href="<?= base_url?>sistema/conferencias/index">Eventos</a> </li>
                       <li> <a href="<?= base_url?>sistema/materiales/index">Materiales</a> </li>
                       <li> <a href="<?= base_url?>sistema/ligas/index">Enlaces</a> </li>

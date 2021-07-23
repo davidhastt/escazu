@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/escazu/views/layout_page/postBody.php</file>
-            <file>file:/C:/xampp/htdocs/escazu/views/layout_page/header.php</file>
+            <file>file:/C:/xampp/htdocs/escazu/config/db.php</file>
             <file>file:/C:/xampp/htdocs/escazu/models/post.php</file>
-            <file>file:/C:/xampp/htdocs/escazu/controllers/sistemacontroller.php</file>
+            <file>file:/C:/xampp/htdocs/escazu/controllers/archivocontroller.php</file>
+            <file>file:/C:/xampp/htdocs/escazu/models/archivo.php</file>
         </group>
     </open-files>
 </project-private>

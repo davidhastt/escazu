@@ -27,14 +27,25 @@ class archivoController {
     
     public function subirMultimedia() {
         $archivoArr = $_FILES['archivo'];
-        $archivo = new Archivo(2);
+        
+
+        if ($archivoArr['type'][0] == "image/jpeg" || $archivoArr == "image/jpg") {
+            $tipo = 1;
+        } elseif ($archivoArr['type'][0] == "application/pdf" || $archivoArr == "application/PDF") {
+            $tipo = 2;
+        }
+        
+        
+        
+        
+        $archivo = new Archivo($tipo);
 
         $archivo->asignarNombreAFile(); //para darle un nombre al archivo buscamos el id maximo en la tabla
         $archivo->setMaxID();
         if ($archivo->subir($archivoArr)) {
             if ($archivo->registrarEnBD()) {
                 $mensaje = "Exito";
-                $mensaje2 = "Se cargo archivo PDF";
+                $mensaje2 = "Se cargo archivo {$archivo->getExtension()}";
                 $url = base_url . "post/showPostForm/{$_GET['parametro']}";
                 require_once 'views/layout_xms/header.php';
                 require_once 'views/layout_xms/confirmacion.php';
@@ -57,7 +68,6 @@ class archivoController {
         //si ya hay una fila en la tabla archivo con el mismo id_post, entonces actualiza, sino agrega una nueva fila a la tabla archivos    
         if ($id_post > 0) {
             //si entra aqui etonces debe actualizar
-
             $archivo->setNomFile($id_post);
             if ($archivo->subir($archivoArr)) {
                 if ($archivo->actualizaNomFile($id_post)) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-07-2021 a las 19:09:09
+-- Tiempo de generación: 23-07-2021 a las 06:08:22
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -46,9 +46,15 @@ INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`, `
 (4, 1, 0, 0, 1),
 (5, 1, 0, 0, 1),
 (6, 1, 1, 1, 1),
-(14, 2, 1, 14, 1),
-(15, 2, 1, 15, 1),
-(16, 2, 1, 16, 1);
+(14, 2, 1, 14, 2),
+(15, 2, 1, 15, 2),
+(16, 2, 1, 16, 2),
+(17, 2, 1, 17, 2),
+(18, 2, 1, 18, 2),
+(19, 2, 1, 19, 2),
+(20, 2, 1, 20, 2),
+(21, 2, 1, 21, 2),
+(22, 2, 1, 22, 2);
 
 -- --------------------------------------------------------
 
@@ -185,7 +191,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`

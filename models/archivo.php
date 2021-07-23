@@ -10,33 +10,33 @@ class Archivo {
     private $nomFile; //aqui se almacena el id maximo    
     private $extension;
     private $maxID;
+    public $rol;
 
-    function __construct($id_tipoArchivo=null) {// hace falta definir la carpeta donde se guardara        
+    function __construct($id_tipoArchivo = null) {// hace falta definir la carpeta donde se guardara        
         $this->db = Database::connect();
         $this->setId_tipoArchivo($id_tipoArchivo);
     }
 
-    
-    function insertarFilaVaciaRelacionada(){
+    function insertarFilaVaciaRelacionada() {
         $strsql = "INSERT INTO archivos VALUES(null, {$this->id_tipoArchivo}, {$this->maxID}, 0,1)";
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
             $result = true;
         }
-        return $result;        
-    }    
-    
-    function actualizaNomFile($nom_file){        
+        return $result;
+    }
+
+    function actualizaNomFile($nom_file) {
         $strsql = "UPDATE archivos SET nom_file={$nom_file} WHERE id_post={$nom_file}";
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
             $result = true;
         }
-        return $result;        
+        return $result;
     }
-    
+
     function getId_tipoArchivo() {
         return $this->id_tipoArchivo;
     }
@@ -47,10 +47,12 @@ class Archivo {
             case 1:
                 $this->extension = "jpg";
                 $this->id_tipoArchivo = 1;
+                $this->rol=1;//el 1 es portada de presentacion del post
                 break;
             case 2:
                 $this->extension = "pdf";
                 $this->id_tipoArchivo = 2;
+                $this->rol=2;//el 2 es contenido
                 break;
             default:
                 break;
@@ -59,7 +61,7 @@ class Archivo {
 
     public function registrarEnBD() {
         $nombre = substr($this->nomFile, 0, -4);
-        $strsql = "INSERT INTO archivos (id_tipoArchivo, id_post, nom_file) VALUES ({$this->id_tipoArchivo}, {$this->maxID}, {$nombre})";
+        $strsql = "INSERT INTO archivos (id_tipoArchivo, id_post, nom_file, rol) VALUES ({$this->id_tipoArchivo}, {$this->maxID}, {$nombre}, {$this->rol})";
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
@@ -75,18 +77,18 @@ class Archivo {
 
         $this->nom_file = $filas->nom_file;
         $this->id_post = $filas->id_post;
-        $this->setId_tipoArchivo($filas->id_tipoArchivo);        
+        //$this->setId_tipoArchivo($filas->id_tipoArchivo);// esto ya se definio desde el constructor
         //dependiendo del tipo de archivo es la carpeta
 
         $filename = "assets/page/{$this->extension}/" . $this->nom_file . "." . $this->extension;
         //antes de tratar de borrarlo hay que verificar que exista
         if (file_exists($filename)) {
             if (unlink($filename)) {
-                
+
                 //si el tipo de archivo es > 1 entonces borrarmos la fila en la tabla post, sino actualizamos
-                
-                
-                if($this->id_tipoArchivo > 1){
+
+
+                if ($this->id_tipoArchivo > 1) {
 
                     if ($this->deleteRow($id_archivo)) {
                         //$_SESSION['mensaje'] = "El archivo fue borrado del disco y de la base";
@@ -94,8 +96,8 @@ class Archivo {
                     } else {
                         //$_SESSION['mensaje'] = "El archivo se borro, pero no de la base";
                         return false;
-                    }                    
-                }else{
+                    }
+                } else {
 
                     if ($this->updateRowAsIMGdefault($id_archivo)) {
                         //$_SESSION['mensaje'] = "El archivo fue borrado del disco y de la base";
@@ -103,7 +105,7 @@ class Archivo {
                     } else {
                         //$_SESSION['mensaje'] = "El archivo se borro, pero no de la base";
                         return false;
-                    }                
+                    }
                 }
             } else {
                 //$_SESSION['mensaje'] = "No se pudo borrar el archivo PDF";
@@ -111,16 +113,25 @@ class Archivo {
             }
         } else {
             //si por alguna razon no existe se debe tratar de borrar de la base
-                    if ($this->eliminar($id_archivo)) {
-                        //$_SESSION['mensaje'] = "El archivo fue borrado del disco y de la base";
-                        return $this->id_post;
-                    } else {
-                        //$_SESSION['mensaje'] = "El archivo se borro, pero no de la base";
-                        return false;
-                    } 
+            if ($this->eliminar($id_archivo)) {
+                //$_SESSION['mensaje'] = "El archivo fue borrado del disco y de la base";
+                return $this->id_post;
+            } else {
+                //$_SESSION['mensaje'] = "El archivo se borro, pero no de la base";
+                return false;
+            }
         }
     }
 
+    function getRol() {
+        return $this->rol;
+    }
+
+    function setRol($rol) {
+        $this->rol = $rol;
+    }
+
+        
     private function updateRowAsIMGdefault($id_archivo) {
         $strsql = "UPDATE archivos SET nom_file=0 WHERE id_archivo=" . $id_archivo;
         $update = $this->db->query($strsql);
@@ -132,8 +143,6 @@ class Archivo {
         }
         return $result;
     }
-    
-   
 
     private function buscaArchivo($id_archivo) {
         $strsql = "SELECT nom_file, id_tipoArchivo, id_post FROM archivos WHERE id_archivo=" . $id_archivo;
@@ -160,21 +169,20 @@ class Archivo {
         return $result;
     }
 
-    public function subir($archivoArr) {
-        $tipo = $archivoArr['type'][0];
-        if ($tipo == "image/jpeg" || $tipo == "image/jpg") {
+    public function subir($archivoArr) {       
+        if ($this->id_tipoArchivo==1) {
             if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/img/' . $this->nomFile)) {
                 return true;
             } else {
                 return false;
             }
-        } elseif ($tipo == "application/pdf" || $tipo == "application/PDF")  {
+        } elseif ($this->id_tipoArchivo==2) {
             if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/pdf/' . $this->nomFile)) {
                 return true;
             } else {
                 return false;
-            }            
-        }else{
+            }
+        } else {
             return false;
         }
     }
@@ -187,13 +195,12 @@ class Archivo {
         $this->nomFile = $nomFile . "." . $this->extension;
     }
 
-        
     function getId_post() {
         return $this->id_post;
     }
 
     public function setId_postX() {
-
+        
     }
 
     function getMaxID() {
@@ -210,9 +217,6 @@ class Archivo {
         $this->maxID = $maxID;
     }
 
-        
-    
-    
     public function asignarNombreAFile() {
         //Consegir el registro mayor en el campo ID
         $strsql = "SELECT MAX(id_archivo) as maxid FROM archivos";
@@ -234,16 +238,6 @@ class Archivo {
     function setExtension($extension) {
         $this->extension = $extension;
     }
-
-    /*
-      function getId_documento() {//quitar
-      return $this->id_documento;
-      }
-
-      function setId_documento($id_documento) {//quitar
-      $this->id_documento = $id_documento;
-      }
-     */
 
     function getUbicacion() {
         return $this->ubicacion;

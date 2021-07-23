@@ -17,9 +17,9 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="text-bg">
-                     <span>Acuerdo Escazu</span>
-                      <h1>24 firmantes. 12 ratificaciones</h1>
-                      <p>Acuerdo Regional sobre el Acceso a la Información, la Participación Pública y el Acceso a la Justicia en Asuntos Ambientales en América Latina y el Caribe</p>
+                     <span>Centro de información Escazú</span>
+                      <h1>Centro virtual</h1>
+                      <p>El Acuerdo sobre el Acceso a la información, la participación pública y el acceso a la justicia en asuntos ambientales en América Latina y el Caribe fue adoptado en Escazú Costa Rica el 4 de marzo de 2018 y entró en vigor el 22 de abril de 2021.</p>
                       <form class="Vegetable">
                 <input class="Vegetable_fom" placeholder="Vegetable" type="text" name=" Vegetable">
                 <button class="Search_btn">Search</button>
@@ -124,7 +124,7 @@
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
         <div class="about-box_img">
-          <figure><img src="<?= base_url ?>assets/page/img/<?=$posts->nom_file?>.jpg" alt="#" /></figure>
+          <figure><img src="<?= base_url ?>assets/page/img/jpg/<?=$posts->nom_file?>.jpg" alt="#" /></figure>
         </div>
       </div>
     </div>

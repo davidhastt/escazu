@@ -156,9 +156,9 @@
                         <div class="custom-file">                        
                             <img src='<?php
                             if (isset($postFO->nom_file)) {
-                                echo base_url . "assets/page/img/{$postFO->nom_file}.jpg";
+                                echo base_url . "assets/page/img/jpg/{$postFO->nom_file}.jpg";
                             } else {
-                                echo base_url . "assets/page/img/0.jpg";
+                                echo base_url . "assets/page/img/jpg/0.jpg";
                             }
                             ?>' class="img-thumbnail" alt="Si ves esto hay un error">
                         </div>
