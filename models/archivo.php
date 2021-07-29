@@ -54,6 +54,16 @@ class Archivo {
                 $this->id_tipoArchivo = 2;
                 $this->rol=2;//el 2 es contenido
                 break;
+            case 3:
+                $this->extension = "jpg";
+                $this->id_tipoArchivo = 3;
+                $this->rol=3;//el 3 es imagen de un carrusel
+                break;
+            case 4:
+                $this->extension = "mp3";
+                $this->id_tipoArchivo = 4;
+                $this->rol=4;//el 3 es imagen de un carrusel
+                break;               
             default:
                 break;
         }
@@ -61,7 +71,7 @@ class Archivo {
 
     public function registrarEnBD() {
         $nombre = substr($this->nomFile, 0, -4);
-        $strsql = "INSERT INTO archivos (id_tipoArchivo, id_post, nom_file, rol) VALUES ({$this->id_tipoArchivo}, {$this->maxID}, {$nombre}, {$this->rol})";
+        $strsql = "INSERT INTO archivos (id_tipoArchivo, id_post, nom_file, rol) VALUES ({$this->id_tipoArchivo}, {$this->id_post}, {$nombre}, {$this->rol})";
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
@@ -170,8 +180,8 @@ class Archivo {
     }
 
     public function subir($archivoArr) {       
-        if ($this->id_tipoArchivo==1) {
-            if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/img/' . $this->nomFile)) {
+        if ($this->id_tipoArchivo==1 || $this->id_tipoArchivo==3) {
+            if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/img/jpg/' . $this->nomFile)) {
                 return true;
             } else {
                 return false;
@@ -182,7 +192,14 @@ class Archivo {
             } else {
                 return false;
             }
-        } else {
+        } elseif ($this->id_tipoArchivo==4) {
+            if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/mp3/' . $this->nomFile)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        else {
             return false;
         }
     }
@@ -199,8 +216,8 @@ class Archivo {
         return $this->id_post;
     }
 
-    public function setId_postX() {
-        
+    public function setId_post($id_post) {
+        $this->id_post=$id_post;
     }
 
     function getMaxID() {

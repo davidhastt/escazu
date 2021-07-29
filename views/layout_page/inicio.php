@@ -21,10 +21,11 @@
                       <h1>Centro virtual</h1>
                       <p>El Acuerdo sobre el Acceso a la información, la participación pública y el acceso a la justicia en asuntos ambientales en América Latina y el Caribe fue adoptado en Escazú Costa Rica el 4 de marzo de 2018 y entró en vigor el 22 de abril de 2021.</p>
                       <form class="Vegetable">
-                <input class="Vegetable_fom" placeholder="Vegetable" type="text" name=" Vegetable">
-                <button class="Search_btn">Search</button>
+                <input class="Vegetable_fom" placeholder="Acuerdo de Éscazú" type="text" name=" Vegetable">
+                <button class="Search_btn">Buscar</button>
               </form>
-                      <a href="#">Contact Us</a> <a href="#">Vegetable</a>
+                      <a href="#">Ver en español</a>
+                      <a href="#">Busqueda avanzada</a>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -44,14 +45,15 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="text-bg">
-                      <span>Bienvenido al centro virtual</span>
-                      <h1>Acuerdo Escazú</h1>
-                      <p>doce ratificaciones (Antigua y Barbuda, Argentina, Bolivia, Ecuador, Guyana, México, Nicaragua, Panamá, San Cristóbal y Nevis, San Vicente y las Granadinas, Santa Lucía y Uruguay)</p>
+                      <span>Escazú information center</span>
+                      <h1>Virtual center</h1>
+                      <p>The Agreement on Access to Information, Public Participation and Access to Justice in Environmental Matters in Latin America and the Caribbean was adopted in Escazú Costa Rica on March 4, 2018 and entered into force on April 22, 2021.</p>
                       <form class="Vegetable">
-                <input class="Vegetable_fom" placeholder="Vegetable" type="text" name=" Vegetable">
+                <input class="Vegetable_fom" placeholder="Escazu agreement" type="text" name=" Vegetable">
                 <button class="Search_btn">Search</button>
               </form>
-                      <a href="#">Contact Us</a> <a href="#">Vegetable</a>
+                      <a href="#">See in english</a>
+                      <a href="#">Advanced search</a>
                     </div>
                   </div>
 
@@ -74,11 +76,11 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="text-bg">
-                      <span>Acuerdo regional</span>
-                      <h1>Escazú</h1>
-                      <p>Este acuerdo regional es considerado como uno de los instrumentos ambientales más importantes de la región. Tiene como objetivo garantizar la implementación plena y efectiva en América Latina y el Caribe de los derechos de acceso a la información ambiental.</p>
+                      <span>Bem-vindo ao centro virtual</span>
+                      <h1>Centro virtual</h1>
+                      <p>O Acordo sobre Acesso à Informação, Participação Pública e Acesso à Justiça em Assuntos Ambientais na América Latina e no Caribe foi adotado em Escazú Costa Rica em 4 de março de 2018 e entrou em vigor em 22 de abril de 2021.</p>
                        <form class="Vegetable">
-                <input class="Vegetable_fom" placeholder="Vegetable" type="text" name=" Vegetable">
+                <input class="Vegetable_fom" placeholder="Acordo de escazu" type="text" name=" Vegetable">
                 <button class="Search_btn">Search</button>
               </form>
                       <a href="#">Contact Us</a> <a href="#">Vegetable</a>

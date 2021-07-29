@@ -32,11 +32,12 @@ class Post {
         $this->db = Database::connect();
     }
 
-    public function obtenerArchivosM($id_post) {
+    public function obtenerArchivosAsociados($id_post) {
         $strsql = "SELECT id_archivo,"
-                . " id_tipoArchivo, nom_file FROM archivos WHERE id_post={$id_post} AND id_tipoArchivo > 1";
+                . " id_tipoArchivo, nom_file FROM archivos WHERE id_post={$id_post} AND rol !=1";
         $this->listResult = $this->db->query($strsql);
-    }
+    }    
+    
 
     function getMaxID() {
         return $this->maxID;

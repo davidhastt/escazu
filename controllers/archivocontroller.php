@@ -22,31 +22,28 @@ class archivoController {
             //$id_file->deleteRow();
             //echo "Error contacta al administrador del sistema";
         }
-    }    
-    
-    
+    }
+
     public function subirMultimedia() {
         $archivoArr = $_FILES['archivo'];
-        
-
         if ($archivoArr['type'][0] == "image/jpeg" || $archivoArr == "image/jpg") {
-            $tipo = 1;
+            $tipo = 3;
         } elseif ($archivoArr['type'][0] == "application/pdf" || $archivoArr == "application/PDF") {
             $tipo = 2;
+        } elseif ($archivoArr['type'][0] == "audio/mpeg") {
+            $tipo = 4;
         }
-        
-        
-        
         
         $archivo = new Archivo($tipo);
 
         $archivo->asignarNombreAFile(); //para darle un nombre al archivo buscamos el id maximo en la tabla
-        $archivo->setMaxID();
+        //$archivo->setMaxID(); // siempre sale 1 como resultado de esta funcion, revisa despues
+        $archivo->setId_post($_GET['parametro']);
         if ($archivo->subir($archivoArr)) {
             if ($archivo->registrarEnBD()) {
                 $mensaje = "Exito";
                 $mensaje2 = "Se cargo archivo {$archivo->getExtension()}";
-                $url = base_url . "post/showPostForm/{$_GET['parametro']}";
+                $url = base_url . "post/showPostForm/{$archivo->getId_post()}";
                 require_once 'views/layout_xms/header.php';
                 require_once 'views/layout_xms/confirmacion.php';
                 require_once 'views/layout_xms/footer.php';

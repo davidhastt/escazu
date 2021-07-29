@@ -1,11 +1,10 @@
 <?php
 
-require_once 'models/post.php';//asegurate que este require sea necesario
+require_once 'models/post.php'; //asegurate que este require sea necesario
 require_once 'models/estadistica.php';
 
 class sistemacontroller {
-    
-    
+
     public function index() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
@@ -17,14 +16,13 @@ class sistemacontroller {
         $og_url = "http://geografia.mx";
         $og_section = "main";
         require_once 'views/layout_page/header.php';
-        
-        $lista_postMRO=$this->listarPosts("inicio");
-        
+
+        $lista_postMRO = $this->listarPosts("inicio");
+
         require_once 'views/layout_page/inicio.php';
         require_once 'views/layout_page/footer.php';
     }
-    
-    
+
     public function acuerdo() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
@@ -36,14 +34,13 @@ class sistemacontroller {
         $og_url = "http://geografia.mx";
         $og_section = "main";
         require_once 'views/layout_page/header.php';
-        
-        $lista_postMRO=$this->listarPosts("acuerdo");
-        
+
+        $lista_postMRO = $this->listarPosts("acuerdo");
+
         require_once 'views/layout_page/inicio.php';
         require_once 'views/layout_page/footer.php';
     }
-    
-    
+
     public function conferencias() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
@@ -55,13 +52,13 @@ class sistemacontroller {
         $og_url = "http://geografia.mx";
         $og_section = "main";
         require_once 'views/layout_page/header.php';
-        
-        $lista_postMRO=$this->listarPosts("conferencias");
-        
+
+        $lista_postMRO = $this->listarPosts("conferencias");
+
         require_once 'views/layout_page/inicio.php';
         require_once 'views/layout_page/footer.php';
-    } 
-    
+    }
+
     public function materiales() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
@@ -73,13 +70,13 @@ class sistemacontroller {
         $og_url = "http://geografia.mx";
         $og_section = "main";
         require_once 'views/layout_page/header.php';
-        
-        $lista_postMRO=$this->listarPosts("materiales");
-        
+
+        $lista_postMRO = $this->listarPosts("materiales");
+
         require_once 'views/layout_page/inicio.php';
         require_once 'views/layout_page/footer.php';
-    }     
-    
+    }
+
     public function ligas() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
@@ -91,12 +88,12 @@ class sistemacontroller {
         $og_url = "http://geografia.mx";
         $og_section = "main";
         require_once 'views/layout_page/header.php';
-        
-        $lista_postMRO=$this->listarPosts("ligas");
-        
+
+        $lista_postMRO = $this->listarPosts("ligas");
+
         require_once 'views/layout_page/inicio.php';
         require_once 'views/layout_page/footer.php';
-    }    
+    }
 
     public function cursos() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
@@ -109,12 +106,12 @@ class sistemacontroller {
         $og_url = "http://geografia.mx";
         $og_section = "main";
         require_once 'views/layout_page/header.php';
-        
-        $lista_postMRO=$this->listarPosts("cursos");
-        
+
+        $lista_postMRO = $this->listarPosts("cursos");
+
         require_once 'views/layout_page/inicio.php';
         require_once 'views/layout_page/footer.php';
-    }    
+    }
 
     public function entrar() {
         require_once 'views/layout_page/header.php';
@@ -154,11 +151,11 @@ class sistemacontroller {
         $servicioTobj = new Estadistica;
         $servicioTobj->visitasxmes();
     }
-    
-    private function listarPosts($categoria){
-       $lista_postMRO= new Post;
-       $lista_postMRO->listarPosts($categoria);
-       return $lista_postMRO->listResult;                
+
+    private function listarPosts($categoria) {
+        $lista_postMRO = new Post;
+        $lista_postMRO->listarPosts($categoria);
+        return $lista_postMRO->listResult;
     }
 
     private function listarPostsX($seccion) {// con este metodo se construye una pagina donde se muestran todos los servicios turisticos segun su categoria
@@ -197,84 +194,131 @@ class sistemacontroller {
     }
 
     public function showPost() {
-        $postOBJ = new Post();       
+        $postOBJ = new Post();
         $postOBJ->setId_post($_GET['parametro']);
 
-        
+
         $postOBJ->setListResult("SELECT * FROM posts WHERE id_post=" . $postOBJ->getId_post());
         $postMRO = $postOBJ->getListResult();
-        $postFO=$postMRO->fetch_object();
+        $postFO = $postMRO->fetch_object();
         $postOBJ->setNom_post($postFO->nom_post);
-        
-        
-        
+
+
+
         $postOBJ->setSlogan($postFO->slogan);
         $postOBJ->setDescripcion_corta($postFO->descripcion_corta);
         $postOBJ->setContenido($postFO->contenido);
-        $postOBJ->setId_categoria($postFO->id_categoria);// creo que esta propiedad no es necesaria llenarla
+        $postOBJ->setId_categoria($postFO->id_categoria); // creo que esta propiedad no es necesaria llenarla
         //SEO        
         $postOBJ->setSeo_title($postFO->seo_title);
         $postOBJ->setSeo_keywords($postFO->seo_keywords);
         $postOBJ->setSeo_description($postFO->seo_description);
         /*
-        $seo_title = $postOBJ->getSeo_title();
-        $seo_keywords = $postOBJ->getSeo_keywords();
-        $seo_description = $postOBJ->getSeo_description();
-        //open graph
-        $postOBJ->setId_imageAsList($postFO->id_imageAsList);
-        $og_image = base_url . "assets/img/" . $postOBJ->getCategoria() . "/" . $postOBJ->getId_imageAsList() . ".jpg";
-        $og_title = $postOBJ->getSeo_title();
-        $og_description = $postFO->og_description;
-        $og_url = base_url . "sistema/" . $postOBJ->getCategoria() . "/" . $postFO->id_servicio;
-        $og_section = $postOBJ->getCategoria();
-          */         
+          $seo_title = $postOBJ->getSeo_title();
+          $seo_keywords = $postOBJ->getSeo_keywords();
+          $seo_description = $postOBJ->getSeo_description();
+          //open graph
+          $postOBJ->setId_imageAsList($postFO->id_imageAsList);
+          $og_image = base_url . "assets/img/" . $postOBJ->getCategoria() . "/" . $postOBJ->getId_imageAsList() . ".jpg";
+          $og_title = $postOBJ->getSeo_title();
+          $og_description = $postFO->og_description;
+          $og_url = base_url . "sistema/" . $postOBJ->getCategoria() . "/" . $postFO->id_servicio;
+          $og_section = $postOBJ->getCategoria();
+         */
         //redes sociales
         //$postOBJ->setWhatsapp($postFO->whatsapp);
         //$postOBJ->setLinkFacebook($$postFO->linkFacebook);
         //$postOBJ->setLinkYoutube($$postFO->linkYoutube);
         //$postOBJ->setLinkInstagram($$postFO->linkInstagram); 
-
         //Volvemos a usar el metodo setListResult para buscar el archivo de presentacion de post
         $postOBJ->setListResult("SELECT nom_file FROM archivos WHERE id_post={$postOBJ->getId_post()} AND rol = 1");
         $postMRO = $postOBJ->getListResult();
-        $postFO=$postMRO->fetch_object();        
+        $postFO = $postMRO->fetch_object();
         $postOBJ->setId_imageAsList($postFO->nom_file);
-        
-          
-        
-        
-        
+
+
+
+
+
         /*
-        //construir galeria
-        $postOBJ->setListResult("SELECT url FROM multimedia WHERE id_post=" . $postOBJ->getId_servicio());
-        $postOBJ->setFotos($postOBJ->getListResult());         
+          //construir galeria
+          $postOBJ->setListResult("SELECT url FROM multimedia WHERE id_post=" . $postOBJ->getId_servicio());
+          $postOBJ->setFotos($postOBJ->getListResult());
          */
-        
+
         //$postOBJ->setPrecioAsHtml($$postFO->precioAsHtml);
         //promociones
-        /*$postOBJ->setListResult("SELECT * FROM promociones WHERE status =1"); //esto ya no va
-        $postOBJ->setPromociones($postOBJ->getListResult());
-        //recomendaciones
-        $postOBJ->setListResult("SELECT id_servicio, nom_servicio, slogan, id_imageAsList, categoria FROM `posts` ORDER BY RAND() LIMIT 3");
-        $postOBJ->setRecomendaciones($postOBJ->getListResult());
-        //hits
-        $postOBJ->setHits($postFO->hits);
-        $updatehits = $postOBJ->getHits() + 1;
-        $id_servicio = $postOBJ->getId_servicio();
-        $postOBJ->setListResult("UPDATE posts SET hits = '" . $updatehits . "' WHERE id_servicio = " . $id_servicio);         
+        /* $postOBJ->setListResult("SELECT * FROM promociones WHERE status =1"); //esto ya no va
+          $postOBJ->setPromociones($postOBJ->getListResult());
+          //recomendaciones
+          $postOBJ->setListResult("SELECT id_servicio, nom_servicio, slogan, id_imageAsList, categoria FROM `posts` ORDER BY RAND() LIMIT 3");
+          $postOBJ->setRecomendaciones($postOBJ->getListResult());
+          //hits
+          $postOBJ->setHits($postFO->hits);
+          $updatehits = $postOBJ->getHits() + 1;
+          $id_servicio = $postOBJ->getId_servicio();
+          $postOBJ->setListResult("UPDATE posts SET hits = '" . $updatehits . "' WHERE id_servicio = " . $id_servicio);
          */
-        
-        $slogan=$postOBJ->getSlogan();
-        $titulo=$postOBJ->getNom_post();
-        $descripcion_corta=$postOBJ->getDescripcion_corta();
-        $contenido=$postOBJ->getContenido();
-        
-        //Ahora buscaremos archivos multimedia
-        
-        $postOBJ->obtenerArchivosM($postOBJ->getId_post());
-        $archivosMRO=$postOBJ->getListResult();
-        
-        
+
+        $slogan = $postOBJ->getSlogan();
+        $titulo = $postOBJ->getNom_post();
+        $descripcion_corta = $postOBJ->getDescripcion_corta();
+        $contenido = $postOBJ->getContenido();
+        //Ahora obtendremos los archivos asociados
+        $postOBJ->obtenerArchivosAsociados($postOBJ->getId_post()); //cambiale el nommbre a este metodo
+        $archivosMROjpg = $postOBJ->getListResult();
+
+        $imagenes = "";
+        $pdfs = "";
+        $mp3s="";
+        while ($archivosFO = $archivosMROjpg->fetch_object()) {
+            //1=jpg de presentacion, 2= pdf, 3=jpg pra carrusel 4=mp3
+            switch ($archivosFO->id_tipoArchivo) {
+                case 2:
+                    /*if ($archivosFO->id_tipoArchivo == 2) 
+                    {
+                    echo "PDF"; $ruta = base_url . "assets/page/pdf/";                         
+                    }*/
+                    
+                    $pdfs.= '<div class="card text-center">
+                        <div class="card-header">
+                            Archivo listo para visualizar
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Titulo del archivo <?php ?></h5>
+                            <p class="card-text">Aquí va una descripcion del archivo</p>
+                            <a href="'.base_url.'assets/page/pdf/'. $archivosFO->nom_file .'.pdf" class="btn btn-primary" target="_blank">Ver</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Escazú
+                        </div>
+                        </div>';
+
+                    break;
+                case 3:
+                    $imagenes .= "<img src='" . base_url . "assets/page/img/jpg/" . $archivosFO->nom_file . ".jpg' class='img-fluid' alt='No pudimos encontrar el archivo " . $archivosFO->nom_file . "'>";
+                    break;
+                case 4:
+                    $mp3s.='<audio controls>
+                            <source src="'.base_url.'assets/page/mp3/'. $archivosFO->nom_file .'.ogg" type="audio/ogg">
+                            <source src="'.base_url.'assets/page/mp3/'. $archivosFO->nom_file .'.mp3" type="audio/mpeg">
+                            Tu navegador no soporta archivos mp3
+                          </audio>';
+                    break;                
+                default:
+                    break;
+            }
+        }
+
+
+
+
+        /*
+          //Ahora buscaremos archivos pdf
+          $postOBJ->obtenerArchivosPDF($postOBJ->getId_post());
+          $archivosMROpdf=$postOBJ->getListResult();
+         */
+
         require_once 'views/layout_page/header.php';
         require_once 'views/layout_page/postBody.php';
         require_once 'views/layout_page/footer.php';
@@ -286,4 +330,5 @@ class sistemacontroller {
         $top10 = $stat->getListResult();
         require_once 'views/topservices.php';
     }
+
 }

@@ -17,15 +17,6 @@
 
         </div><!-- /.blog-main -->
 
-
-
-
-
-
-
-
-
-
         <aside class="col-md-4 blog-sidebar">
             <div class="p-4 mb-3 bg-light rounded">
                 <h4 class="font-italic">Horario</h4>
@@ -43,35 +34,19 @@
     </div><!-- /.row -->
 
 
-
-        
-            
-            
-            <?php while ($archivosFO=$archivosMRO->fetch_object()): ?>
-         
-<div class="card text-center">
-  <div class="card-header">
-    Archivo listo para visualizar
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Titulo del archivo <?php if ($archivosFO->id_tipoArchivo == 2){echo "PDF"; $ruta=base_url."assets/page/pdf/";} ?></h5>
-    <p class="card-text">Aquí va una descripcion del archivo</p>
-    <a href="<?= $ruta.$archivosFO->nom_file ?>.pdf" class="btn btn-primary" target="_blank">Ver</a>
-  </div>
-  <div class="card-footer text-muted">
-    Escazú
-  </div>
-</div>
     
-<br>
-<br>
-<br>
-      
-            
-          
-            <?php endwhile; ?>
+<?= $imagenes; ?>
 
-               
+
+<?= $pdfs; ?>    
+    
+    
+<?= $mp3s; ?>      
+ 
+
+<br>
+<br>
+<br>
 
 
 </main><!-- /.container -->

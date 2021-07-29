@@ -26,7 +26,7 @@
                 <?php endif; ?>
 
                 <div class="form-group">
-                    <label>Nombre en barra de direcciones</label>
+                    <label>Nombre en barra de direcciones quitar</label>
                     <input type="text" id="idAstxt" name="idAstxt" required class="form-control" placeholder="Nombre que aparecera en la barra de direcciones" value="<?php
                     if (isset($postFO)) {
                         echo $postFO->idAstxt;
@@ -215,13 +215,13 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Cargar archivo</h5>
-                    <p class="card-text">Carga un archivo PDF a este post</p>
+                    <p class="card-text">Puede cargar PDF, JPG, MP4 y MP3</p>
                     <div class="mb-3">
                         <div class="custom-file">
-                            <input class="form-control" type="file" name="archivo[]"  accept=".pdf">
+                            <input class="form-control" type="file" name="archivo[]"  accept=".pdf, .jpg, .mp4, .mp3">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Subir PDF</button>
+                    <button type="submit" class="btn btn-primary">Subir archivo</button>
                 </div>
             </div>
         </form>
@@ -246,8 +246,8 @@
       
     <tr>
       <th scope="row">1</th>
-      <td><?php if ($archivosFO->id_tipoArchivo == 2){echo "PDF"; $ruta=base_url."assets/page/pdf/";} ?></td>
-      <td><a href="<?= $ruta.$archivosFO->nom_file ?>.pdf" target=_blank"">Ver</a></td>
+      <td><?php if ($archivosFO->id_tipoArchivo == 2){echo "PDF"; $ruta=base_url."assets/page/pdf/"; $extension="pdf";} elseif ($archivosFO->id_tipoArchivo == 1 || $archivosFO->id_tipoArchivo == 3){echo "jpg"; $ruta=base_url."assets/page/img/jpg/"; $extension="jpg";} elseif($archivosFO->id_tipoArchivo == 4){echo "mp3"; $ruta=base_url."assets/page/mp3/"; $extension="mp3";} ?></td>
+      <td><a href="<?= $ruta.$archivosFO->nom_file.".{$extension}" ?>" target=_blank"">Ver</a></td>
       <td><a href="<?= base_url ?>archivo/borrarMultimedia/<?=$archivosFO->id_archivo?>">Borrar</a></td>
     </tr>
     <?php endwhile; ?>

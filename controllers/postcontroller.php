@@ -121,7 +121,7 @@ class PostController {
         $postFO = $postMRO->fetch_object();
         
         //Ahora revisar los archivos multimedia
-        $postObj->obtenerArchivosM($id_post);
+        $postObj->obtenerArchivosAsociados($id_post);
         $archivosMRO=$postObj->getListResult();
         
 
