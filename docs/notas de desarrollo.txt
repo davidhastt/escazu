@@ -8,40 +8,32 @@ https://www.free-css.com/free-css-templates/page265/shree
 
 
 ***************************************************************************DONE
-visualizacion de pagina 
-visualiacion de cms
-loggin de usuarios
-muestra el usuario
-ya registra usuarios
+
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
 Comprueba que cuando borras un post se borre el archivo y la fila en la tabla archivos
 el date time stamp de la tabla post no funciona
 en el cmx ya no se ve el logo
-Falta poner en el formulario de post el idioma
 Ver como aplicar la llave foranea en la relacion usuarios.id_usuario y posts.id_usuario, si se elimina un usario se eliminara tambien los posts que halla escrito?
-en la clase estadistica public function listarUsuarios(){//cuando puedas esto cambialo a usaurios
 cuando se registra un usuario no se puede asignar privilegios de administrador
 recuperar contraseña
 probar en produccion la confirmacion por correo
-validar que la fecha de nacimiento del usuario no sea menor a 200 años
 Arreglar los paths
-Aparece una A cuando esta cargano
 Dice nuevo posts debe decir nuevo post
-avisar de los riesgos de no usar certificado de seguridad
 Un usuario solo puede cambiar sus propios posts
-error 404
-topmenu creo que no se usa
-la pagina principal no tiene el menu fijo
 en header este icono no existe <link rel="icon" href="<?= base_url_page ?>/img/fevicon.png" type="image/gif" />
-paginacion
-Identificacion de usuario por nombre
-inicio de sesion seguro
-no es necesario usar 2 variables globales diferentes si valen lo mismo
+Implementar el inicio de sesion seguro con validaciones, si la sesion esta iniciada y el nombre del usuario tambien, entonces continuar, sino rechazar
+no es necesario usar 2 variables globales diferentes si valen lo mismo? en que caso?
 ***************************************************************************MEJORAS
+paginacion
+la pagina principal no tiene el menu fijo
+avisar de los riesgos de no usar certificado de seguridad
+en la clase estadistica public function listarUsuarios(){//cuando puedas esto cambialo a usaurios
 hacer el formulario para el seo
 falta el registro por newsletter
+validar que la fecha de nacimiento del usuario no sea menor a 200 años
+implementr el topmenu no se usa, esto nos dara una lista de los post mas vistos
 ***************************************************************************COMMITS
 Cuando quieres borrar un usuario te sale un mensaje de que si estas seguro de borrar, pero siempre elimina el usuario, no hay forma de cancelar
 Cambio de nombre a nuevousuario.php a usurio_form.php, ya cambia puesto
@@ -63,7 +55,7 @@ Se corrigio error, al momento de subir un archivo, el archivo subia correctament
 Quité de la base de datos y del postform el campo de idAsTxt, la interface del post form en el cmx esta remodelada y agregue el campo notas, el con el mensaje de bienvenida ya esta en los 3 idiomas, las notas tienen 'candados' solo se muestra cuando hay nota disponible
 Agregue un campo donde se muestre el idioma en la tabla donde se listan los post en el cmx, puse un combobox en el post form de el cmx donde se elija el idioma, ya actualiza el idioma, con respaldo de base de datos
 En la pagina principal, se crearon los links de los 3 botones para cambiar de idioma, ya muestra los post en los 3 idiomas y en sus respectivos menus, este commit es de respaldo porque voy a hacer cambios arriesgados, tambien hice mejoras al pie de pagina de la pagina principal
-
+Los cambios arriesgados funcionaron, ya esta todo hecho para que cuando se le de click en cambiar idioma muestre los post en el idioma elegido, pero por lo pronto solo funciona en español para prevenir trabajar de mas por cambios inesperados
 
 MATERIALES MUESTRA
 

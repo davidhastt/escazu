@@ -20,12 +20,12 @@ class sistemacontroller {
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
         $og_section = "main";
-        require_once 'views/layout_page/header.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("inicio");
 
-        require_once 'views/layout_page/inicio.php';
-        require_once 'views/layout_page/footer.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
 
     public function acuerdo() {//index principal
@@ -38,15 +38,15 @@ class sistemacontroller {
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
         $og_section = "main";
-        require_once 'views/layout_page/header.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("acuerdo");
 
-        require_once 'views/layout_page/inicio.php';
-        require_once 'views/layout_page/footer.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
 
-    public function conferencias() {//index principal
+    public function eventos() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
         $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
@@ -56,12 +56,12 @@ class sistemacontroller {
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
         $og_section = "main";
-        require_once 'views/layout_page/header.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("conferencias");
 
-        require_once 'views/layout_page/inicio.php';
-        require_once 'views/layout_page/footer.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
 
     public function materiales() {//index principal
@@ -74,15 +74,15 @@ class sistemacontroller {
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
         $og_section = "main";
-        require_once 'views/layout_page/header.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("materiales");
 
-        require_once 'views/layout_page/inicio.php';
-        require_once 'views/layout_page/footer.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
 
-    public function ligas() {//index principal
+    public function enlaces() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
         $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
@@ -92,15 +92,15 @@ class sistemacontroller {
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
         $og_section = "main";
-        require_once 'views/layout_page/header.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("ligas");
 
-        require_once 'views/layout_page/inicio.php';
-        require_once 'views/layout_page/footer.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
 
-    public function cursos() {//index principal
+    public function capacitacion() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
         $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
@@ -110,12 +110,12 @@ class sistemacontroller {
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
         $og_section = "main";
-        require_once 'views/layout_page/header.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("cursos");
 
-        require_once 'views/layout_page/inicio.php';
-        require_once 'views/layout_page/footer.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
 
     public function entrar() {
@@ -293,12 +293,12 @@ class sistemacontroller {
                             Archivo listo para visualizar
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Titulo del archivo <?php ?></h5>
-                            <p class="card-text">Aquí va una descripcion del archivo</p>
+                            <!--h5 class="card-title">Titulo del archivo <?php ?></h5>
+                            <p class="card-text">Aquí va una descripcion del archivo</p-->
                             <a href="'.base_url.'assets/page/pdf/'. $archivosFO->nom_file .'.pdf" class="btn btn-primary" target="_blank">Ver</a>
                         </div>
                         <div class="card-footer text-muted">
-                            Escazú
+                            Centro virtual Escazú
                         </div>
                         </div>';
 
@@ -326,10 +326,10 @@ class sistemacontroller {
           $postOBJ->obtenerArchivosPDF($postOBJ->getId_post());
           $archivosMROpdf=$postOBJ->getListResult();
          */
-
-        require_once 'views/layout_page/header.php';
-        require_once 'views/layout_page/postBody.php';
-        require_once 'views/layout_page/footer.php';
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/postBody.php";
+//        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";         
     }
 
     private function topservices() {
