@@ -16,21 +16,20 @@
 
 
         </div><!-- /.blog-main -->
-
+        <?php if(isset($nota1)):?>
         <aside class="col-md-4 blog-sidebar">
             <div class="p-4 mb-3 bg-light rounded">
-                <h4 class="font-italic">Horario</h4>
-                <p class="mb-0">Abierto <em>todos los dias del año.</em></p>        
-                <p class="mb-0">Horario Hay dos horarios: Horario diurno de 6 a 18 Horario nocturno de 20:00 a 2:00 (solamente viernes y sábado)</p>
+                <h4 class="font-italic">Notas</h4>
+                <p class="mb-0"><?=$nota1?></p>                
             </div>
 
-            <div class="p-4 mb-3 bg-light rounded">
+            <!--div class="p-4 mb-3 bg-light rounded">
                 <h4 class="font-italic">Reservaciones</h4>
                 <p class="mb-0">No se manejan reservaciones</p>
-            </div>
+            </div-->
 
         </aside><!-- /.blog-sidebar -->
-
+        <?php endif; ?>
     </div><!-- /.row -->
 
 

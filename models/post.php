@@ -4,7 +4,6 @@ class Post {
 
     private $id_post;
     public $id_imageAsList;
-    private $idAstxt;
     public $nom_post;
     public $slogan;
     public $whatsapp;
@@ -27,6 +26,7 @@ class Post {
     public $id_usuario;
     public $dateUpdate;
     public $maxID;
+    public $nota1;
 
     public function __construct() {
         $this->db = Database::connect();
@@ -73,12 +73,12 @@ class Post {
 
     public function actualiza() {//este metodo va a guardar las propiedades que esten definidas
         $strsql = "UPDATE posts SET "
-                . "idAstxt='" . $this->idAstxt . "', "
                 . "activo='" . $this->activo . "', "
                 . "nom_post='" . $this->nom_post . "', "
                 . "slogan='" . $this->slogan . "', "
                 . "id_categoria=" . $this->id_categoria . ", "
                 . "descripcion_corta='" . $this->descripcion_corta . "', "
+                . "nota1='" . $this->nota1 . "', "
                 . "contenido='" . $this->contenido . "'";
 
         $strsql .= " WHERE id_post= " . $this->id_post;
@@ -93,7 +93,6 @@ class Post {
     public function getPost($id_post) {
         $strsql = "SELECT
     posts.id_post,
-    posts.idAstxt,
     posts.descripcion_corta,
     usuarios.nombre,
     posts.slogan,
@@ -105,7 +104,8 @@ class Post {
     posts.activo,
     posts.contenido,
     archivos.id_archivo,
-    archivos.nom_file
+    archivos.nom_file,
+    posts.nota1
 FROM
     posts
 INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario
@@ -200,6 +200,15 @@ WHERE
         return $result;
     }
 
+    function getNota1() {
+        return $this->nota1;
+    }
+
+    function setNota1($nota1) {
+        $this->nota1 = $nota1;
+    }
+
+        
     function getContenido() {
         return $this->contenido;
     }
@@ -400,20 +409,12 @@ WHERE
         $this->listResult = $this->db->query($strsql);
     }
 
-    function getIdAstxt() {
-        return $this->idAstxt;
-    }
-
     function getNom_post() {
         return $this->nom_post;
     }
 
     function getDescripcion() {
         return $this->descripcion;
-    }
-
-    function setIdAstxt($idAstxt) {
-        $this->idAstxt = $idAstxt;
     }
 
     function setNom_post($nom_post) {

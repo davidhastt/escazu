@@ -20,10 +20,9 @@ class PostController {
 
     public function actualizaPost() {
         if (isset($_POST)) {
-            //creamos el objeto estudiante
             $postObj = new Post;
-            $propiedadesList = array("id_post", "idAstxt", "activo", "nom_post", "slogan", "id_categoria", "descripcion_corta", "contenido");
-            $setList = array("setId_post", "setidAstxt", "setactivo", "setnom_post", "setslogan", "setid_categoria", "setdescripcion_corta", "setcontenido");
+            $propiedadesList = array("id_post", "activo", "nom_post", "slogan", "id_categoria", "descripcion_corta", "contenido", "nota1");
+            $setList = array("setId_post", "setactivo", "setnom_post", "setslogan", "setid_categoria", "setdescripcion_corta", "setcontenido", "setNota1");
             $i = 0;
             foreach ($propiedadesList as $value) {
                 if (isset($_POST[$value])) {

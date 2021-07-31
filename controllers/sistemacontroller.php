@@ -209,6 +209,7 @@ class sistemacontroller {
         $postOBJ->setDescripcion_corta($postFO->descripcion_corta);
         $postOBJ->setContenido($postFO->contenido);
         $postOBJ->setId_categoria($postFO->id_categoria); // creo que esta propiedad no es necesaria llenarla
+        $postOBJ->setNota1($postFO->nota1);
         //SEO        
         $postOBJ->setSeo_title($postFO->seo_title);
         $postOBJ->setSeo_keywords($postFO->seo_keywords);
@@ -264,6 +265,7 @@ class sistemacontroller {
         $titulo = $postOBJ->getNom_post();
         $descripcion_corta = $postOBJ->getDescripcion_corta();
         $contenido = $postOBJ->getContenido();
+        $nota1=$postOBJ->getNota1();
         //Ahora obtendremos los archivos asociados
         $postOBJ->obtenerArchivosAsociados($postOBJ->getId_post()); //cambiale el nommbre a este metodo
         $archivosMROjpg = $postOBJ->getListResult();
