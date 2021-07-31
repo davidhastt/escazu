@@ -16,6 +16,7 @@
                 <tr>
                     <th>Nombre publicación</th>
                     <th>Nombre catergoría</th>
+                    <th>Idioma</th>                    
                     <th>Autor</th>
                     <th>Estatus</th>
                     <th>Acciones</th>                    
@@ -32,7 +33,11 @@
                             <a class="text-muted"><?= $posts->nom_categoria ?></a>
                         </td>
                         <td>
-                            <img src="<?= base_url ?>assets/xms/img/user2-160x160.jpg" alt="Product 1" class="img-circle img-size-32 mr-2">
+                            <a class="text-muted"><?= $posts->idioma ?></a>
+                        </td>
+                        
+                        <td>
+                            <!--img src="<?= base_url ?>assets/xms/img/user2-160x160.jpg" alt="Product 1" class="img-circle img-size-32 mr-2"-->
                             <?= $posts->nombre . " " . $posts->apellidoP . " " . $posts->apellidoM ?>                            
                         </td>   
                         <td>                                                       

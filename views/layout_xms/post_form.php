@@ -109,7 +109,76 @@
                         ?>">
                     </div>                
                 </div>
-            </div>    
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Idioma</label>
+                        <select id="idioma" name="idioma" class="form-control" >
+                          <option value="<?php if (isset($postFO->idioma)) {echo $postFO->idioma; } ?>">
+                              <?php if (isset($postFO->idioma)){
+                              if($postFO->idioma=="ESP")
+                              {
+                                  echo "Español";                                  
+                              }elseif($postFO->idioma=="ENG"){
+                                  echo "Ingles";}
+                              elseif($postFO->idioma=="PORT")
+                              {
+                                  echo "Portugues";                                  
+                              }                              
+                              } ?></option>
+                          <option value="ESP">Español</option>
+                          <option value="ENG">Ingles</option>
+                          <option value="PORT">Portugues</option>
+                        </select>                                               
+                    </div>
+                </div>
+                <div class="col-sm-6">            
+                    <div class="form-group">
+
+                    </div>                
+                </div>
+            </div>            
+            
+            
+            
+            
+            
+            
+            
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Contenido del post
+                    </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <textarea id="contenido" name="contenido" class="form-control" required>
+                        <?php if (isset($postFO)): ?>
+                            <?php echo $postFO->contenido; ?>
+                        <?php else : ?>
+                                                                        Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
+                        <?php endif ?>                
+                    </textarea>
+                </div>
+                <div class="card-footer">
+                    Acuerdo Escazú
+                </div>
+            </div>
+        </div>
+        <!-- /.col-->
+    </div>              
+            
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group" >
@@ -155,7 +224,7 @@
                 </div>    
             </div>
         </div>            
-    </div>    
+    </div>   
 
     <br>
     <br>
@@ -167,31 +236,7 @@
     <br>
     <br>        
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card card-outline card-info">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        Contenido del post
-                    </h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <textarea id="contenido" name="contenido" class="form-control" required>
-                        <?php if (isset($postFO)): ?>
-                            <?php echo $postFO->contenido; ?>
-                        <?php else : ?>
-                                                                        Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
-                        <?php endif ?>                
-                    </textarea>
-                </div>
-                <div class="card-footer">
-                    Acuerdo Escazú
-                </div>
-            </div>
-        </div>
-        <!-- /.col-->
-    </div>     
+   
     <button type="submit" class="btn btn-primary">Guardar datos básios</button>
 </form>
 </div>

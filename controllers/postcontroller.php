@@ -21,8 +21,8 @@ class PostController {
     public function actualizaPost() {
         if (isset($_POST)) {
             $postObj = new Post;
-            $propiedadesList = array("id_post", "activo", "nom_post", "slogan", "id_categoria", "descripcion_corta", "contenido", "nota1");
-            $setList = array("setId_post", "setactivo", "setnom_post", "setslogan", "setid_categoria", "setdescripcion_corta", "setcontenido", "setNota1");
+            $propiedadesList = array("id_post", "activo", "nom_post", "slogan", "id_categoria", "descripcion_corta", "contenido", "nota1", "idioma");
+            $setList = array("setId_post", "setactivo", "setnom_post", "setslogan", "setid_categoria", "setdescripcion_corta", "setcontenido", "setNota1", "setIdioma");
             $i = 0;
             foreach ($propiedadesList as $value) {
                 if (isset($_POST[$value])) {
@@ -56,7 +56,7 @@ class PostController {
                 }else{
                         $mensaje = "Exito";
                         $mensaje2 = "Los datos del post se actualizaron exitosamente";
-                        $url = base_url . "post/listarPosts/inicio";
+                        $url = base_url . "post/listarPosts/listarEnCMX";
                         require_once 'views/layout_xms/header.php';
                         require_once 'views/layout_xms/confirmacion.php';
                         require_once 'views/layout_xms/footer.php';                        

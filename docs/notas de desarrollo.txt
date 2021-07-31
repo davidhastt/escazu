@@ -3,7 +3,7 @@ https://www.free-css.com/free-css-templates/page265/shree
 
 
 ***************************************************************************DOING
-Al momento de dar click en nuevo post se debe insertar un registro a la base de datos y se debe recuperar el id del ultimo registro de la base datos, entonces despues ya insertar todos los componentes del post
+
 
 
 
@@ -59,9 +59,9 @@ Ya actualiza la imagen de presentacion del post, primero la elimina y luego mues
 Se reajusto la forma de trabajar cada que haces un post, ahora al momento de dar click en el menu nuevo post, en ese momento se crea una fila en la base de datos con sus respectivas relaciones con la tabla archivos y se hace una consulta para mostrar la informacion de esa ultima fila agregada a la tabla post y eso es lo que se muestra en el formulario, ademas arregle algunas inconsistencias que implicaban hacer este cambio, incluye base de datos
 Ya carga archivos pdf y los registra en la base de datos, los lista en el cms y en el post, aparte tambien borra el archivo y la fila desde el cms
 Se corrigio error, mostraba muchos post, siendo que solo habia uno, era un error de relacion, se resolvio agregando otra propiedad al objeto archivo, la propiedad se llama rol y se mejoro el metodo archivocontroller.subirMultimedia, cambie la ruta donde se almacenan las jpg
-
-
-
+Se corrigio error, al momento de subir un archivo, el archivo subia correctamente, pero al momento de registrar en la tabla se estaba almacenando el max id post, lo cual era incorecto, lo correcto es guardar el id_post
+Quité de la base de datos y del postform el campo de idAsTxt, la interface del post form en el cmx esta remodelada y agregue el campo notas, el con el mensaje de bienvenida ya esta en los 3 idiomas, las notas tienen 'candados' solo se muestra cuando hay nota disponible
+Agregue un campo donde se muestre el idioma en la tabla donde se listan los post en el cmx, puse un combobox en el post form de el cmx donde se elija el idioma, ya actualiza el idioma, con respaldo de base de datos
 
 
 

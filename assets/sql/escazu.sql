@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-07-2021 a las 06:08:22
+-- Tiempo de generación: 31-07-2021 a las 05:04:15
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -40,21 +40,21 @@ CREATE TABLE `archivos` (
 --
 
 INSERT INTO `archivos` (`id_archivo`, `id_tipoArchivo`, `id_post`, `nom_file`, `rol`) VALUES
-(1, 1, 0, 0, 1),
-(2, 1, 0, 0, 1),
-(3, 1, 0, 0, 1),
-(4, 1, 0, 0, 1),
-(5, 1, 0, 0, 1),
-(6, 1, 1, 1, 1),
-(14, 2, 1, 14, 2),
-(15, 2, 1, 15, 2),
-(16, 2, 1, 16, 2),
-(17, 2, 1, 17, 2),
-(18, 2, 1, 18, 2),
-(19, 2, 1, 19, 2),
-(20, 2, 1, 20, 2),
-(21, 2, 1, 21, 2),
-(22, 2, 1, 22, 2);
+(1, 1, 1, 1, 1),
+(2, 1, 2, 2, 1),
+(3, 1, 3, 3, 1),
+(4, 3, 3, 4, 3),
+(5, 1, 4, 4, 1),
+(6, 4, 4, 6, 4),
+(7, 2, 4, 7, 2),
+(8, 2, 4, 8, 2),
+(9, 3, 4, 9, 3),
+(10, 3, 4, 10, 3),
+(11, 3, 4, 11, 3),
+(12, 3, 3, 12, 3),
+(13, 3, 3, 13, 3),
+(14, 4, 3, 14, 4),
+(15, 2, 3, 15, 2);
 
 -- --------------------------------------------------------
 
@@ -95,12 +95,14 @@ INSERT INTO `categorias` (`id_categoria`, `mainTitle`, `subMainTitle`, `id_og_im
 
 CREATE TABLE `posts` (
   `id_post` int(3) NOT NULL,
-  `idAstxt` text COLLATE utf8_spanish2_ci DEFAULT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `estrellas` decimal(3,1) NOT NULL DEFAULT 0.0,
   `id_usuario` int(3) DEFAULT NULL,
   `nom_post` text COLLATE utf8_spanish2_ci DEFAULT NULL,
   `slogan` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `idioma` text COLLATE utf8_spanish2_ci NOT NULL DEFAULT '\'\\\'ESP\\\'\'',
+  `nota1` text COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `nota2` text COLLATE utf8_spanish2_ci DEFAULT NULL,
   `whatsapp` bigint(10) DEFAULT NULL,
   `id_categoria` int(1) DEFAULT 1,
   `descripcion_corta` varchar(300) COLLATE utf8_spanish2_ci DEFAULT NULL,
@@ -122,8 +124,11 @@ CREATE TABLE `posts` (
 -- Volcado de datos para la tabla `posts`
 --
 
-INSERT INTO `posts` (`id_post`, `idAstxt`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
-(1, 'MEDIO AMBIENTEX', 1, '0.0', 4, 'MEDIO AMBIENTE', 'MEDIO AMBIENTE', NULL, 1, 'AQUI VA LA DESCRIPCION CORTA DEL POST ANCINA MESMO ES CORRECTO', '                                                            ASDFADFASDASDF                                            \r\n                        ', '2021-07-21', '2021-07-21 03:54:09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `posts` (`id_post`, `activo`, `estrellas`, `id_usuario`, `nom_post`, `slogan`, `idioma`, `nota1`, `nota2`, `whatsapp`, `id_categoria`, `descripcion_corta`, `contenido`, `inicioPublicacion`, `finPublicacion`, `dateUpdate`, `linkFacebook`, `linkYoutube`, `linkInstagram`, `seo_title`, `seo_keywords`, `seo_description`, `og_description`, `hits`) VALUES
+(1, 1, '0.0', 4, 'ACUERDO ESCAZú', 'ACUERDO EN ESPAñOL ', 'PORT', '', NULL, NULL, 1, 'DOCUMENTO CON EL TEXTO OFICIAL DEL ACUERDO DE ESCAZú EN ESPAñOL', '                                                                                                                                                                                                                                                                                                                                                                                                                                DOCUMENTO CON EL TEXTO OFICIAL DEL ACUERDO DE ESCAZú EN ESPAñOL                                                                                                        \r\n                                                                \r\n                                                            \r\n                                                            \r\n                                                            \r\n                                                            \r\n                                                            \r\n                                                            \r\n                                                            \r\n                    ', '2021-07-25', '2021-07-25 13:24:09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, 1, '0.0', 4, 'CELEBRACIóN 23 DE ABRIL', 'CELEBRACIóN ENTRADA EN VIGOR DEL ACUERDO DE ESCAZú', 'PORT', '', NULL, NULL, 1, 'VIDEO DEL EVENTO VIRTUAL DE CELEBRACIóN DE LA ENTRADA EN VIGOR DEL ACUERDO DE ESCAZú PROMOVIDO POR LAS ORGANIZACIONES DE LA SOCIEDAD CIVIL', '                                                                                                                                                            VIDEO DEL EVENTO VIRTUAL DE CELEBRACIóN DE LA ENTRADA EN VIGOR DEL ACUERDO DE ESCAZú PROMOVIDO POR LAS ORGANIZACIONES DE LA SOCIEDAD CIVIL                                                                                                        \r\n                                                                \r\n                                                            \r\n                                                            \r\n                    ', '2021-07-25', '2021-07-25 13:25:58', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(3, 1, '0.0', 4, '¿QUé ES EL ACUERDO DE ESCAZú?', '¿CONOCES EL ACUERDO DE ESCAZú?', 'ENG', 'EL AUTOR CEDE LOS DERECHOS', NULL, NULL, 1, 'INFOGRAFíA QUE DESCRIBE EN SíNTESIS QUé ES EL ACUERDO DE ESCAZú Y LOS ARTíCULOS PRINCIPALES', '                                                                                                                                                                                                                                                                                            INFOGRAFíA QUE DESCRIBE EN SíNTESIS QUé ES EL ACUERDO DE ESCAZú Y LOS ARTíCULOS PRINCIPALES                                                                                                        \r\n                                                                    \r\n                                                                    \r\n                                                                    \r\n                                                                \r\n                                                            \r\n                    ', '2021-07-25', '2021-07-25 13:27:14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(4, 1, '0.0', 4, 'ACUERDO DE ESCAZú 02 ACCESO A LA INFORMACIóN AMBIENTAL', '¿POR QUé ES IMPORTANTE CONTAR CON INFORMACIóN AMBI', 'ESP', NULL, NULL, NULL, 1, 'AUDIO SOBRE EL DERECHO DE ACCESO A LA INFORMACIóN AMBIENTAL QUE BUSCA GARANTIZAR EL ACUERDO DE ESCAZú', '                                                                                                                        AUDIO SOBRE EL DERECHO DE ACCESO A LA INFORMACIóN AMBIENTAL QUE BUSCA GARANTIZAR EL ACUERDO DE ESCAZú                                                                                                        \r\n                                                                    \r\n                                                                    \r\n                        ', '2021-07-25', '2021-07-25 13:28:48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -191,7 +196,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_archivo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -203,7 +208,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_post` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

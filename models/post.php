@@ -27,6 +27,7 @@ class Post {
     public $dateUpdate;
     public $maxID;
     public $nota1;
+    public $idioma;
 
     public function __construct() {
         $this->db = Database::connect();
@@ -79,7 +80,8 @@ class Post {
                 . "id_categoria=" . $this->id_categoria . ", "
                 . "descripcion_corta='" . $this->descripcion_corta . "', "
                 . "nota1='" . $this->nota1 . "', "
-                . "contenido='" . $this->contenido . "'";
+                . "contenido='" . $this->contenido . "', "
+                . "idioma='" . $this->idioma . "'";
 
         $strsql .= " WHERE id_post= " . $this->id_post;
         $save = $this->db->query($strsql);
@@ -90,12 +92,13 @@ class Post {
         return $result;
     }
 
-    public function getPost($id_post) {
+    public function getPost($id_post) {        
         $strsql = "SELECT
     posts.id_post,
     posts.descripcion_corta,
     usuarios.nombre,
     posts.slogan,
+    posts.idioma,
     usuarios.apellidoP,
     usuarios.apellidoM,
     posts.nom_post,
@@ -127,7 +130,8 @@ WHERE
                     usuarios.apellidoM,
                     posts.nom_post,
                     categorias.nom_categoria,
-                    posts.activo
+                    posts.activo,
+                    posts.idioma
                 FROM
                     posts
                 INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario
@@ -199,7 +203,15 @@ WHERE
         }
         return $result;
     }
+    
+    function getIdioma() {
+        return $this->idioma;
+    }
 
+    function setIdioma($idioma) {
+        $this->idioma = $idioma;
+    }
+    
     function getNota1() {
         return $this->nota1;
     }
