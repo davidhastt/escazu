@@ -4,6 +4,11 @@ require_once 'models/post.php'; //asegurate que este require sea necesario
 require_once 'models/estadistica.php';
 
 class sistemacontroller {
+    
+    public function cambiaridioma(){
+        $_SESSION["idioma"]=$_GET['parametro'];
+        $this->index();
+    }
 
     public function index() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
@@ -158,6 +163,7 @@ class sistemacontroller {
         return $lista_postMRO->listResult;
     }
 
+    /*
     private function listarPostsX($seccion) {// con este metodo se construye una pagina donde se muestran todos los servicios turisticos segun su categoria
         $seccion->setListResult("SELECT id_servicio,  nom_servicio, minidescripcion FROM posts WHERE categoria='" . $seccion->getCategoria() . "'  AND activo = 1");
         $servicioArr = $seccion->listResult; //no hagas caso de la advertencia de netbeans, si se usa esta variable
@@ -192,7 +198,7 @@ class sistemacontroller {
         require_once 'views/listaposts.php';
         require_once 'views/layout/footer.php';
     }
-
+*/
     public function showPost() {
         $postOBJ = new Post();
         $postOBJ->setId_post($_GET['parametro']);

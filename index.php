@@ -18,12 +18,14 @@ if (isset($_GET['controller'])) {
 }
 
 
-if (class_exists($nombre_controlador)) {
-    
+if (class_exists($nombre_controlador)) {    
     $controlador = new $nombre_controlador();
+    if (!isset($_SESSION["idioma"])){
+        $_SESSION["idioma"]="ESP";
+    }     
     if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {//pon aqui los puntos de interrupcion si quires empezar desde el principio
         $action = $_GET['action'];
-            $controlador->$action();        
+        $controlador->$action();
     } 
     elseif(!isset ($_GET['controller']) && !isset ($_GET['action'])){//estas son las acciones default
         $action_default=action_default;
@@ -31,7 +33,7 @@ if (class_exists($nombre_controlador)) {
     }
     else {
         show_error("Error","La página que busacas no existe");
-    }
+    }   
 } else {
     //echo "La pagina no existe";    
     show_error("Error","La página que busacas no existe");

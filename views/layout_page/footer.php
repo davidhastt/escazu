@@ -12,21 +12,20 @@
               <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
                   <div class="address">
-                    <h3>Address </h3>
+                    <h3>Dirección </h3>
                     <ul class="loca">
                       <li>
-                        <a href="#"></a>It is a long established fact 
-                        <br>that a reader will be  </li>
+                        <a href="#"></a>Independencia #17, Ixtapan de la Sal, México</li>
                         <li>
-                          <a href="#"></a>(+71 1234567890) </li>
+                          <a href="#"></a>(+52 7225132318) </li>
                           <li>
-                            <a href="#"></a>demo@gmail.com</li>
+                            <a href="#"></a>davidmillan@geografia.mx</li>
                           </ul>
                         </div>
                       </div>
                       <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="address">
-                          <h3>Social Link</h3>
+                          <h3>Redes sociales</h3>
                           <ul class="Menu_footer">
                             <li class="active"> <a href="#">Twitter</a> </li>
                             <li><a href="#">Facebook</a> </li>
@@ -39,10 +38,10 @@
 
                       <div class="col-lg-4 col-md-6 col-sm-6 ">
                         <div class="address">
-                          <h3>Newsletter</h3>
+                          <h3>Boletín de noticias</h3>
                            <form class="news">
-                           <input class="newslatter" placeholder="Enter your email" type="text" name=" Enter your email">
-                            <button class="submit">Subscribe</button>
+                           <input class="newslatter" placeholder="Escribe tu email" type="text" name=" Enter your email">
+                            <button class="submit">Suscribete</button>
                             </form>
                         </div>
                       </div>
@@ -54,7 +53,7 @@
               </div>
               <div class="copyright">
                 <div class="container">
-                  <p>Copyright © 2019 Design by <a href="https://html.design/">Free Html Templates </a></p>
+                    <p>Copyright © 2021 Creado por <a href="http://geografia.mx/" target="_blank">GeografiaMX</a></p>
                 </div>
               </div>
             </div>
