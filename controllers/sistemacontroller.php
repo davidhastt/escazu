@@ -4,9 +4,19 @@ require_once 'models/post.php'; //asegurate que este require sea necesario
 require_once 'models/estadistica.php';
 
 class sistemacontroller {
-    
-    public function cambiaridioma(){
-        $_SESSION["idioma"]=$_GET['parametro'];
+
+    public function busqueda() {
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
+        $busqueda = new Post;
+        $busqueda->busqueda($_POST['where']);
+        $lista_postMRO=$busqueda->listResult;
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";  
+                
+    }
+
+    public function cambiaridioma() {
+        $_SESSION["idioma"] = $_GET['parametro'];
         $this->index();
     }
 
@@ -119,10 +129,11 @@ class sistemacontroller {
     }
 
     public function entrar() {
-        require_once 'views/layout_page/header.php';
-        require_once 'views/layout_page/login.php';
-        require_once 'views/layout_page/footer.php';
+        require_once 'views/layout_page/ESP/header.php';
+        require_once 'views/layout_page/ESP/login.php';
+        require_once 'views/layout_page/ESP/footer.php';
         //http://localhost/escazu/sistema/entrar/inicio    
+        
     }
 
     public function cmx() {//index principal
@@ -164,41 +175,42 @@ class sistemacontroller {
     }
 
     /*
-    private function listarPostsX($seccion) {// con este metodo se construye una pagina donde se muestran todos los servicios turisticos segun su categoria
-        $seccion->setListResult("SELECT id_servicio,  nom_servicio, minidescripcion FROM posts WHERE categoria='" . $seccion->getCategoria() . "'  AND activo = 1");
-        $servicioArr = $seccion->listResult; //no hagas caso de la advertencia de netbeans, si se usa esta variable
-        $cateogoria = $seccion->getCategoria();
-        //Ya que esta creada la lista de atractivos: mandar llamar los encabezados
-        $seccion->setEncabezados();
-        $encabezadoArr = $seccion->getEncabezados();
-        //SEO        
-        $seccion->setSeo_title($encabezadoArr->seo_title);
-        $seccion->setSeo_keywords($encabezadoArr->seo_keywords);
-        $seccion->setSeo_description($encabezadoArr->seo_description);
-        $seo_title = $seccion->getSeo_title();
-        $seo_keywords = $seccion->getSeo_keywords();
-        $seo_description = $seccion->getSeo_description();
-        //open graph (og_title sale del seo)
-        $og_image = base_url . "assets/img/" . $cateogoria . "/" . $encabezadoArr->id_og_image . ".jpg";
-        $og_description = $encabezadoArr->og_description;
-        $og_url = base_url . "sistema/" . $cateogoria . "/index";
-        $og_section = $cateogoria;
+      private function listarPostsX($seccion) {// con este metodo se construye una pagina donde se muestran todos los servicios turisticos segun su categoria
+      $seccion->setListResult("SELECT id_servicio,  nom_servicio, minidescripcion FROM posts WHERE categoria='" . $seccion->getCategoria() . "'  AND activo = 1");
+      $servicioArr = $seccion->listResult; //no hagas caso de la advertencia de netbeans, si se usa esta variable
+      $cateogoria = $seccion->getCategoria();
+      //Ya que esta creada la lista de atractivos: mandar llamar los encabezados
+      $seccion->setEncabezados();
+      $encabezadoArr = $seccion->getEncabezados();
+      //SEO
+      $seccion->setSeo_title($encabezadoArr->seo_title);
+      $seccion->setSeo_keywords($encabezadoArr->seo_keywords);
+      $seccion->setSeo_description($encabezadoArr->seo_description);
+      $seo_title = $seccion->getSeo_title();
+      $seo_keywords = $seccion->getSeo_keywords();
+      $seo_description = $seccion->getSeo_description();
+      //open graph (og_title sale del seo)
+      $og_image = base_url . "assets/img/" . $cateogoria . "/" . $encabezadoArr->id_og_image . ".jpg";
+      $og_description = $encabezadoArr->og_description;
+      $og_url = base_url . "sistema/" . $cateogoria . "/index";
+      $og_section = $cateogoria;
 
-        $seccion->setId_imageAsList($og_image);
-        //hits
-        $seccion->setId_servicio($encabezadoArr->id_categoria);
-        $seccion->setHits($encabezadoArr->hits);
-        $updatehits = $seccion->getHits() + 1;
-        $id_categoria = $seccion->getId_servicio();
-        $seccion->setListResult("UPDATE categorias SET hits = '" . $updatehits . "' WHERE id_categoria = " . $id_categoria);
-        $slogan = $encabezadoArr->slogan;
-        $tituloPagina = $encabezadoArr->nom_categoria;
-        $subMainTitle = $encabezadoArr->subMainTitle;
-        require_once 'views/layout/header.php';
-        require_once 'views/listaposts.php';
-        require_once 'views/layout/footer.php';
-    }
-*/
+      $seccion->setId_imageAsList($og_image);
+      //hits
+      $seccion->setId_servicio($encabezadoArr->id_categoria);
+      $seccion->setHits($encabezadoArr->hits);
+      $updatehits = $seccion->getHits() + 1;
+      $id_categoria = $seccion->getId_servicio();
+      $seccion->setListResult("UPDATE categorias SET hits = '" . $updatehits . "' WHERE id_categoria = " . $id_categoria);
+      $slogan = $encabezadoArr->slogan;
+      $tituloPagina = $encabezadoArr->nom_categoria;
+      $subMainTitle = $encabezadoArr->subMainTitle;
+      require_once 'views/layout/header.php';
+      require_once 'views/listaposts.php';
+      require_once 'views/layout/footer.php';
+      }
+     */
+
     public function showPost() {
         $postOBJ = new Post();
         $postOBJ->setId_post($_GET['parametro']);
@@ -271,31 +283,31 @@ class sistemacontroller {
         $titulo = $postOBJ->getNom_post();
         $descripcion_corta = $postOBJ->getDescripcion_corta();
         $contenido = $postOBJ->getContenido();
-        $nota1=$postOBJ->getNota1();
+        $nota1 = $postOBJ->getNota1();
         //Ahora obtendremos los archivos asociados
         $postOBJ->obtenerArchivosAsociados($postOBJ->getId_post()); //cambiale el nommbre a este metodo
         $archivosMROjpg = $postOBJ->getListResult();
 
         $imagenes = "";
         $pdfs = "";
-        $mp3s="";
+        $mp3s = "";
         while ($archivosFO = $archivosMROjpg->fetch_object()) {
             //1=jpg de presentacion, 2= pdf, 3=jpg pra carrusel 4=mp3
             switch ($archivosFO->id_tipoArchivo) {
                 case 2:
-                    /*if ($archivosFO->id_tipoArchivo == 2) 
-                    {
-                    echo "PDF"; $ruta = base_url . "assets/page/pdf/";                         
-                    }*/
-                    
-                    $pdfs.= '<div class="card text-center">
+                    /* if ($archivosFO->id_tipoArchivo == 2) 
+                      {
+                      echo "PDF"; $ruta = base_url . "assets/page/pdf/";
+                      } */
+
+                    $pdfs .= '<div class="card text-center">
                         <div class="card-header">
                             Archivo listo para visualizar
                         </div>
                         <div class="card-body">
                             <!--h5 class="card-title">Titulo del archivo <?php ?></h5>
                             <p class="card-text">Aquí va una descripcion del archivo</p-->
-                            <a href="'.base_url.'assets/page/pdf/'. $archivosFO->nom_file .'.pdf" class="btn btn-primary" target="_blank">Ver</a>
+                            <a href="' . base_url . 'assets/page/pdf/' . $archivosFO->nom_file . '.pdf" class="btn btn-primary" target="_blank">Ver</a>
                         </div>
                         <div class="card-footer text-muted">
                             Centro virtual Escazú
@@ -307,12 +319,12 @@ class sistemacontroller {
                     $imagenes .= "<img src='" . base_url . "assets/page/img/jpg/" . $archivosFO->nom_file . ".jpg' class='img-fluid' alt='No pudimos encontrar el archivo " . $archivosFO->nom_file . "'>";
                     break;
                 case 4:
-                    $mp3s.='<audio controls>
-                            <source src="'.base_url.'assets/page/mp3/'. $archivosFO->nom_file .'.ogg" type="audio/ogg">
-                            <source src="'.base_url.'assets/page/mp3/'. $archivosFO->nom_file .'.mp3" type="audio/mpeg">
+                    $mp3s .= '<audio controls>
+                            <source src="' . base_url . 'assets/page/mp3/' . $archivosFO->nom_file . '.ogg" type="audio/ogg">
+                            <source src="' . base_url . 'assets/page/mp3/' . $archivosFO->nom_file . '.mp3" type="audio/mpeg">
                             Tu navegador no soporta archivos mp3
                           </audio>';
-                    break;                
+                    break;
                 default:
                     break;
             }
@@ -329,7 +341,7 @@ class sistemacontroller {
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/postBody.php";
 //        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
-        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";         
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
 
     private function topservices() {

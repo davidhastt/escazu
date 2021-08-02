@@ -33,6 +33,25 @@ class Post {
         $this->db = Database::connect();
     }
 
+    public function busqueda($where){
+    //$strsql = "SELECT * FROM posts WHERE nom_post LIKE '%{$where}%' AND idioma='{$_SESSION["idioma"]}'";
+    $strsql="SELECT
+    posts.id_post,
+    posts.nom_post,
+    posts.descripcion_corta,
+    archivos.nom_file
+    FROM
+        posts
+    INNER JOIN archivos ON posts.id_post = archivos.id_post
+    WHERE
+        archivos.rol = 1 AND posts.idioma = '".$_SESSION["idioma"]."' AND NOM_POST LIKE '%ACUERDO ES%'
+    ORDER BY
+        posts.id_post
+    DESC";
+    $this->listResult = $this->db->query($strsql);        
+    }
+
+   
     public function obtenerArchivosAsociados($id_post) {
         $strsql = "SELECT id_archivo,"
                 . " id_tipoArchivo, nom_file FROM archivos WHERE id_post={$id_post} AND rol !=1";

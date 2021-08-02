@@ -12,6 +12,7 @@ https://www.free-css.com/free-css-templates/page265/shree
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
+Los post no se pueden desactivar
 Comprueba que cuando borras un post se borre el archivo y la fila en la tabla archivos
 el date time stamp de la tabla post no funciona
 en el cmx ya no se ve el logo
@@ -53,9 +54,12 @@ Ya carga archivos pdf y los registra en la base de datos, los lista en el cms y 
 Se corrigio error, mostraba muchos post, siendo que solo habia uno, era un error de relacion, se resolvio agregando otra propiedad al objeto archivo, la propiedad se llama rol y se mejoro el metodo archivocontroller.subirMultimedia, cambie la ruta donde se almacenan las jpg
 Se corrigio error, al momento de subir un archivo, el archivo subia correctamente, pero al momento de registrar en la tabla se estaba almacenando el max id post, lo cual era incorecto, lo correcto es guardar el id_post
 Quité de la base de datos y del postform el campo de idAsTxt, la interface del post form en el cmx esta remodelada y agregue el campo notas, el con el mensaje de bienvenida ya esta en los 3 idiomas, las notas tienen 'candados' solo se muestra cuando hay nota disponible
+
 Agregue un campo donde se muestre el idioma en la tabla donde se listan los post en el cmx, puse un combobox en el post form de el cmx donde se elija el idioma, ya actualiza el idioma, con respaldo de base de datos
 En la pagina principal, se crearon los links de los 3 botones para cambiar de idioma, ya muestra los post en los 3 idiomas y en sus respectivos menus, este commit es de respaldo porque voy a hacer cambios arriesgados, tambien hice mejoras al pie de pagina de la pagina principal
 Los cambios arriesgados funcionaron, ya esta todo hecho para que cuando se le de click en cambiar idioma muestre los post en el idioma elegido, pero por lo pronto solo funciona en español para prevenir trabajar de mas por cambios inesperados
+Ya hace busquedas usando el operador like. Los cambios arriesgados si trajeron una consecuencia, pero fue corregida
+
 
 MATERIALES MUESTRA
 
