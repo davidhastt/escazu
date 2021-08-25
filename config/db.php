@@ -11,12 +11,12 @@ class Database{
     }
 }
 
-
 //en web
+
 
 //class Database{
 //    public static function connect(){
-//        $db=new mysqli('db5000540624.hosting-data.io', 'dbu268718','Msd987*/_84Dke', 'dbs519093');
+//        $db=new mysqli('db5004018525.hosting-data.io', 'dbu1859021','%(#?[j_654ke98/.|*/-.{', 'dbs3303596');
 //        $db->query("SET NAMES 'utf8'");
 //        return $db;        
 //    }          

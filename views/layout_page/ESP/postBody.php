@@ -36,13 +36,22 @@
     
 <?= $imagenes; ?>
 
-
+<div class="alert alert-success" role="alert">
+  Archivos PDF
+</div>
 <?= $pdfs; ?>    
     
-    
-<?= $mp3s; ?>      
- 
+<div class="alert alert-success" role="alert">
+  Archivos mp3
+</div>
 
+<?= $mp3s; ?>      
+
+<div class="alert alert-success" role="alert">
+  Archivos mp4
+</div>    
+    
+<?= $mp4; ?>
 <br>
 <br>
 <br>

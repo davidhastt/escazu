@@ -54,7 +54,7 @@ class Post {
    
     public function obtenerArchivosAsociados($id_post) {
         $strsql = "SELECT id_archivo,"
-                . " id_tipoArchivo, nom_file FROM archivos WHERE id_post={$id_post} AND rol !=1";
+                . " id_tipoArchivo, nom_file, titulo, descripcion FROM archivos WHERE id_post={$id_post} AND rol !=1";
         $this->listResult = $this->db->query($strsql);
     }    
     
@@ -159,24 +159,25 @@ WHERE
                     posts.id_post";
                 break;
             case "inicio":
-                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE archivos.rol=1 AND posts.idioma='".$_SESSION["idioma"]."' ORDER BY posts.id_post DESC LIMIT 10";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE archivos.rol=1 AND posts.idioma='".$_SESSION["idioma"]."' AND posts.activo=1 ORDER BY posts.id_post DESC LIMIT 10";
                 break;
             case "acuerdo":
-                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=1 AND archivos.rol=1 AND posts.idioma='".$_SESSION["idioma"]."' ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=1 AND archivos.rol=1 AND posts.idioma='".$_SESSION["idioma"]."' AND posts.activo=1 ORDER BY posts.id_post";
                 break;
             case "conferencias":
-                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=2 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."'  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=2 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."' AND posts.activo=1 ORDER BY posts.id_post";
                 break;
             case "materiales":
-                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=3 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."'  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=3 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."' AND posts.activo=1 ORDER BY posts.id_post";
                 break;
             case "ligas":
-                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=4 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."'  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=4 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."' AND posts.activo=1 ORDER BY posts.id_post";
                 break;
             case "cursos":
-                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=5 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."'  ORDER BY posts.id_post";
+                $strsql = "SELECT posts.id_post, usuarios.nombre, usuarios.apellidoP, usuarios.apellidoM, posts.nom_post, posts.descripcion_corta, categorias.nom_categoria, posts.activo, archivos.nom_file FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id_usuario INNER JOIN categorias ON posts.id_categoria = categorias.id_categoria INNER JOIN archivos ON posts.id_post = archivos.id_post WHERE posts.id_categoria=5 AND archivos.rol=1  AND posts.idioma='".$_SESSION["idioma"]."' AND posts.activo=1 ORDER BY posts.id_post";
                 break;
             default:
+                $strsql="Error";
                 break;
         }
 

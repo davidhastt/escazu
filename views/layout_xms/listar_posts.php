@@ -62,7 +62,7 @@
     function borrarPost(id_post, nombrePost){
         respuesta = confirm("Estas seguro de querer borrar a: " + nombrePost)
         if (respuesta == true) {
-            window.location.replace("<?= base_url ?>/post/borrar_post/" + id_post);
+            window.location.replace("<?= base_url ?>post/borrar_post/" + id_post);
         }        
     }
 </script>

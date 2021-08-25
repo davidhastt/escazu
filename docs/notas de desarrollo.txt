@@ -12,6 +12,8 @@ https://www.free-css.com/free-css-templates/page265/shree
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
+Despues de actualizar post da error
+Cuando borras un post sale un error
 Los post no se pueden desactivar
 Comprueba que cuando borras un post se borre el archivo y la fila en la tabla archivos
 el date time stamp de la tabla post no funciona
@@ -105,3 +107,42 @@ Notas
 
 
 centro virtual de informacion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(+52)55 56 06 38 32
+
+
+
+en vez de dirección colocar "Contacto" Escribenos
+info@centroescazu.org
+ 
+Twitter
+Facebook
+Instagram
+Linkdin
+Youtube
+
+
+En vez de boletin de noticias (quitar)
+
+
+Checar traduccion de portugues
+
+Es un centro de informacion virtual sobre el acuerdo de escazú
+En ingles escazu no lleva acento
+
+

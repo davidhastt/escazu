@@ -12,14 +12,14 @@
               <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
                   <div class="address">
-                    <h3>Dirección </h3>
+                    <h3>Escribenos </h3>
                     <ul class="loca">
                       <li>
-                        <a href="#"></a>Independencia #17, Ixtapan de la Sal, México</li>
+                        <a href="#"></a>Sadi Carnot 89 G2 Col. San Rafael Alcaldía Cuauhtémoc</li>
                         <li>
-                          <a href="#"></a>(+52 7225132318) </li>
+                          <a href="#"></a>(+52)55 56 06 38 32</li>
                           <li>
-                            <a href="#"></a>davidmillan@geografia.mx</li>
+                            <a href="#"></a>info@centroescazu.org</li>
                           </ul>
                         </div>
                       </div>
@@ -36,7 +36,7 @@
                       </div>
                      
 
-                      <div class="col-lg-4 col-md-6 col-sm-6 ">
+                      <!--div class="col-lg-4 col-md-6 col-sm-6 ">
                         <div class="address">
                           <h3>Boletín de noticias</h3>
                            <form class="news">
@@ -44,7 +44,7 @@
                             <button class="submit">Suscribete</button>
                             </form>
                         </div>
-                      </div>
+                      </div-->
                     </div>
                   </div>
 

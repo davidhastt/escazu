@@ -64,7 +64,7 @@
                       <li> <a href="<?= base_url?>sistema/eventos/index">Eventos</a> </li>
                       <li> <a href="<?= base_url?>sistema/materiales/index">Materiales</a> </li>
                       <li> <a href="<?= base_url?>sistema/enlaces/index">Enlaces</a> </li>
-                      <li> <a href="<?= base_url?>sistema/capacitacion/index">Capacitacion</a> </li>                     
+                      <li> <a href="<?= base_url?>sistema/capacitacion/index">Capacitación</a> </li>                     
                      <li> <a href="#"><img src="<?= base_url ?>assets/page/img/icon/icon_b.png" alt="#" /></a></li>
                      </ul>
                    </nav>

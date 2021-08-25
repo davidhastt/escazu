@@ -11,6 +11,8 @@ class Archivo {
     private $extension;
     private $maxID;
     public $rol;
+    public $titulo;
+    public $descripcion;
 
     function __construct($id_tipoArchivo = null) {// hace falta definir la carpeta donde se guardara        
         $this->db = Database::connect();
@@ -18,7 +20,7 @@ class Archivo {
     }
 
     function insertarFilaVaciaRelacionada() {
-        $strsql = "INSERT INTO archivos VALUES(null, {$this->id_tipoArchivo}, {$this->maxID}, 0,1)";
+        $strsql = "INSERT INTO archivos VALUES(null, {$this->id_tipoArchivo}, {$this->maxID}, 0,1, 'titulo', 'descripcion')";
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
@@ -37,6 +39,22 @@ class Archivo {
         return $result;
     }
 
+    function getTitulo() {
+        return $this->titulo;
+    }
+
+    function getDescripcion() {
+        return $this->descripcion;
+    }
+
+    function setTitulo($titulo) {
+        $this->titulo = $titulo;
+    }
+
+    function setDescripcion($descripcion) {
+        $this->descripcion = $descripcion;
+    }
+        
     function getId_tipoArchivo() {
         return $this->id_tipoArchivo;
     }
@@ -63,7 +81,12 @@ class Archivo {
                 $this->extension = "mp3";
                 $this->id_tipoArchivo = 4;
                 $this->rol=4;//el 3 es imagen de un carrusel
-                break;               
+                break; 
+            case 5:
+                $this->extension = "mp4";
+                $this->id_tipoArchivo = 5;
+                $this->rol=5;//el 3 es video
+                break;            
             default:
                 break;
         }
@@ -71,7 +94,7 @@ class Archivo {
 
     public function registrarEnBD() {
         $nombre = substr($this->nomFile, 0, -4);
-        $strsql = "INSERT INTO archivos (id_tipoArchivo, id_post, nom_file, rol) VALUES ({$this->id_tipoArchivo}, {$this->id_post}, {$nombre}, {$this->rol})";
+        $strsql = "INSERT INTO archivos (id_tipoArchivo, id_post, nom_file, rol, titulo, descripcion) VALUES ({$this->id_tipoArchivo}, {$this->id_post}, {$nombre}, {$this->rol}, '{$this->titulo}', '{$this->descripcion}')";
         $save = $this->db->query($strsql);
         $result = false;
         if ($save) {
@@ -84,13 +107,14 @@ class Archivo {
         // primero tienes que descubrir el nombre del archivo con id = $id_file
         //$this->extension=$extension;
         $filas = $this->buscaArchivo($id_archivo);
-
+        $this->setId_tipoArchivo($filas->id_tipoArchivo);
         $this->nom_file = $filas->nom_file;
         $this->id_post = $filas->id_post;
+        //$this->setExtension($extension)
         //$this->setId_tipoArchivo($filas->id_tipoArchivo);// esto ya se definio desde el constructor
         //dependiendo del tipo de archivo es la carpeta
 
-        $filename = "assets/page/{$this->extension}/" . $this->nom_file . "." . $this->extension;
+        $filename = "assets/page/img/{$this->extension}/" . $this->nom_file . "." . $this->extension;
         //antes de tratar de borrarlo hay que verificar que exista
         if (file_exists($filename)) {
             if (unlink($filename)) {
@@ -198,7 +222,13 @@ class Archivo {
             } else {
                 return false;
             }
-        }
+        } elseif ($this->id_tipoArchivo==5) {
+            if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/mp4/' . $this->nomFile)) {
+                return true;
+            } else {
+                return false;
+            }
+        }        
         else {
             return false;
         }

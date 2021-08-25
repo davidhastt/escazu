@@ -21,11 +21,11 @@
                                         <h1>Centro virtual</h1>
                                         <p>El Acuerdo sobre el Acceso a la información, la participación pública y el acceso a la justicia en asuntos ambientales en América Latina y el Caribe fue adoptado en Escazú Costa Rica el 4 de marzo de 2018 y entró en vigor el 22 de abril de 2021.</p>                                        
                                         <form class="Vegetable" action="<?= base_url ?>sistema/busqueda/inicio" method="post">
-                                            <input  class="Vegetable_fom" placeholder="Acuerdo de Éscazú" type="text" id="where" name="where" required>
+                                            <input  class="Vegetable_fom" placeholder="Acuerdo de Escazú" type="text" id="where" name="where" required>
                                             <button class="Search_btn" type="submit">Buscar</button>
                                         </form>
                                         <a href="<?= base_url ?>sistema/cambiaridioma/ESP">Ver en español</a>
-                                        <a href="">Busqueda avanzada</a>
+                                        <a href="">Búsqueda avanzada</a>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -45,14 +45,14 @@
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                     <div class="text-bg">
-                                        <span>Escazú information center</span>
+                                        <span>Escazu information center</span>
                                         <h1>Virtual center</h1>
                                         <p>The Agreement on Access to Information, Public Participation and Access to Justice in Environmental Matters in Latin America and the Caribbean was adopted in Escazú Costa Rica on March 4, 2018 and entered into force on April 22, 2021.</p>
                                         <form class="Vegetable">
                                             <input class="Vegetable_fom" placeholder="Escazu agreement" type="text" name=" Vegetable">
                                             <button class="Search_btn">Search</button>
                                         </form>
-                                        <a href="<?= base_url ?>sistema/cambiaridioma/ENG">See in english</a>
+                                        <a href="<?= base_url ?>sistema/cambiaridioma/ENG">See in English</a>
                                         <a href="#">Advanced search</a>
                                     </div>
                                 </div>

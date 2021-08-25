@@ -32,13 +32,15 @@ class archivoController {
             $tipo = 2;
         } elseif ($archivoArr['type'][0] == "audio/mpeg") {
             $tipo = 4;
-        }
-        
+        } elseif ($archivoArr['type'][0] == "video/mp4") {
+            $tipo = 5;
+        }        
         $archivo = new Archivo($tipo);
-
         $archivo->asignarNombreAFile(); //para darle un nombre al archivo buscamos el id maximo en la tabla
         //$archivo->setMaxID(); // siempre sale 1 como resultado de esta funcion, revisa despues
         $archivo->setId_post($_GET['parametro']);
+        $archivo->setTitulo($_POST['titulo']);
+        $archivo->setDescripcion($_POST['descripcion']);
         if ($archivo->subir($archivoArr)) {
             if ($archivo->registrarEnBD()) {
                 $mensaje = "Exito";
@@ -49,13 +51,17 @@ class archivoController {
                 require_once 'views/layout_xms/footer.php';
             } else {
                 $mensaje = "Error";
-                $mensaje2 = $resultadoSubir;
+                $mensaje2 = "Se subio el archivo pero no se pudo registrar en labase de datos";
                 $url = base_url . "post/listarPosts/inicio";
                 $error = new errorcontroller();
                 $error->index($mensaje, $mensaje2);
             }
         } else {
-            return false;
+                $mensaje = "Error";
+                $mensaje2 = "No se pudo subir el archivo";
+                $url = base_url . "post/listarPosts/inicio";
+                $error = new errorcontroller();
+                $error->index($mensaje, $mensaje2);
         }
     }
 

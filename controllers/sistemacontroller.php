@@ -30,12 +30,24 @@ class sistemacontroller {
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
         $og_section = "main";
+
+        /*if(!isset($_SESSION['idioma'])){
+            $_SESSION['idioma']="ESP";
+        }*/
+
+
+        $idioma=$_SESSION['idioma'];
+        echo "<script>console.log('Idioma configurado {$idioma}')</script>";
+        
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
+        //require_once "views/layout_page/ESP/header.php";
 
         $lista_postMRO = $this->listarPosts("inicio");
 
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        //require_once "views/layout_page/ESP/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
+        //require_once "views/layout_page/ESP/footer.php";
     }
 
     public function acuerdo() {//index principal
@@ -215,13 +227,10 @@ class sistemacontroller {
         $postOBJ = new Post();
         $postOBJ->setId_post($_GET['parametro']);
 
-
         $postOBJ->setListResult("SELECT * FROM posts WHERE id_post=" . $postOBJ->getId_post());
         $postMRO = $postOBJ->getListResult();
         $postFO = $postMRO->fetch_object();
         $postOBJ->setNom_post($postFO->nom_post);
-
-
 
         $postOBJ->setSlogan($postFO->slogan);
         $postOBJ->setDescripcion_corta($postFO->descripcion_corta);
@@ -300,31 +309,46 @@ class sistemacontroller {
                       echo "PDF"; $ruta = base_url . "assets/page/pdf/";
                       } */
 
-                    $pdfs .= '<div class="card text-center">
-                        <div class="card-header">
-                            Archivo listo para visualizar
-                        </div>
-                        <div class="card-body">
-                            <!--h5 class="card-title">Titulo del archivo <?php ?></h5>
-                            <p class="card-text">Aquí va una descripcion del archivo</p-->
-                            <a href="' . base_url . 'assets/page/pdf/' . $archivosFO->nom_file . '.pdf" class="btn btn-primary" target="_blank">Ver</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                            Centro virtual Escazú
-                        </div>
-                        </div>';
+                    $pdfs .= '<div class="card" style="width: 18rem;">
+                            <img src="' . base_url . 'assets/xms/img/pdf.jpg" class="card-img-top" alt="No se encontro archivo">
+                            <div class="card-body">
+                              <h5 class="card-title">'.$archivosFO->titulo.'</h5>
+                              <p class="card-text">'.$archivosFO->descripcion.'</p>
+                              <a href="' . base_url . 'assets/page/pdf/' . $archivosFO->nom_file . '.pdf" class="btn btn-primary" target="_blank">Ver</a>
+                            </div>
+                          </div>';
 
                     break;
                 case 3:
                     $imagenes .= "<img src='" . base_url . "assets/page/img/jpg/" . $archivosFO->nom_file . ".jpg' class='img-fluid' alt='No pudimos encontrar el archivo " . $archivosFO->nom_file . "'>";
                     break;
                 case 4:
-                    $mp3s .= '<audio controls>
-                            <source src="' . base_url . 'assets/page/mp3/' . $archivosFO->nom_file . '.ogg" type="audio/ogg">
-                            <source src="' . base_url . 'assets/page/mp3/' . $archivosFO->nom_file . '.mp3" type="audio/mpeg">
-                            Tu navegador no soporta archivos mp3
-                          </audio>';
+                    $mp3s .= '<div class="card text-center">
+                    <h5 class="card-header">Audio MP3</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">'.$archivosFO->titulo.'</h5>
+                      <p class="card-text">'.$archivosFO->descripcion.'</p>
+                  <audio controls>
+                  <source src="' . base_url . 'assets/page/mp3/' . $archivosFO->nom_file . '.ogg" type="audio/ogg">
+                  <source src="' . base_url . 'assets/page/mp3/' . $archivosFO->nom_file . '.mp3" type="audio/mpeg">
+                  Tu navegador no soporta archivos mp3
+                  </audio>
+                    </div>
+                  </div>';
                     break;
+                case 5:
+                    $mp4='<div class="card text-center">
+                    <h5 class="card-header">Video MP4</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">'.$archivosFO->titulo.'</h5>
+                      <p class="card-text">'.$archivosFO->descripcion.'</p>
+                  <video width="320" height="240" controls>
+                                              <source src="' . base_url . 'assets/page/mp4/' . $archivosFO->nom_file . '.ogg" type="video/ogg">
+                                              <source src="' . base_url . 'assets/page/mp4/' . $archivosFO->nom_file . '.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                            </video>
+                    </div>
+                  </div>';
                 default:
                     break;
             }

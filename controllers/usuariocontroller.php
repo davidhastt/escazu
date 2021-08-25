@@ -37,7 +37,8 @@ class usuariocontroller {
             foreach ($propiedadesList as $value) {
                 if (isset($_POST[$value])) {
                     $metodo = $setList[$i];
-                    $usuarioObj->$metodo(strtoupper($_POST[$value]));
+                    //$usuarioObj->$metodo(strtoupper($_POST[$value]));
+                    $usuarioObj->$metodo($_POST[$value]);
                 }
                 $i++;
             }
@@ -155,7 +156,7 @@ class usuariocontroller {
                 if (isset($_POST[$value])) {
                     $metodo = $setList[$i];
                     //$estudiante->$metodo($_POST[$value]);
-                    $turistaObj->$metodo(strtoupper($_POST[$value]));
+                    $turistaObj->$metodo($_POST[$value]);
                 }
                 $i++;
             }
@@ -169,7 +170,7 @@ class usuariocontroller {
                 require_once 'views/layout_xms/footer.php';
                 //ahora tienes que hacer una consulta para saber el id del usuario
                 if ($_GET['parametro'] == "newsletter") {//si registro solo su correo entonces le mandamos un email
-                    $email = strtoupper($_POST[$value]);
+                    $email = $_POST[$value];
                     $turistaObj->setListResult("SELECT id_usuario FROM usuarios WHERE email='" . $email . "'");
                     $turistaArr = $turistaObj->listResult->fetch_object(); //el metodo fetcobject convierte el resultado en un array asociativo
                     $id_usuario = $turistaArr->id_usuario;

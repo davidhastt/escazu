@@ -27,7 +27,7 @@ class PostController {
             foreach ($propiedadesList as $value) {
                 if (isset($_POST[$value])) {
                     $metodo = $setList[$i];
-                    $postObj->$metodo(strtoupper($_POST[$value]));
+                    $postObj->$metodo($_POST[$value]);
                 }
                 $i++;
             }
@@ -42,14 +42,14 @@ class PostController {
                     if ($resultadoSubir) {
                         $mensaje = "Exito";
                         $mensaje2 = "Los datos del post se actualizaron exitosamente";
-                        $url = base_url . "post/listarPosts/inicio";
+                        $url = base_url . "post/listarPosts/listarEnCMX";
                         require_once 'views/layout_xms/header.php';
                         require_once 'views/layout_xms/confirmacion.php';
                         require_once 'views/layout_xms/footer.php';
                     } else {
                         $mensaje = "Error";
                         $mensaje2 = $resultadoSubir;
-                        $url = base_url . "post/listarPosts/inicio";
+                        $url = base_url . "post/listarPosts/listarEnCMX";
                         $error = new errorcontroller();
                         $error->index($mensaje, $mensaje2);                        
                     }
@@ -90,11 +90,8 @@ class PostController {
             $mensaje2 = "No se pudo borrar el post";
         }
 
-        $url = base_url . "post/listarPosts/inicio";
+        $url = base_url . "post/listarPosts/listarEnCMX";//http://localhost/escazu/post/listarPosts/listarEnCMX
         require_once 'views/layout_xms/confirmacion.php';
-
-        $this->listarPosts();
-        require_once 'views/layout_xms/listar_posts.php';
         require_once 'views/layout_xms/footer.php';
     }
 
