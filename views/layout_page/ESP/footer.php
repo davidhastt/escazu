@@ -12,14 +12,14 @@
               <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
                   <div class="address">
-                    <h3>Escribenos </h3>
+                    <h3>Escríbenos </h3>
                     <ul class="loca">
                       <li>
-                        <a href="#"></a>Sadi Carnot 89 G2 Col. San Rafael Alcaldía Cuauhtémoc</li>
+                        <a href="#"></a><p>Sadi Carnot 89 G2 Col. San Rafael</p><p> Alcaldía Cuauhtémoc C.P. 06470</p></li>
                         <li>
                           <a href="#"></a>(+52)55 56 06 38 32</li>
                           <li>
-                            <a href="#"></a>info@centroescazu.org</li>
+                            <a href="#"></a>centrovirtualescazu@gmail.com</li>
                           </ul>
                         </div>
                       </div>
@@ -27,10 +27,11 @@
                         <div class="address">
                           <h3>Redes sociales</h3>
                           <ul class="Menu_footer">
-                            <li class="active"> <a href="#">Twitter</a> </li>
-                            <li><a href="#">Facebook</a> </li>
-                            <li><a href="#">Instagram</a> </li>
-                            <li><a href="#">Linkdin</a> </li>
+                            <li class="active"> <a href="https://twitter.com/EscazuCentro?s=08">Twitter</a> </li>
+                            <li><a href="https://www.facebook.com/centrovirtualescazu/?ref=pages_you_manage">Facebook</a> </li>
+                            <li><a href="https://instagram.com/centrovirtualescazu?utm_medium=copy_link">Instagram</a> </li>
+                            <li><a href="https://www.linkedin.com/mwlite/in/centro-virtual-escaz%C3%BA-75a38321b">Linkdin</a> </li>
+                            <li><a href="https://youtube.com/channel/UCDT1F-p0vrvyyzJF53CzZGg">Youtube</a> </li>
                           </ul>
                         </div>
                       </div>

@@ -33,7 +33,7 @@ class archivoController {
         } elseif ($archivoArr['type'][0] == "audio/mpeg") {
             $tipo = 4;
         } elseif ($archivoArr['type'][0] == "video/mp4") {
-            $tipo = 5;
+            $tipo = 5;            
         }        
         $archivo = new Archivo($tipo);
         $archivo->asignarNombreAFile(); //para darle un nombre al archivo buscamos el id maximo en la tabla
@@ -41,7 +41,10 @@ class archivoController {
         $archivo->setId_post($_GET['parametro']);
         $archivo->setTitulo($_POST['titulo']);
         $archivo->setDescripcion($_POST['descripcion']);
-        if ($archivo->subir($archivoArr)) {
+
+        $moved=$archivo->subir($archivoArr);
+
+        if ($moved) {
             if ($archivo->registrarEnBD()) {
                 $mensaje = "Exito";
                 $mensaje2 = "Se cargo archivo {$archivo->getExtension()}";
@@ -58,11 +61,11 @@ class archivoController {
             }
         } else {
                 $mensaje = "Error";
-                $mensaje2 = "No se pudo subir el archivo";
+                $mensaje2 = "No se pudo subir el archivo por, {$moved}";
                 $url = base_url . "post/listarPosts/inicio";
                 $error = new errorcontroller();
                 $error->index($mensaje, $mensaje2);
-        }
+        }        
     }
 
     public function subir($id_tipoArchivo, $id_post) {   //si id_post > 0 entonces se debe actualizar en la tabla     

@@ -10,7 +10,10 @@ class sistemacontroller {
         $busqueda = new Post;
         $busqueda->busqueda($_POST['where']);
         $lista_postMRO=$busqueda->listResult;
-        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        //$encabezadoAmostrar="inicio";
+        $mensaje=$_POST['where'];
+        
+        require_once "views/layout_page/{$_SESSION['idioma']}/searchresult.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";  
                 
     }
@@ -42,10 +45,12 @@ class sistemacontroller {
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
         //require_once "views/layout_page/ESP/header.php";
 
-        $lista_postMRO = $this->listarPosts("inicio");
 
+        $encabezadoAmostrar="inicio";        
+        $lista_postMRO = $this->listarPosts("inicio");
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
-        //require_once "views/layout_page/ESP/inicio.php";
+        //require_once "views/layout_page/ESP/inicio.php";        
+
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
         //require_once "views/layout_page/ESP/footer.php";
     }
@@ -59,10 +64,27 @@ class sistemacontroller {
         $og_title = "Geografia MX";
         $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
         $og_url = "http://geografia.mx";
-        $og_section = "main";
+        $og_section = "main";        
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
-
         $lista_postMRO = $this->listarPosts("acuerdo");
+        //configuramos el encabezado
+        $encabezadoAmostrar="acuerdo";
+        if($_SESSION['idioma']=="ESP"){
+            $tituloSeccion='<h2> El acuerdo <strong class="llow">Escazú</strong> </h2>';
+            $subtituloSeccion="Lo que tienes que saber";
+            $descripcionSeccion="Los países de América Latina y el Caribe crearon una herramienta pionera en el contexto de la protección ambiental y los derechos humanos que refleja la ambición, las prioridades y las particularidades de la región: el Acuerdo Regional sobre Acceso a la Información, la Participación Pública y el Acceso a la Justicia en Asuntos Ambientales en América Latina y el Caribe, más conocido como el Acuerdo de Escazú.";            
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2>Escazu <strong class="llow">agreement</strong> </h2>';
+            $subtituloSeccion="What you have to know";
+            $descripcionSeccion="The countries of Latin America and the Caribbean created a pioneering tool in the context of environmental protection and human rights that reflects the ambition, priorities and particularities of the region: the Regional Agreement on Access to Information, Public Participation and Access to Justice in Environmental Matters in Latin America and the Caribbean, better known as the Escazú Agreement.";            
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2> Acordo de <strong class="llow">Escazú</strong> </h2>';
+            $subtituloSeccion="O que você tem que saber";
+            $descripcionSeccion="Os países da América Latina e do Caribe criaram uma ferramenta pioneira no contexto da proteção ambiental e dos direitos humanos que reflete a ambição, as prioridades e as particularidades da região: o Acordo Regional de Acesso à Informação, Participação Pública e Acesso à Justiça em Matéria Ambiental na América Latina e no Caribe, mais conhecido como Acordo Escazú.";                        
+        }
+        
+        
+        
 
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -80,7 +102,30 @@ class sistemacontroller {
         $og_section = "main";
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
-        $lista_postMRO = $this->listarPosts("conferencias");
+        $lista_postMRO = $this->listarPosts("eventos");
+        //configuramos el encabezado
+        $encabezadoAmostrar="eventos";
+        
+        
+        if($_SESSION['idioma']=="ESP"){
+            $tituloSeccion='<h2> Proximos <strong class="llow">Eventos</strong> </h2>';
+            $subtituloSeccion="Lo que sigue";
+            $descripcionSeccion="Los eventos son aquellos fenómenos que surgen de ocasiones no rutinarias y que tienen objetivos de ocio, culturales, personales u organizativos establecidos de forma separada a la actividad normal diaria, cuya finalidad es ilustrar, celebrar, entretener o generar experiencias en un grupo de personas.";
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2> Upcoming <strong class="llow">events</strong> </h2>';
+            $subtituloSeccion="What's next";
+            $descripcionSeccion="Events are those phenomena that arise from non-routine occasions and that have leisure, cultural, personal or organizational objectives established separately from normal daily activity, whose purpose is to illustrate, celebrate, entertain or generate experiences in a group of people.";
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2> Proximos <strong class="llow">Eventos</strong> </h2>';
+            $subtituloSeccion="O seguinte";
+            $descripcionSeccion="Eventos são aqueles fenômenos que surgem de ocasiões não rotineiras e que têm objetivos de lazer, culturais, pessoais ou organizacionais estabelecidos separadamente da atividade cotidiana normal, cujo objetivo é ilustrar, celebrar, entreter ou gerar experiências em um grupo de pessoas.";
+        }        
+        
+        
+        
+        
+        
+        
 
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -99,6 +144,25 @@ class sistemacontroller {
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("materiales");
+        //configuramos el encabezado
+        $encabezadoAmostrar="materiales";
+        
+        if($_SESSION['idioma']=="ESP"){
+            $tituloSeccion='<h2> Materiales <strong class="llow">educativos</strong> </h2>';
+            $subtituloSeccion="Encuentra materiales";
+            $descripcionSeccion="Un material es un elemento que puede transformarse y agruparse en un conjunto. Los elementos del conjunto pueden tener naturaleza real, naturaleza virtual o ser totalmente abstractos.";
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2>Educational <strong class="llow">materials</strong> </h2>';
+            $subtituloSeccion="Find materials";
+            $descripcionSeccion="A material is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2>Materiais <strong class="llow">educacionais</strong> </h2>';
+            $subtituloSeccion="Encontre materiais";
+            $descripcionSeccion="Um material é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+        }        
+        
+        
+        
 
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -116,7 +180,26 @@ class sistemacontroller {
         $og_section = "main";
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
-        $lista_postMRO = $this->listarPosts("ligas");
+        $lista_postMRO = $this->listarPosts("enlaces");
+        //configuramos el encabezado
+        $encabezadoAmostrar="enlaces";
+        
+
+        if($_SESSION['idioma']=="ESP"){
+            $tituloSeccion='<h2> Enlaces y <strong class="llow">ligas de interes</strong> </h2>';
+            $subtituloSeccion="Links de paginas amigas";
+            $descripcionSeccion="De manera constante, actualizamos nuestro portal para comunicarte información de tu utilidad e interés. Por ello, te invitamos a visitar continuamente las siguientes secciones.";
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2>Links of <strong class="llow">interest</strong> </h2>';
+            $subtituloSeccion="Links of friendly pages";
+            $descripcionSeccion="We constantly update our portal to communicate information of your use and interest. Therefore, we invite you to continually visit the following sections.";
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2>Ligas <strong class="llow">de interesse</strong> </h2>';
+            $subtituloSeccion="Links de páginas amigáveis";
+            $descripcionSeccion="Constantemente atualizamos nosso portal para comunicar informações de seu uso e interesse. Portanto, nós o convidamos a visitar continuamente as seguintes seções.";
+        }
+        
+        
 
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -134,7 +217,31 @@ class sistemacontroller {
         $og_section = "main";
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
-        $lista_postMRO = $this->listarPosts("cursos");
+        $lista_postMRO = $this->listarPosts("capacitacion");
+        //configuramos el encabezado
+        $encabezadoAmostrar="capacitacion";
+        
+        
+        
+
+        if($_SESSION['idioma']=="ESP"){
+            $tituloSeccion='<h2> Cursos y <strong class="llow">talleres</strong> </h2>';
+            $subtituloSeccion="Inscribete";
+            $descripcionSeccion="Aquí podrás encontrar Curso de Verano 2021 sobre Música, Arte, Robótica, Inglés, Italiano, Deportivos, Mini Chef, etc.";
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2>Courses <strong class="llow">and workshops</strong> </h2>';
+            $subtituloSeccion="Sign up";
+            $descripcionSeccion="Here you can find Summer Course 2021 on Music, Art, Robotics, English, Italian, Sports, Mini Chef, etc.";
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2> Cursos <strong class="llow">e workshops</strong> </h2>';
+            $subtituloSeccion="Inscrever-se";
+            $descripcionSeccion="Aqui você pode encontrar o Curso de Verão 2021 sobre Música, Arte, Robótica, Inglês, Italiano, Esportes, Mini Chef, etc.";
+        }        
+        
+        
+        
+        
+
 
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";

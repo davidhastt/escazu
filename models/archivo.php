@@ -203,6 +203,43 @@ class Archivo {
         return $result;
     }
 
+
+    private function modoCargaArhivoPesado($activar){
+        echo "<script>console.log('Llamada a funcion correcto');</script>";
+        if($activar==true){
+            echo "<script>console.log('Activando modo carga pesada');</script>";
+            ini_set('post_max_size','6G');  // Tamaño máximo de datos enviados por método POST.
+
+            ini_set('upload_max_filesize','6G');   // Tamaño máximo para subir archivos al servidor.
+
+            ini_set('max_execution_time','0');  // Tiempo máximo de ejecución de éste script en segundos.
+
+            ini_set('max_input_time','-1'); /*Tiempo máximo en segundos que el script puede usar 
+            para analizar los datos input, sean post,get o archivos.*/
+
+            ini_set("memory_limit" , "-1") ; /*Tamaño máximo que el script puede usar de la memoria, mientras se ejecuta.*/
+
+            set_time_limit(0); /* Tiempo máximo en segundos, que puede el script estar ejecutándose. El cero, da tiempo ilimitado.*/
+        }else{
+
+            echo "<script>console.log('Desactivando modo carga pesada');</script>";
+
+            ini_set('post_max_size','64M');  // Tamaño máximo de datos enviados por método POST.
+
+            ini_set('upload_max_filesize','64M');   // Tamaño máximo para subir archivos al servidor.
+
+            ini_set('max_execution_time','120');  // Tiempo máximo de ejecución de éste script en segundos.
+
+            ini_set('max_input_time','-1'); /*Tiempo máximo en segundos que el script puede usar 
+            para analizar los datos input, sean post,get o archivos.*/
+
+            ini_set("memory_limit" , "-1") ; /*Tamaño máximo que el script puede usar de la memoria, mientras se ejecuta.*/
+
+            set_time_limit(120); /* Tiempo máximo en segundos, que puede el script estar ejecutándose. El cero, da tiempo ilimitado.*/
+        }
+
+    }
+
     public function subir($archivoArr) {       
         if ($this->id_tipoArchivo==1 || $this->id_tipoArchivo==3) {
             if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/img/jpg/' . $this->nomFile)) {
@@ -223,11 +260,38 @@ class Archivo {
                 return false;
             }
         } elseif ($this->id_tipoArchivo==5) {
-            if (move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/mp4/' . $this->nomFile)) {
+            //set_time_limit(0);            
+            //$this->modoCargaArhivoPesado(true);
+
+
+
+
+
+
+
+
+            $moved=move_uploaded_file($archivoArr['tmp_name'][0], 'assets/page/mp4/' . $this->nomFile);
+            if ($moved) {
+                //$this->modoCargaArhivoPesado(false);
                 return true;
             } else {
-                return false;
+                //$this->modoCargaArhivoPesado(false);
+                //ini_set('display_errors',1);
+                //error_reporting(E_ALL);                
+                return $archivoArr["error"][0] . " davitzol 020518";                
+                //return false;
             }
+
+
+
+
+
+
+
+
+        
+
+
         }        
         else {
             return false;

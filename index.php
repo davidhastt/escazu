@@ -17,7 +17,7 @@ if (isset($_GET['controller'])) {
     show_error("Error","La página que busacas no existe");
 }
 
-$_SESSION["idioma"]="ESP";
+//$_SESSION["idioma"]="ESP";
 if (class_exists($nombre_controlador)) {    
     $controlador = new $nombre_controlador();     
     if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {//pon aqui los puntos de interrupcion si quires empezar desde el principio

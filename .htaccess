@@ -1,9 +1,9 @@
 #para hacer togle entre internet y localhost debes modificar parameters.php, db.php y .htaccess
 <IfModule mod_rewrite.c>
-#en localhost
-#activar el rewrite engine
-RewriteEngine on
+#en localhost: activar el rewrite engine
+    RewriteEngine on
 #fin localhost
+
 #en web*************************************************
 #RewriteBase /
 #ErrorDocument 404 http://centroescazu.org/error/index/index
@@ -11,7 +11,7 @@ RewriteEngine on
 
 #en localhost*******************************************
 ErrorDocument 404 http://localhost/escazu/error/index/index 
-#localhost/escasazu/nombre controlador/metodo/parametro
+#comentario localhost/escasazu/nombre controlador/metodo/parametro
 #fin localhost*******************************************
 
 
@@ -22,4 +22,12 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 #reescribe todo a este formato
 RewriteRule ^(.*)/(.*)/(.*) index.php?controller=$1&action=$2&parametro=$3
+
+
+
+
+
+
 </IfModule>
+
+

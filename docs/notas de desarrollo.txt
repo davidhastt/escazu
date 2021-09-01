@@ -3,21 +3,23 @@ https://www.free-css.com/free-css-templates/page265/shree
 
 
 ***************************************************************************DOING
-
-
-
-
+Mejorar el link de leer mas 1, cambie el texto por ver para que se reduzca este error
+Ordenar eventos 1 ok
+El html de busqueda pasalo despues del carrusel 2
+Habilitar portugues e ingles 3
+quitar conferencias y seminarios 3
+Hay una inconsistencia, los post  siempre quedan atribuidos a gema 3
+En el carrusel poner descripcion del centro segun el texto que enviara Olimpia 5
+Hacer las busqueadas por palabras clave 5
+HAcer que funcione: Actualizado: 14 Junio 2020 y saber quien fue el ultimo que lo actualizo 5
+Al subir videos pesados marca error 5
 ***************************************************************************DONE
 
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 ***************************************************************************SIN CLASIFICAR
-Despues de actualizar post da error
-Cuando borras un post sale un error
 Los post no se pueden desactivar
-Comprueba que cuando borras un post se borre el archivo y la fila en la tabla archivos
 el date time stamp de la tabla post no funciona
-en el cmx ya no se ve el logo
 Ver como aplicar la llave foranea en la relacion usuarios.id_usuario y posts.id_usuario, si se elimina un usario se eliminara tambien los posts que halla escrito?
 cuando se registra un usuario no se puede asignar privilegios de administrador
 recuperar contraseña
@@ -61,88 +63,9 @@ Agregue un campo donde se muestre el idioma en la tabla donde se listan los post
 En la pagina principal, se crearon los links de los 3 botones para cambiar de idioma, ya muestra los post en los 3 idiomas y en sus respectivos menus, este commit es de respaldo porque voy a hacer cambios arriesgados, tambien hice mejoras al pie de pagina de la pagina principal
 Los cambios arriesgados funcionaron, ya esta todo hecho para que cuando se le de click en cambiar idioma muestre los post en el idioma elegido, pero por lo pronto solo funciona en español para prevenir trabajar de mas por cambios inesperados
 Ya hace busquedas usando el operador like. Los cambios arriesgados si trajeron una consecuencia, pero fue corregida
+Practicamente esta terminada la pagina salvo estos errores: pcion de categoria hasta arriba -Hacer las busqueadas por palabras clave -Habilitar portugues e ingles -Cambiar nombres de las categorias en el cms para que coincidan con los menus de la pagina principal -Hay una inconsistencia, los post  siempre quedan atribuidos a gema -Hacer que el carrusel no cambie tan rapido -En el carrusel poner descripcion del centro segun el texto que enviara Olimpia
+git add .gitignore
 
 
-MATERIALES MUESTRA
-
-1.	ACUERDO DE ESCAZÚ
-Slogan
-Acuerdo en español 
-Descripción de materiales
-Documento con el texto oficial del Acuerdo de Escazú en español
-PDF 
-subir ok
-
-
-2.	Celebración 23 de abril
-Slogan
-Celebración entrada en vigor del Acuerdo de Escazú
-Descripción
-Video del evento virtual de celebración de la entrada en vigor del Acuerdo de Escazú promovido por las organizaciones de la sociedad civil
-MP4
-
-3.	¿Qué es el Acuerdo de Escazú?
-Slogan
-¿Conoces el Acuerdo de Escazú?
-Descripción
-Infografía que describe en síntesis qué es el Acuerdo de Escazú y los artículos principales
-JPG
-subir ok
-
-4.	Acuerdo de Escazú 02 Acceso a la información ambiental
-Slogan
-¿Por qué es importante contar con información ambiental?
-Descripción
-Audio sobre el derecho de acceso a la información ambiental que busca garantizar el Acuerdo de Escazú
-mp3
-
-
-
-
-
-
-creditos en vez de reservaciones
-Notas
-
-
-
-centro virtual de informacion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(+52)55 56 06 38 32
-
-
-
-en vez de dirección colocar "Contacto" Escribenos
-info@centroescazu.org
- 
-Twitter
-Facebook
-Instagram
-Linkdin
-Youtube
-
-
-En vez de boletin de noticias (quitar)
-
-
-Checar traduccion de portugues
-
-Es un centro de informacion virtual sobre el acuerdo de escazú
-En ingles escazu no lleva acento
 
 

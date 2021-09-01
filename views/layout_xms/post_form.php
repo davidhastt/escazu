@@ -78,11 +78,11 @@
                                             echo $postFO->nom_categoria;
                                         }
                                         ?></option>
-                            <option value="1">El acuerdo Escazu</option>
-                            <option value="2">Conferencias y seminarios</option>
-                            <option value="3">Materiales educativos e informativos</option>
-                            <option value="4">Ligas de interes</option>
-                            <option value="5">Cursos</option>
+                            <option value="1">Acuerdo de Escazu</option>
+                            <option value="2">Eventos</option>
+                            <option value="3">Materiales</option>
+                            <option value="4">Enlaces</option>
+                            <option value="5">Capacitacion</option>
                         </select>                            
                     </div>    
                 </div>            
@@ -146,7 +146,12 @@
                 </div>
                 <div class="col-sm-6">            
                     <div class="form-group">
-
+                        <label>Palabras clave</label>
+                        <input type="text" id="seo_keywords" name="seo_keywords" class="form-control" placeholder="Escribe las palabras clave" value="<?php
+                        if (isset($postFO)) {
+                            echo $postFO->seo_keywords;
+                        }
+                        ?>">
                     </div>                
                 </div>
             </div>            
@@ -254,7 +259,7 @@
     <div class="row g-3">
         <div class="col-sm5">
             <div class="custom-file">
-                <input class="form-control" type="file" name="archivo[]"  accept=".pdf, .jpg, .mp4, .mp3" required>
+                <input class="form-control" type="file" name="archivo[]" accept=".pdf, .jpg, .mp4, .mp3" required>
             </div>
         </div>
         <div class="col-sm">
