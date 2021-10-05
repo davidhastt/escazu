@@ -80,9 +80,12 @@
                                         ?></option>
                             <option value="1">Acuerdo de Escazu</option>
                             <option value="2">Eventos</option>
-                            <option value="3">Materiales</option>
+                            <option value="3">Ifografias</option>
                             <option value="4">Enlaces</option>
                             <option value="5">Capacitacion</option>
+                            <option value="6">Documentos</option>
+                            <option value="7">Audios</option>
+                            <option value="8">Videos</option>
                         </select>                            
                     </div>    
                 </div>            

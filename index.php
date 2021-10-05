@@ -1,6 +1,7 @@
 <?php
-//exit; 
-session_id('escazazu');
+
+//session_id('escazazu');
+session_id();
 session_start();
 
 require_once 'autoload.php';

@@ -28,6 +28,9 @@
   <!-- Tweaks for older IEs-->
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  
+  <link rel="stylesheet" href="<?= base_url ?>assets/page/css/customSearch.css">
+  <!--script src="<?= base_url ?>assets/page/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script-->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -48,7 +51,7 @@
               <div class="full">
                 <div class="center-desk">
                   <div class="logo">
-                    <a href="index.html"><img src="<?= base_url ?>assets/page/img/logo.png" alt="#" /></a>
+                    <a href="index.html"><img src="<?= base_url ?>assets/page/img/sistema/logo.png" alt="#" /></a>
                   </div>
                 </div>
               </div>
@@ -57,25 +60,67 @@
          
                <div class="menu-area">
                 <div class="limit-box">
-                  <nav class="main-menu ">
+                  <nav class="main-menu">
                     <ul class="menu-area-main">
                       <li class="active"> <a href="<?= base_url ?>">Inicio</a> </li>
                       <li> <a href="<?= base_url?>sistema/acuerdo/index">Acuerdo de Escazú</a> </li>
                       <li> <a href="<?= base_url?>sistema/eventos/index">Eventos</a> </li>
-                      <li> <a href="<?= base_url?>sistema/materiales/index">Materiales</a> </li>
+                      
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Materiales</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="<?= base_url?>sistema/infografias/index">Infografias</a></li>
+      <li><a class="dropdown-item" href="<?= base_url?>sistema/documentos/index">Documentos </a></li>
+      <li><a class="dropdown-item" href="<?= base_url?>sistema/audios/index">Audios </a></li>
+      <li><a class="dropdown-item" href="<?= base_url?>sistema/videos/index">Videos</a></li>
+    </ul>
+  </li>                   
+                    
                       <li> <a href="<?= base_url?>sistema/enlaces/index">Enlaces</a> </li>
                       <li> <a href="<?= base_url?>sistema/capacitacion/index">Capacitación</a> </li>                     
                      <li> <a href="#"><img src="<?= base_url ?>assets/page/img/icon/icon_b.png" alt="#" /></a></li>
                      </ul>
+                      
+                    <ul class="menu-area-main" style="text-align: right;">
+                      <li class="active"> <a style="font-size: 12px" href="<?= base_url ?>sistema/cambiaridioma/ESP">Español</a> </li>
+                      <li> <a style="font-size: 12px" href="<?= base_url ?>sistema/cambiaridioma/ENG">English</a> </li>
+                      <li> <a style="font-size: 12px" href="<?= base_url ?>sistema/cambiaridioma/PORT">Português</a> </li>
+                    </ul>                      
+
                    </nav>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                  </div>
                </div> 
               </div>
+
            </div>
          </div>
        </div>
      </div>
     <!-- Termina header -->
+    
 
      
      

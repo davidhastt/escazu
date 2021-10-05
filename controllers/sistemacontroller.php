@@ -48,13 +48,14 @@ class sistemacontroller {
 
         $encabezadoAmostrar="inicio";        
         $lista_postMRO = $this->listarPosts("inicio");
+        $seo_keywordsMRO = $this->listarPosts("acuerdo");//poner en todas las funciones de cada menu
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         //require_once "views/layout_page/ESP/inicio.php";        
 
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
         //require_once "views/layout_page/ESP/footer.php";
     }
-
+   
     public function acuerdo() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
@@ -67,18 +68,20 @@ class sistemacontroller {
         $og_section = "main";        
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
         $lista_postMRO = $this->listarPosts("acuerdo");
+        $seo_keywordsMRO = $this->listarPosts("acuerdo");//poner en todas las funciones de cada menu
         //configuramos el encabezado
         $encabezadoAmostrar="acuerdo";
+        $menu_imagen="menu_acuerdo.png";
         if($_SESSION['idioma']=="ESP"){
             $tituloSeccion='<h2> El acuerdo <strong class="llow">Escazú</strong> </h2>';
-            $subtituloSeccion="Lo que tienes que saber";
-            $descripcionSeccion="Los países de América Latina y el Caribe crearon una herramienta pionera en el contexto de la protección ambiental y los derechos humanos que refleja la ambición, las prioridades y las particularidades de la región: el Acuerdo Regional sobre Acceso a la Información, la Participación Pública y el Acceso a la Justicia en Asuntos Ambientales en América Latina y el Caribe, más conocido como el Acuerdo de Escazú.";            
+            $subtituloSeccion="Tiene como objetivo";
+            $descripcionSeccion="Garantizar la implementación plena y efectiva en América Latina y el Caribe de los derechos de acceso a la información ambiental, participación pública en los procesos de toma de decisiones ambientales y acceso a la justicia en asuntos ambientales, así como la creación y el fortalecimiento de las capacidades y la cooperación, contribuyendo a la protección del derecho de cada persona, de las generaciones presentes y futuras, a vivir en un medio ambiente sano y al desarrollo sostenible.";            
         }elseif($_SESSION['idioma']=="ENG"){
-            $tituloSeccion='<h2>Escazu <strong class="llow">agreement</strong> </h2>';
+            $tituloSeccion='<h2>Escazu <strong class="allow">agreement</strong> </h2>';
             $subtituloSeccion="What you have to know";
             $descripcionSeccion="The countries of Latin America and the Caribbean created a pioneering tool in the context of environmental protection and human rights that reflects the ambition, priorities and particularities of the region: the Regional Agreement on Access to Information, Public Participation and Access to Justice in Environmental Matters in Latin America and the Caribbean, better known as the Escazú Agreement.";            
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2> Acordo de <strong class="llow">Escazú</strong> </h2>';
+            $tituloSeccion='<h2> Acordo de <strong class="allow">Escazú</strong> </h2>';
             $subtituloSeccion="O que você tem que saber";
             $descripcionSeccion="Os países da América Latina e do Caribe criaram uma ferramenta pioneira no contexto da proteção ambiental e dos direitos humanos que reflete a ambição, as prioridades e as particularidades da região: o Acordo Regional de Acesso à Informação, Participação Pública e Acesso à Justiça em Matéria Ambiental na América Latina e no Caribe, mais conhecido como Acordo Escazú.";                        
         }
@@ -103,20 +106,21 @@ class sistemacontroller {
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("eventos");
+        $seo_keywordsMRO = $this->listarPosts("eventos");//poner en todas las funciones de cada menu
         //configuramos el encabezado
         $encabezadoAmostrar="eventos";
-        
+        $menu_imagen="menu_eventos.png";
         
         if($_SESSION['idioma']=="ESP"){
-            $tituloSeccion='<h2> Proximos <strong class="llow">Eventos</strong> </h2>';
-            $subtituloSeccion="Lo que sigue";
-            $descripcionSeccion="Los eventos son aquellos fenómenos que surgen de ocasiones no rutinarias y que tienen objetivos de ocio, culturales, personales u organizativos establecidos de forma separada a la actividad normal diaria, cuya finalidad es ilustrar, celebrar, entretener o generar experiencias en un grupo de personas.";
+            $tituloSeccion='<h2> Eventos y <strong class="allow">actividades</strong> </h2>';
+            $subtituloSeccion="¡Esperalos!";
+            $descripcionSeccion="Le invitamos a participar en los distintos eventos que las organizaciones estamos impulsando en nuestros países y en la región para difundir y promover el Acuerdo.";
         }elseif($_SESSION['idioma']=="ENG"){
-            $tituloSeccion='<h2> Upcoming <strong class="llow">events</strong> </h2>';
+            $tituloSeccion='<h2> Upcoming <strong class="allow">events</strong> </h2>';
             $subtituloSeccion="What's next";
             $descripcionSeccion="Events are those phenomena that arise from non-routine occasions and that have leisure, cultural, personal or organizational objectives established separately from normal daily activity, whose purpose is to illustrate, celebrate, entertain or generate experiences in a group of people.";
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2> Proximos <strong class="llow">Eventos</strong> </h2>';
+            $tituloSeccion='<h2> Proximos <strong class="allow">Eventos</strong> </h2>';
             $subtituloSeccion="O seguinte";
             $descripcionSeccion="Eventos são aqueles fenômenos que surgem de ocasiões não rotineiras e que têm objetivos de lazer, culturais, pessoais ou organizacionais estabelecidos separadamente da atividade cotidiana normal, cujo objetivo é ilustrar, celebrar, entreter ou gerar experiências em um grupo de pessoas.";
         }        
@@ -130,8 +134,8 @@ class sistemacontroller {
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
-
-    public function materiales() {//index principal
+    
+        public function infografias() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
         $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
         $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
@@ -143,30 +147,142 @@ class sistemacontroller {
         $og_section = "main";
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
-        $lista_postMRO = $this->listarPosts("materiales");
+        $lista_postMRO = $this->listarPosts("infografias");
+        $seo_keywordsMRO = $this->listarPosts("infografias");//poner en todas las funciones de cada menu
         //configuramos el encabezado
-        $encabezadoAmostrar="materiales";
-        
+        $encabezadoAmostrar="infografias";
+        $menu_imagen="menu_infografias.png";
         if($_SESSION['idioma']=="ESP"){
-            $tituloSeccion='<h2> Materiales <strong class="llow">educativos</strong> </h2>';
-            $subtituloSeccion="Encuentra materiales";
-            $descripcionSeccion="Un material es un elemento que puede transformarse y agruparse en un conjunto. Los elementos del conjunto pueden tener naturaleza real, naturaleza virtual o ser totalmente abstractos.";
+            //$tituloSeccion='<h2> Materiales <strong class="llow">educativos</strong> </h2>';
+            $tituloSeccion='<h2><strong class="allow">Infografías</strong> </h2>';
+            $subtituloSeccion="Encuentra infografías";
+            $descripcionSeccion="Información y datos sobre el Acuerdo de Escazú.";
         }elseif($_SESSION['idioma']=="ENG"){
-            $tituloSeccion='<h2>Educational <strong class="llow">materials</strong> </h2>';
-            $subtituloSeccion="Find materials";
-            $descripcionSeccion="A material is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+            $tituloSeccion='<h2><strong class="allow">Infographics</strong> </h2>';
+            $subtituloSeccion="Find infographics";
+            $descripcionSeccion="A infographic is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2>Materiais <strong class="llow">educacionais</strong> </h2>';
-            $subtituloSeccion="Encontre materiais";
-            $descripcionSeccion="Um material é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
-        }        
-        
-        
-        
-
+            $tituloSeccion='<h2>Encontre <strong class="allow">infográficos</strong> </h2>';
+            $subtituloSeccion="Encontre infográficos";
+            $descripcionSeccion="Um infográficos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+        }
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
     }
+    
+    
+    
+        public function documentos() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
+
+        $lista_postMRO = $this->listarPosts("documentos");
+        $seo_keywordsMRO = $this->listarPosts("documentos");//poner en todas las funciones de cada menu
+        //configuramos el encabezado
+        $encabezadoAmostrar="documentos";
+        $menu_imagen="menu_documentos.png";
+        if($_SESSION['idioma']=="ESP"){
+            //$tituloSeccion='<h2> Materiales <strong class="llow">educativos</strong> </h2>';
+            $tituloSeccion='<h2><strong class="allow">Documentos</strong> </h2>';
+            $subtituloSeccion="Encuentra documentos";
+            $descripcionSeccion="Libros, revistas, comunicados, artículos, reportes y demás publicaciones sobre el Acuerdo de Escazú.";
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2><strong class="allow">Documents</strong> </h2>';
+            $subtituloSeccion="Find infographics";
+            $descripcionSeccion="A infographic is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2>Encontre <strong class="allow">documentos</strong> </h2>';
+            $subtituloSeccion="Encontre documentos";
+            $descripcionSeccion="Um documentos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+        }
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
+    }  
+    
+    
+    
+        public function audios() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
+
+        $lista_postMRO = $this->listarPosts("audios");
+        $seo_keywordsMRO = $this->listarPosts("audios");//poner en todas las funciones de cada menu
+        //configuramos el encabezado
+        $encabezadoAmostrar="audios";
+        $menu_imagen="menu_audios.png";
+        
+        if($_SESSION['idioma']=="ESP"){
+            //$tituloSeccion='<h2> Materiales <strong class="llow">educativos</strong> </h2>';
+            $tituloSeccion='<h2><strong class="allow">audios</strong> </h2>';
+            $subtituloSeccion="Encuentra audios";
+            $descripcionSeccion="Canciones, programas, historias, música, cápsulas, etc. para conocer y difundir el Acuerdo de Escazú.";
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2><strong class="allow">audios</strong> </h2>';
+            $subtituloSeccion="Find audios";
+            $descripcionSeccion="A audios is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2>Encontre <strong class="allow">áudios</strong> </h2>';
+            $subtituloSeccion="Encontre documentos";
+            $descripcionSeccion="Um documentos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+        }
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
+    }
+    
+    
+    
+        public function videos() {//index principal
+        $seo_title = "Geografia MX territorio y tecnología";
+        $seo_keywords = "geografia, geografia de mexico, mexico, territorio mexicano, sistemas de informacion geografica mexico";
+        $seo_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        //open graph
+        $og_image = base_url . "assets/img/about-bg.jpg";
+        $og_title = "Geografia MX";
+        $og_description = "Esta pagina va dirigida a los profesionistas de la geografía encuentra recursos";
+        $og_url = "http://geografia.mx";
+        $og_section = "main";
+        require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
+
+        $lista_postMRO = $this->listarPosts("videos");
+        $seo_keywordsMRO = $this->listarPosts("videos");//poner en todas las funciones de cada menu
+        //configuramos el encabezado
+        $encabezadoAmostrar="videos";
+        $menu_imagen="menu_videos.png";
+        
+        if($_SESSION['idioma']=="ESP"){
+            //$tituloSeccion='<h2> Materiales <strong class="llow">educativos</strong> </h2>';
+            $tituloSeccion='<h2><strong class="allow">Videos</strong> </h2>';
+            $subtituloSeccion="Encuentra videos";
+            $descripcionSeccion="Documentales, cápsulas, animaciones, reportajes y más materiales audiovisuales sobre el Acuerdo.";
+        }elseif($_SESSION['idioma']=="ENG"){
+            $tituloSeccion='<h2><strong class="allow">Videos</strong> </h2>';
+            $subtituloSeccion="Find Videos";
+            $descripcionSeccion="A video is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+        }elseif($_SESSION['idioma']=="PORT"){
+            $tituloSeccion='<h2>Encontre <strong class="allow">áudios</strong> </h2>';
+            $subtituloSeccion="Encontre videos";
+            $descripcionSeccion="Um videos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+        }
+        require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
+        require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
+    }    
+    
 
     public function enlaces() {//index principal
         $seo_title = "Geografia MX territorio y tecnología";
@@ -181,14 +297,15 @@ class sistemacontroller {
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("enlaces");
+        $seo_keywordsMRO = $this->listarPosts("enlaces");//poner en todas las funciones de cada menu
         //configuramos el encabezado
         $encabezadoAmostrar="enlaces";
-        
+        $menu_imagen="menu_enlaces.png";
 
         if($_SESSION['idioma']=="ESP"){
-            $tituloSeccion='<h2> Enlaces y <strong class="llow">ligas de interes</strong> </h2>';
-            $subtituloSeccion="Links de paginas amigas";
-            $descripcionSeccion="De manera constante, actualizamos nuestro portal para comunicarte información de tu utilidad e interés. Por ello, te invitamos a visitar continuamente las siguientes secciones.";
+            $tituloSeccion='<h2> Enlaces <strong class="llow">de interes</strong> </h2>';
+            $subtituloSeccion="Enlaces";
+            $descripcionSeccion="A otras páginas para ampliar la información.";
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2>Links of <strong class="llow">interest</strong> </h2>';
             $subtituloSeccion="Links of friendly pages";
@@ -218,16 +335,17 @@ class sistemacontroller {
         require_once "views/layout_page/{$_SESSION['idioma']}/header.php";
 
         $lista_postMRO = $this->listarPosts("capacitacion");
+        $seo_keywordsMRO = $this->listarPosts("capacitacion");//poner en todas las funciones de cada menu
         //configuramos el encabezado
         $encabezadoAmostrar="capacitacion";
-        
+        $menu_imagen="menu_capacitacion.png";
         
         
 
         if($_SESSION['idioma']=="ESP"){
             $tituloSeccion='<h2> Cursos y <strong class="llow">talleres</strong> </h2>';
-            $subtituloSeccion="Inscribete";
-            $descripcionSeccion="Aquí podrás encontrar Curso de Verano 2021 sobre Música, Arte, Robótica, Inglés, Italiano, Deportivos, Mini Chef, etc.";
+            $subtituloSeccion="!Participa¡";
+            $descripcionSeccion="Asiste a las actividades de capacitación encaminadas a construir y fortalecer las capacidades para hacer efectivo el Acuerdo de Escazú.";
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2>Courses <strong class="llow">and workshops</strong> </h2>';
             $subtituloSeccion="Sign up";
@@ -449,7 +567,7 @@ class sistemacontroller {
                     <div class="card-body">
                       <h5 class="card-title">'.$archivosFO->titulo.'</h5>
                       <p class="card-text">'.$archivosFO->descripcion.'</p>
-                  <video width="320" height="240" controls>
+                  <video width="800px" controls>
                                               <source src="' . base_url . 'assets/page/mp4/' . $archivosFO->nom_file . '.ogg" type="video/ogg">
                                               <source src="' . base_url . 'assets/page/mp4/' . $archivosFO->nom_file . '.mp4" type="video/mp4">
                                             Your browser does not support the video tag.

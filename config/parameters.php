@@ -1,7 +1,7 @@
 <?php
 // para hacer togle entre internet y localhost debes modificar parameters.php, db.php y .htaccess
 //en localhost
-define("base_url", "http://localhost/escazu/"); //no tiene setido tener dos variables globales diferentes y que valgan lo mismo
+define("base_url", "http://localhost/escazu/");
 //fin localhost
 
 

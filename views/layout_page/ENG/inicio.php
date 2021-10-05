@@ -1,29 +1,7 @@
 <!-- inicia body -->
 <header> 
-<script>
-function cambiarIdioma(idioma){
-    if(idioma=="ESP"){
-        alert('cambiar a español');        
-    }
-    else if(idioma=="ENG"){
-        alert('cambiar a ingles');        
-    }
-    else if(idioma=="PORT"){
-        alert('cambiar a portugues');
-    }
-    window.location.replace("<?= base_url ?>sistema/cambiaridioma/"+idioma);
-    
-}
-</script>
-
 <?php if($encabezadoAmostrar=="inicio"):?>
-    <section class="slider_section">
-
-<img onclick="cambiarIdioma('ESP')" src="<?= base_url ?>assets/page/img/sistema/hispania.png" class="rounded float-end" alt="No se encontro la imagen español" height="33.33%" width="3%">
-<img onclick="cambiarIdioma('ENG')" src="<?= base_url ?>assets/page/img/sistema/uk.png" class="rounded float-end" alt="No se encontro la imagen ingles" height="33.33%" width="3%">
-<img onclick="cambiarIdioma('PORT')" src="<?= base_url ?>assets/page/img/sistema/portugal.png" class="rounded float-end" alt="No se encontro la imagen portugues" height="33.33%" width="3%">        
-        
-        
+    <section class="slider_section">        
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -45,7 +23,7 @@ function cambiarIdioma(idioma){
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                     <div class="images_box">
-                                        <figure><img src="<?= base_url ?>assets/page/img/img2.jpeg"></figure>
+                                        <figure><img src="<?= base_url ?>assets/page/img/sistema/carrusel1.png"></figure>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +46,7 @@ function cambiarIdioma(idioma){
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                     <div class="images_box">
-                                        <figure><img src="<?= base_url ?>assets/page/img/img3.jpeg"></figure>
+                                        <figure><img src="<?= base_url ?>assets/page/img/sistema/carrusel2.png"></figure>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +70,7 @@ function cambiarIdioma(idioma){
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                     <div class="images_box">
-                                        <figure><img src="<?= base_url ?>assets/page/img/img2.png"></figure>
+                                        <figure><img src="<?= base_url ?>assets/page/img/sistema/carrusel3.png"></figure>
                                     </div>
                                 </div>
                             </div>
@@ -208,22 +186,84 @@ function cambiarIdioma(idioma){
       </div>
        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 ">
         <div class="vegetable_img">
-         <figure><img src="<?= base_url ?>assets/page/img/jpg/v1.jpg" alt="#"/></figure>
+         <figure><img src="<?= base_url ?>assets/page/img/sistema/<?= $menu_imagen ?>" alt="No se encontro la imagen"/></figure>
          <span>01</span>
         </div>
       </div>
-       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 ">
+
+       <!--div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 ">
         <div class="vegetable_img margin_top">
          <figure><img src="<?= base_url ?>assets/page/img/jpg/v2.jpg" alt="#"/></figure>
          <span>02</span>
         </div>
-      </div>
+      </div-->
+
     </div>
   </div>
 </div>
 <!-- end vegetable -->        
     </section>   
     
+
+
+
+
+
+
+            <div id="vegetable" class="vegetable">
+                <div class="container">
+
+                    <div class="card text-center">
+                        <div class="card-header">
+                            Centro virtual Escazú
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Filtro de busqueda para esta sección</h5>
+                            <div class="dropdown">
+                                <button onclick="showDropdown()" class="dropbtn">Click aquí para plicar filtro a esta sección</button>
+                                <div id="listaDePost" class="dropdown-content">
+                                    <input type="text" placeholder="Escribe palabra clave" id="palabraAbuscar" onkeyup="filterFunction()">
+                                    <?php while ($posts = $seo_keywordsMRO->fetch_object()): ?>
+                                        <a href="<?= base_url ?>sistema/showpost/<?= $posts->id_post ?>"><?= $posts->nom_post ?></a>
+                                    <?php endwhile; ?>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="card-footer text-muted">
+                            ¡Escazú ahora!
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- end Encabezado de cada menu -->        
+        </section>   
+
+    <script>
+        function showDropdown() {//despliega el dropdown
+            document.getElementById("listaDePost").classList.toggle("show");
+        }
+
+        function filterFunction() {//ejecuta el filtro
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("palabraAbuscar");
+            filter = input.value.toUpperCase();
+            console.log(filter)
+            div = document.getElementById("listaDePost");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+
+    </script>
 
 
 

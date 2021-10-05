@@ -8,7 +8,7 @@
         <br>
             <br>
                 <br>
-                    <div class="container error-container">
+                    <!--div class="container error-container">
                         <div class="row  d-flex align-items-center justify-content-center">
                             <div class="col-md-12 text-center">
                                 <h1 class="big-text">Oops!</h1>
@@ -56,4 +56,4 @@
                         </div>
 
 
-                    </div>
+                    </div-->

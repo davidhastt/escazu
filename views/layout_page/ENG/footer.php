@@ -14,8 +14,9 @@
                   <div class="address">
                     <h3>Contact us</h3>
                     <ul class="loca">
-                      <li>
-                        <a href="#"></a><p>Sadi Carnot 89 G2 Col. San Rafael</p><p> Alcaldía Cuauhtémoc C.P. 06470</p></li>
+                      <!--li>
+                        <a href="#"></a><p>Sadi Carnot 89 G2 Col. San Rafael</p><p> Alcaldía Cuauhtémoc C.P. 06470</p>
+                      </li-->
                         <li>
                           <a href="#"></a>(+52)55 56 06 38 32</li>
                           <li>
@@ -70,6 +71,7 @@
           <script src="<?= base_url ?>/assets/page/js/jquery.mCustomScrollbar.concat.min.js"></script>
           <script src="<?= base_url ?>/assets/page/js/custom.js"></script>
           <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>  
 
 
           <script>

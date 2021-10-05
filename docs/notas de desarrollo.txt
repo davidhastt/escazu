@@ -17,6 +17,8 @@ Al subir videos pesados marca error 5
 
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
+Despues de un tiempo sin entrar la sesion caduca y empieza a fallar
+No borra los videos
 ***************************************************************************SIN CLASIFICAR
 Los post no se pueden desactivar
 el date time stamp de la tabla post no funciona
@@ -64,8 +66,37 @@ En la pagina principal, se crearon los links de los 3 botones para cambiar de id
 Los cambios arriesgados funcionaron, ya esta todo hecho para que cuando se le de click en cambiar idioma muestre los post en el idioma elegido, pero por lo pronto solo funciona en español para prevenir trabajar de mas por cambios inesperados
 Ya hace busquedas usando el operador like. Los cambios arriesgados si trajeron una consecuencia, pero fue corregida
 Practicamente esta terminada la pagina salvo estos errores: pcion de categoria hasta arriba -Hacer las busqueadas por palabras clave -Habilitar portugues e ingles -Cambiar nombres de las categorias en el cms para que coincidan con los menus de la pagina principal -Hay una inconsistencia, los post  siempre quedan atribuidos a gema -Hacer que el carrusel no cambie tan rapido -En el carrusel poner descripcion del centro segun el texto que enviara Olimpia
-git add .gitignore
+Ya cuenta con las siguientes caracteristicas: funcionan los tres idiomas, no sube videos, interface de busqueda, interface de resultados
 
 
+Para cindy:
+	mostrar el mapa donde se vea latinoamerica, y que no aparezca norteamerica
+	usarl el flayer de la mano, y que se vea el mapa de latinoamerica pues resalta mucho africa
+	hacer imagenes alusivas a cada menu, serian 9 imagenes
+	eduardo mando sugerencias de creatividad para cindy
+
+cambiar banderas a tipografias ok
+Quitar una imagen en cada menu ok
+en el menu quitar materiales educativo y solo dejar "materiales"ok
+subdividir materiales con lo siguientes rubros
+	infografias, documentos, audios, videos
+
+
+
+
+python -m http.server
+
+
+
+
+
+
+Seguimiento de visitas
+	contador general
+	contador de visitas por post
+Invitacion para registrarse
+Bolotin de noticias
+Login para acceso registrado
+Seguimiento de pais
 
 
