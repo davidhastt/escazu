@@ -120,57 +120,35 @@ class PostController {
         $postObj->obtenerArchivosAsociados($id_post);
         $archivosMRO=$postObj->getListResult();
         
+        
+$archivosMP4=array();
+$pesos=array();
+$thefolder = "assets/page/mp4/temp/";
+
+if ($handler = opendir($thefolder)) {
+    while (false !== ($file = readdir($handler))) {            
+        array_push($archivosMP4, $file);
+        
+        if (filesize($thefolder.$file)> 1073741824){
+            $peso=bcdiv(filesize($thefolder.$file)/1073741824, 1, 2);
+            $pesoSTR=$peso . " Gb";
+            
+            
+        }
+        else{
+            $peso=bcdiv(filesize($thefolder.$file)/1048576, 1, 2);
+            $pesoSTR=$peso . " MB";
+        }
+        
+        array_push($pesos, $pesoSTR);
+    }
+    closedir($handler);
+}        
+        
 
         
 
         require_once 'views/layout_xms/post_form.php';
         require_once 'views/layout_xms/footer.php';
     }
-/*
-    public function guardar() {
-        if (isset($_POST)) {
-            //creamos el objeto estudiante
-            $nuevoPost = new Post;
-            $propiedadesList = array("idAstxt", "activo", "id_usuario", "nom_post", "slogan", "id_categoria", "descripcion_corta", "contenido");
-            $setList = array("setidAstxt", "setactivo", "setid_usuario", "setnom_post", "setslogan", "setid_categoria", "setdescripcion_corta", "setcontenido");
-
-            $i = 0;
-            foreach ($propiedadesList as $value) {
-                if (isset($_POST[$value])) {
-                    $metodo = $setList[$i];
-                    $nuevoPost->$metodo(strtoupper($_POST[$value]));
-                }
-                $i++;
-            }
-            $save = $nuevoPost->guardar($propiedadesList, $nuevoPost);
-
-
-            if ($save) {// si se guardo el post entonces subimos el arhivo
-                $AC = new archivoController();
-                $resultadoSubir = $AC->subir(1, 0);
-                if ($resultadoSubir) {
-                    $mensaje = "Se creo el post";
-                    $mensaje2 = "Se subio la imagen!!";
-                    $url = base_url . "post/listarPosts/inicio";
-                } else {
-                    $mensaje = "Error";
-                    $mensaje2 = $resultadoSubir;
-                    $url = base_url . "post/listarPosts/inicio";
-                }
-            } else {
-                
-            }
-            require_once 'views/layout_xms/header.php';
-            require_once 'views/layout_xms/confirmacion.php';
-            require_once 'views/layout_xms/footer.php';
-        } else {// sino existe el correo marca error
-            //$_SESSION['mensaje'] = "El registro fallo";
-            //header("Location:" . base_url . 'usuario/registro/' . $_GET['aux']);
-            $mensaje = "Error!!";
-            $mensaje2 = " Tu post ya esta registrado!!";
-            $error = new errorcontroller();
-            $error->index($mensaje, $mensaje2);
-        }
-    }*/
-
 }

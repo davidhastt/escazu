@@ -4,21 +4,13 @@ https://www.free-css.com/free-css-templates/page265/shree
 
 ***************************************************************************DOING
 Mejorar el link de leer mas 1, cambie el texto por ver para que se reduzca este error
-Ordenar eventos 1 ok
-El html de busqueda pasalo despues del carrusel 2
-Habilitar portugues e ingles 3
-quitar conferencias y seminarios 3
 Hay una inconsistencia, los post  siempre quedan atribuidos a gema 3
-En el carrusel poner descripcion del centro segun el texto que enviara Olimpia 5
-Hacer las busqueadas por palabras clave 5
 HAcer que funcione: Actualizado: 14 Junio 2020 y saber quien fue el ultimo que lo actualizo 5
-Al subir videos pesados marca error 5
 ***************************************************************************DONE
 
 ***************************************************************************ADVERTENCIAS
 ***************************************************************************BUGS
 Despues de un tiempo sin entrar la sesion caduca y empieza a fallar
-No borra los videos
 ***************************************************************************SIN CLASIFICAR
 Los post no se pueden desactivar
 el date time stamp de la tabla post no funciona
@@ -67,19 +59,8 @@ Los cambios arriesgados funcionaron, ya esta todo hecho para que cuando se le de
 Ya hace busquedas usando el operador like. Los cambios arriesgados si trajeron una consecuencia, pero fue corregida
 Practicamente esta terminada la pagina salvo estos errores: pcion de categoria hasta arriba -Hacer las busqueadas por palabras clave -Habilitar portugues e ingles -Cambiar nombres de las categorias en el cms para que coincidan con los menus de la pagina principal -Hay una inconsistencia, los post  siempre quedan atribuidos a gema -Hacer que el carrusel no cambie tan rapido -En el carrusel poner descripcion del centro segun el texto que enviara Olimpia
 Ya cuenta con las siguientes caracteristicas: funcionan los tres idiomas, no sube videos, interface de busqueda, interface de resultados
-
-
-Para cindy:
-	mostrar el mapa donde se vea latinoamerica, y que no aparezca norteamerica
-	usarl el flayer de la mano, y que se vea el mapa de latinoamerica pues resalta mucho africa
-	hacer imagenes alusivas a cada menu, serian 9 imagenes
-	eduardo mando sugerencias de creatividad para cindy
-
-cambiar banderas a tipografias ok
-Quitar una imagen en cada menu ok
-en el menu quitar materiales educativo y solo dejar "materiales"ok
-subdividir materiales con lo siguientes rubros
-	infografias, documentos, audios, videos
+Ya tiene filtro para los 3 idiomas
+En el CMS agregue una lista de archivos de la carpeta temp(recien creada) junto con un boton de adjuntar el archivo
 
 
 
@@ -88,7 +69,7 @@ python -m http.server
 
 
 
-
+http://localhost/escazu/archivo/borrarMultimedia/47
 
 
 Seguimiento de visitas
@@ -100,3 +81,4 @@ Login para acceso registrado
 Seguimiento de pais
 
 
+http://geografia.mx/assets/zip/materialcapacitacion.zip

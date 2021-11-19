@@ -179,8 +179,8 @@
                                 <?php if (isset($postFO)): ?>
                                     <?php echo $postFO->contenido; ?>
                                 <?php else : ?>
-                                                                                Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
-<?php endif ?>                
+                                                                                    Borra esto <em>y despues </em> <u>escribe el contenido del post</u> <strong>aquí</strong>
+                                <?php endif ?>                
                             </textarea>
                         </div>
                         <div class="card-footer">
@@ -194,30 +194,30 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group" >
-<?php if (isset($postFO->nom_file)): ?>
-    <?php if ($postFO->nom_file != 0): ?>
+                        <?php if (isset($postFO->nom_file)): ?>
+                            <?php if ($postFO->nom_file != 0): ?>
                                 <label for="exampleInputFile">Imagen de presentación</label>
                                 <div class="mb-3">
                                     <div class="custom-file">                        
                                         <button type="button" onclick="document.location = '<?= base_url ?>archivo/borrar/<?= $postFO->id_archivo ?>'" class="btn btn-danger btn-lg">Eliminar imagen</button>
                                     </div>
                                 </div>
-    <?php else: ?>
+                            <?php else: ?>
                                 <label for="exampleInputFile">Subir archivo para vista previa de la imagen del post</label>
                                 <div class="mb-3">
                                     <div class="custom-file">                        
                                         <input class="form-control" type="file" name="archivo[]"  accept=".jpg" required>
                                     </div>
                                 </div>                                       
-    <?php endif; ?>
-<?php else: ?>
+                            <?php endif; ?>
+                        <?php else: ?>
                             <label for="exampleInputFile">Subir archivo para vista previa de la imagen del post</label>
                             <div class="mb-3">
                                 <div class="custom-file">                        
                                     <input class="form-control" type="file" name="archivo[]"  accept=".jpg" required>
                                 </div>
                             </div>                   
-<?php endif; ?>    
+                        <?php endif; ?>    
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -256,27 +256,75 @@
 </div>
 
 
-
 <h3>Cargar archivo</h3>
-<form action='<?= base_url ?>archivo/subirMultimedia/<?= $postFO->id_post ?>' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>
-    <div class="row g-3">
-        <div class="col-sm5">
-            <div class="custom-file">
-                <input class="form-control" type="file" name="archivo[]" accept=".pdf, .jpg, .mp4, .mp3" required>
+<div class="card card-warning">
+    <form action='<?= base_url ?>archivo/subirMultimedia/<?= $postFO->id_post ?>' class='needs-validation' novalidate enctype='multipart/form-data' method='post'>
+        <div class="row g-3">
+            <div class="col-sm5">
+                <div class="custom-file">
+                    <input class="form-control" type="file" name="archivo[]" accept=".pdf, .jpg, .mp4, .mp3" required>
+                </div>
+            </div>
+            <div class="col-sm">
+                <input type="text" class="form-control" placeholder="Título del archivo" id="titulo" name="titulo" required>
+            </div>
+            <div class="col-sm">
+                <input type="text" class="form-control" placeholder="Descripción del archivo" id="descripcion" name="descripcion" required>
+            </div>
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary">Subir archivo</button>
             </div>
         </div>
-        <div class="col-sm">
-            <input type="text" class="form-control" placeholder="Título del archivo" id="titulo" name="titulo" required>
+    </form>
+</div>
+
+<h3>Archivos mp4 listos para adjuntar</h3>
+
+
+
+
+
+
+
+<?php $arrlength = count($archivosMP4); ?>
+<?php for ($i = 2; $i < $arrlength; $i++): ?>
+    <?php if ($i % 2 == 0): ?>
+        <div class="row">  
+        <?php endif; ?>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4><?= $archivosMP4[$i] ?></h4>
+                    <p class="card-text"><?= $pesos[$i] ?></p>
+                    <form action='<?= base_url ?>archivo/adjuntarMP4/<?= $postFO->id_post ?>' class='needs-validation'  method='post'>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="Título del archivo" id="titulo" name="titulo" required>
+                    </div>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="Descripción del archivo" id="descripcion" name="descripcion" required>
+                    </div> 
+                        <input type="hidden" id="nomFile" name="nomFile" value="<?= $archivosMP4[$i] ?>">
+                    <br>
+                    <div class="col-sm">                    
+                    <button type="submit" class="btn btn-primary">Adjuntar al post</button>  
+                    <button type="button" onclick="document.location = '<?= base_url ?>archivo/borrarArchivoSinRelacion/<?= $archivosMP4[$i] ?>'" class="btn btn-danger">Borrar archivo</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="col-sm">
-            <input type="text" class="form-control" placeholder="Descripción del archivo" id="descripcion" name="descripcion" required>
-        </div>
-        <div class="col-sm">
-            <button type="submit" class="btn btn-primary">Subir archivo</button>
-        </div>
-    </div>
-</form>
+        <?php if ($i % 2 != 0): ?>
+        </div>  
+    <?php endif; ?>
+<?php endfor; ?>
 <br><br><br>
+
+
+
+
+
+
+
 <div class="row">
     <h3>Archivos relacionados con el post</h3>
     <br><br><br>
@@ -291,7 +339,7 @@
         </thead>
         <tbody>
 
-<?php while ($archivosFO = $archivosMRO->fetch_object()): ?>
+            <?php while ($archivosFO = $archivosMRO->fetch_object()): ?>
 
                 <tr>
                     <th scope="row">1</th>
@@ -317,7 +365,7 @@
                     <td><a href="<?= $ruta . $archivosFO->nom_file . ".{$extension}" ?>" target=_blank"">Ver</a></td>
                     <td><a href="<?= base_url ?>archivo/borrarMultimedia/<?= $archivosFO->id_archivo ?>">Borrar</a></td>
                 </tr>
-<?php endwhile; ?>
+            <?php endwhile; ?>
 
 
 

@@ -73,17 +73,17 @@ class sistemacontroller {
         $encabezadoAmostrar="acuerdo";
         $menu_imagen="menu_acuerdo.png";
         if($_SESSION['idioma']=="ESP"){
-            $tituloSeccion='<h2> El acuerdo <strong class="llow">Escazú</strong> </h2>';
+            $tituloSeccion='<h2> El acuerdo de <strong class="llow">Escazú</strong> </h2>';
             $subtituloSeccion="Tiene como objetivo";
             $descripcionSeccion="Garantizar la implementación plena y efectiva en América Latina y el Caribe de los derechos de acceso a la información ambiental, participación pública en los procesos de toma de decisiones ambientales y acceso a la justicia en asuntos ambientales, así como la creación y el fortalecimiento de las capacidades y la cooperación, contribuyendo a la protección del derecho de cada persona, de las generaciones presentes y futuras, a vivir en un medio ambiente sano y al desarrollo sostenible.";            
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2>Escazu <strong class="allow">agreement</strong> </h2>';
-            $subtituloSeccion="What you have to know";
-            $descripcionSeccion="The countries of Latin America and the Caribbean created a pioneering tool in the context of environmental protection and human rights that reflects the ambition, priorities and particularities of the region: the Regional Agreement on Access to Information, Public Participation and Access to Justice in Environmental Matters in Latin America and the Caribbean, better known as the Escazú Agreement.";            
+            $subtituloSeccion="The objective is";
+            $descripcionSeccion="To guarantee the full and effective implementation in Latin America and the Caribbean of the rights of access to environmental information, public participation in the environmental decision-making process and access to justice in environmental matters, and the creation and strengthening of capacities and cooperation, contributing to the protection of the right of every person of present and future generations to live in a healthy environment and to sustainable development.";            
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2> Acordo de <strong class="allow">Escazú</strong> </h2>';
-            $subtituloSeccion="O que você tem que saber";
-            $descripcionSeccion="Os países da América Latina e do Caribe criaram uma ferramenta pioneira no contexto da proteção ambiental e dos direitos humanos que reflete a ambição, as prioridades e as particularidades da região: o Acordo Regional de Acesso à Informação, Participação Pública e Acesso à Justiça em Matéria Ambiental na América Latina e no Caribe, mais conhecido como Acordo Escazú.";                        
+            $tituloSeccion='<h2> Acordo <strong class="allow">Escazú</strong> </h2>';
+            $subtituloSeccion="O objetivo";
+            $descripcionSeccion="E garantir a implementacao plena e efetiva, na America Latina e no Caribe, dos direitos de acesso a informacao ambiental, participacao publica nos processos de tomada de decisoes ambientais e acesso a justica em questões ambientais, bem como a criacao e o fortalecimento das capacidades e cooperacao, ontribuindo para a protecao do direito de cada pessoa, das geracoes presentes e futuras, a viver em um meio ambiente saudavel e a um desenvolvimento sustentavel.";                        
         }
         
         
@@ -113,14 +113,14 @@ class sistemacontroller {
         
         if($_SESSION['idioma']=="ESP"){
             $tituloSeccion='<h2> Eventos y <strong class="allow">actividades</strong> </h2>';
-            $subtituloSeccion="¡Esperalos!";
+            $subtituloSeccion="¡Espéralos!";
             $descripcionSeccion="Le invitamos a participar en los distintos eventos que las organizaciones estamos impulsando en nuestros países y en la región para difundir y promover el Acuerdo.";
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2> Upcoming <strong class="allow">events</strong> </h2>';
             $subtituloSeccion="What's next";
-            $descripcionSeccion="Events are those phenomena that arise from non-routine occasions and that have leisure, cultural, personal or organizational objectives established separately from normal daily activity, whose purpose is to illustrate, celebrate, entertain or generate experiences in a group of people.";
+            $descripcionSeccion="We invite you to participate in the different events that the organizations are promoting in our countries and in the region to disseminate and promote the Agreement.";
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2> Proximos <strong class="allow">Eventos</strong> </h2>';
+            $tituloSeccion='<h2>Eventos e <strong class="allow">atividades</strong> </h2>';
             $subtituloSeccion="O seguinte";
             $descripcionSeccion="Eventos são aqueles fenômenos que surgem de ocasiões não rotineiras e que têm objetivos de lazer, culturais, pessoais ou organizacionais estabelecidos separadamente da atividade cotidiana normal, cujo objetivo é ilustrar, celebrar, entreter ou gerar experiências em um grupo de pessoas.";
         }        
@@ -160,11 +160,11 @@ class sistemacontroller {
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2><strong class="allow">Infographics</strong> </h2>';
             $subtituloSeccion="Find infographics";
-            $descripcionSeccion="A infographic is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+            $descripcionSeccion="Information and data about the Escazu Agreement.";
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2>Encontre <strong class="allow">infográficos</strong> </h2>';
-            $subtituloSeccion="Encontre infográficos";
-            $descripcionSeccion="Um infográficos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+            $tituloSeccion='<h2><strong class="allow">Infográficos</strong> </h2>';
+            $subtituloSeccion="Encontrar infográficos";
+            $descripcionSeccion="Informações e dados do Acordo Escazú .";
         }
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -196,12 +196,12 @@ class sistemacontroller {
             $descripcionSeccion="Libros, revistas, comunicados, artículos, reportes y demás publicaciones sobre el Acuerdo de Escazú.";
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2><strong class="allow">Documents</strong> </h2>';
-            $subtituloSeccion="Find infographics";
-            $descripcionSeccion="A infographic is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+            $subtituloSeccion="Find documents";
+            $descripcionSeccion="Books, magazines, press releases, articles, reports and other publications about the Escazu Agreement.";
         }elseif($_SESSION['idioma']=="PORT"){
             $tituloSeccion='<h2>Encontre <strong class="allow">documentos</strong> </h2>';
-            $subtituloSeccion="Encontre documentos";
-            $descripcionSeccion="Um documentos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+            $subtituloSeccion="Encontrar documentos.";
+            $descripcionSeccion="Livros, revistas, comunicados de imprensa, artigos, relatórios e outras publicações do Acordo Escazú.";
         }
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -235,11 +235,11 @@ class sistemacontroller {
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2><strong class="allow">audios</strong> </h2>';
             $subtituloSeccion="Find audios";
-            $descripcionSeccion="A audios is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+            $descripcionSeccion="Songs, shows, stories, music, capsules, etc. to know and disseminate the Escazu Agreement.";
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2>Encontre <strong class="allow">áudios</strong> </h2>';
-            $subtituloSeccion="Encontre documentos";
-            $descripcionSeccion="Um documentos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+            $tituloSeccion='<h2><strong class="allow">Áudios</strong> </h2>';
+            $subtituloSeccion="Encontre áudios";
+            $descripcionSeccion="Canções, programas, histórias, músicas, cápsulas, etc. conhecer e divulgar o Convênio Escazú.";
         }
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -273,11 +273,11 @@ class sistemacontroller {
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2><strong class="allow">Videos</strong> </h2>';
             $subtituloSeccion="Find Videos";
-            $descripcionSeccion="A video is an element that can be transformed and grouped into a set. The elements of the set can have real nature, virtual nature or be totally abstract.";
+            $descripcionSeccion="Documentaries, capsules, animations, reports and more audiovisual materials on the Agreement.";
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2>Encontre <strong class="allow">áudios</strong> </h2>';
-            $subtituloSeccion="Encontre videos";
-            $descripcionSeccion="Um videos é um elemento que pode ser transformado e agrupado em um conjunto. Os elementos do conjunto podem ser de natureza real, virtual ou totalmente abstratos.";
+            $tituloSeccion='<h2><strong class="allow">Videos</strong> </h2>';
+            $subtituloSeccion="Encontrar videos";
+            $descripcionSeccion="Documentários, cápsulas, animações, relatórios e mais materiais audiovisuais do Acordo.";
         }
         require_once "views/layout_page/{$_SESSION['idioma']}/inicio.php";
         require_once "views/layout_page/{$_SESSION['idioma']}/footer.php";
@@ -303,17 +303,17 @@ class sistemacontroller {
         $menu_imagen="menu_enlaces.png";
 
         if($_SESSION['idioma']=="ESP"){
-            $tituloSeccion='<h2> Enlaces <strong class="llow">de interes</strong> </h2>';
+            $tituloSeccion='<h2> Enlaces <strong class="llow">de interés</strong> </h2>';
             $subtituloSeccion="Enlaces";
             $descripcionSeccion="A otras páginas para ampliar la información.";
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2>Links of <strong class="llow">interest</strong> </h2>';
-            $subtituloSeccion="Links of friendly pages";
-            $descripcionSeccion="We constantly update our portal to communicate information of your use and interest. Therefore, we invite you to continually visit the following sections.";
+            $subtituloSeccion="Links";
+            $descripcionSeccion="To other pages for more information.";
         }elseif($_SESSION['idioma']=="PORT"){
-            $tituloSeccion='<h2>Ligas <strong class="llow">de interesse</strong> </h2>';
-            $subtituloSeccion="Links de páginas amigáveis";
-            $descripcionSeccion="Constantemente atualizamos nosso portal para comunicar informações de seu uso e interesse. Portanto, nós o convidamos a visitar continuamente as seguintes seções.";
+            $tituloSeccion='<h2>Links de <strong class="llow">interesse</strong> </h2>';
+            $subtituloSeccion="Links";
+            $descripcionSeccion="Para outras páginas para mais informações.";
         }
         
         
@@ -344,16 +344,16 @@ class sistemacontroller {
 
         if($_SESSION['idioma']=="ESP"){
             $tituloSeccion='<h2> Cursos y <strong class="llow">talleres</strong> </h2>';
-            $subtituloSeccion="!Participa¡";
+            $subtituloSeccion="¡Participa!";
             $descripcionSeccion="Asiste a las actividades de capacitación encaminadas a construir y fortalecer las capacidades para hacer efectivo el Acuerdo de Escazú.";
         }elseif($_SESSION['idioma']=="ENG"){
             $tituloSeccion='<h2>Courses <strong class="llow">and workshops</strong> </h2>';
-            $subtituloSeccion="Sign up";
-            $descripcionSeccion="Here you can find Summer Course 2021 on Music, Art, Robotics, English, Italian, Sports, Mini Chef, etc.";
+            $subtituloSeccion="Participates";
+            $descripcionSeccion="In training activities aimed at building and strengthening capacities to make the Escazu Agreement effective.";
         }elseif($_SESSION['idioma']=="PORT"){
             $tituloSeccion='<h2> Cursos <strong class="llow">e workshops</strong> </h2>';
-            $subtituloSeccion="Inscrever-se";
-            $descripcionSeccion="Aqui você pode encontrar o Curso de Verão 2021 sobre Música, Arte, Robótica, Inglês, Italiano, Esportes, Mini Chef, etc.";
+            $subtituloSeccion="Participa";
+            $descripcionSeccion="Em atividades de treinamento voltadas para a construção e fortalecimento de capacidades para a efetivação do Acordo Escazú .";
         }        
         
         
@@ -562,7 +562,7 @@ class sistemacontroller {
                   </div>';
                     break;
                 case 5:
-                    $mp4='<div class="card text-center">
+                    $mp4.='<div class="card text-center">
                     <h5 class="card-header">Video MP4</h5>
                     <div class="card-body">
                       <h5 class="card-title">'.$archivosFO->titulo.'</h5>

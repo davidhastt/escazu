@@ -109,7 +109,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>Procurar</h2>
+                        <!--h2>Procurar</h2-->
                     </div>
                 </div>
             </div>
@@ -188,7 +188,7 @@
        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 ">
         <div class="vegetable_img">
         <figure><img src="<?= base_url ?>assets/page/img/sistema/<?= $menu_imagen ?>" alt="No se encontro la imagen"/></figure>
-         <span>01</span>
+         <!--span>01</span-->
         </div>
       </div>
        <!--div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 ">

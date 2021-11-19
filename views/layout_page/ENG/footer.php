@@ -6,7 +6,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-             <a href="#" class="logo_footer"> <img src="<?= base_url ?>/assets/page/img/logo2.png" alt="#"/></a>
+             <!--a href="#" class="logo_footer"> <img src="<?= base_url ?>/assets/page/img/logo2.png" alt="#"/></a-->
             </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
               <div class="row">

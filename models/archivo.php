@@ -102,7 +102,8 @@ class Archivo {
         }
         return $result;
     }
-
+   
+    
     public function eliminar($id_archivo) {
         // primero tienes que descubrir el nombre del archivo con id = $id_file
         //$this->extension=$extension;
@@ -114,7 +115,7 @@ class Archivo {
         //$this->setId_tipoArchivo($filas->id_tipoArchivo);// esto ya se definio desde el constructor
         //dependiendo del tipo de archivo es la carpeta
 
-        $filename = "assets/page/img/{$this->extension}/" . $this->nom_file . "." . $this->extension;
+        $filename = "assets/page/{$this->extension}/" . $this->nom_file . "." . $this->extension;
         //antes de tratar de borrarlo hay que verificar que exista
         if (file_exists($filename)) {
             if (unlink($filename)) {
@@ -147,6 +148,7 @@ class Archivo {
             }
         } else {
             //si por alguna razon no existe se debe tratar de borrar de la base
+            //********** aqui hay un error 
             if ($this->eliminar($id_archivo)) {
                 //$_SESSION['mensaje'] = "El archivo fue borrado del disco y de la base";
                 return $this->id_post;
